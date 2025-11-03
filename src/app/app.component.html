@@ -4,30 +4,69 @@
    {{title}}  - {{ name }}  {{stateName}}
 
  <div class="form-container">
-    <h2>Address Collection</h2>
+  <h2>Address Collection</h2>
 
-    <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" ngModel required>
 
-      <label for="mobile">Mobile Number:</label>
-      <input type="tel" id="mobile" name="mobile" required>
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" name="mobile" ngModel required>
 
-      <label for="flat">Flat / House:</label>
-      <input type="text" id="flat" name="flat" required>
+    <label for="flat">Flat / House:</label>
+    <input type="text" id="flat" name="flat" ngModel required>
 
-      <label for="city">City:</label>
-      <input type="text" id="city" name="city" required>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" ngModel required>
 
-  <button      [hidden]="!displayVar" type="submit">Submit</button>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
+<div *ngIf="isSubmitted">
+  
+<div *ngIf="cityResult;then welcome else outside">
+  
+</div>
 
-    </form>
-  </div>
+</div>
+
+<ng-template #welcome>
+         <h2>welcome to college</h2>      
+    </ng-template>
+
+  <ng-template #outside>
+         <h2>You are from out side</h2>      
+    </ng-template>
+
 
      <div>
-       <button (click)="showMessage()"   [style.backgroundColor] = "bgColor" [style.color]="colorName">Show</button>
+       <button  [hidden]="!displayVar" (click)="showMessage('Silicon')"   [style.backgroundColor] = "bgColor" [style.color]="colorName">Show</button>
     </div>
+
+    <div *ngIf="localPeople;then usa else china">
+    
+    
+    </div>
+
+    <ng-template #china>
+         <h2>Chaina</h2>      
+    </ng-template>
+
+    <ng-template #usa>
+         <h2>USA</h2>      
+    </ng-template>
+
+    {{name}}
+
+<div>
+  <input type="text" [(ngModel)]="userName" placeholder="Enter your name">username</div>
+
+  {{userName}}
+
+
+
+
     </body>
 
     </html>
