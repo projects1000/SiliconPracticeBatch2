@@ -29,7 +29,15 @@ export class AppComponent {
   //methods if any
 
   isSubmitted : boolean = false;
+  
   city :string = '';
+
+  studentArrayData  = [ 
+    {name: 'Raja', age: 20, city : 'Bhubaneswar' },
+    {name: 'Raka', age: 30, city : 'Cuttack' },
+    {name: 'Ram', age: 45, city : 'Jajpur' }    
+  ] 
+
 
   showMessage(any ?: any){  
 

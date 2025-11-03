@@ -64,6 +64,17 @@
 
   {{userName}}
 
+   <div>
+    <div *ngFor="let i of studentArrayData">
+    <div *ngIf="i.age < 30">
+      Name: {{ i.name }}, Age: {{ i.age }}, City: {{ i.city }}
+    </div>
+  </div>
+</div>
+
+   <ng-template #showData>
+         <h2>Chaina</h2>      
+    </ng-template>
 
 
 
