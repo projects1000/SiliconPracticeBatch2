@@ -7,69 +7,6 @@ import { FormsModule } from '@angular/forms'; // ✅ Required for ngModel
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-// Variable Declarations
-  title = 'Silicon Management Module';
-  name = '';
-  userName ='';
-  stateName : string = 'Odisha';
-
-  showSubmitButton : boolean = false;
-
-  displayVar : boolean = true;
-
-  colorName : string = 'red';
-
-  bgColor : string = 'blue';
-
-  makeDisable : boolean = true;
-
-  localPeople : boolean = true;
-
-  cityResult: boolean = false;
-  //methods if any
-
-  isSubmitted : boolean = false;
-  
-  city :string = '';
-
-  studentArrayData  = [ 
-    {name: 'Raja', age: 20, city : 'Bhubaneswar' },
-    {name: 'Raka', age: 30, city : 'Cuttack' },
-    {name: 'Ram', age: 45, city : 'Jajpur' }    
-  ] 
-
-
-  showMessage(any ?: any){  
-
-    //
-    // if (this.bgColor === 'red')
-    //   {
-    //        this.bgColor = 'blue';
-    //   }
-    //   else{
-    //      this.bgColor = 'red';
-    //   }
-   
-    //You can use Ternary Operator also
-        this.bgColor = this.bgColor === 'red' ? 'blue' : 'red';
-
-  this.name ='Button Clicked!';
-
-
-  }
-
-
-  // Result message for city check
-
-  onSubmit(form: any) {
-    
-    this.isSubmitted = true
-    if (form.value.city  === 'Bhubaneswar') {
-      this.cityResult = true;
-    } else {
-      this.cityResult = false;
-    }
-  }
 
 
 }
