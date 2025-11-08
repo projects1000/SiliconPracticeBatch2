@@ -11,6 +11,8 @@ export class WelcomeComponent {
   alert(  "Welcome welcome component constructor called"  );  
   }
 
+  
+
 
   // redirectTest(){
 
