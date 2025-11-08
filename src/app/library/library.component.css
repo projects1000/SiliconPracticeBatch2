@@ -1,0 +1,135 @@
+/* Page Layout */
+.library-page {
+  background: linear-gradient(135deg, #000000, #ff5252);
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+/* Title Section */
+.library-title {
+  font-size: 36px;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+
+.library-subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Search Bar */
+.library-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.library-search input {
+  width: 280px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.library-search input:focus {
+  box-shadow: 0 0 10px rgba(255,82,82,0.6);
+}
+
+.library-search button {
+  background: linear-gradient(135deg, #ff5252, #000000);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.library-search button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #000000, #ff5252);
+}
+
+/* Book Cards */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.book-card {
+  background: white;
+  color: #333;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Book Cover */
+.book-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* Book Info */
+.book-card h3 {
+  color: #d32f2f;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.book-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Read Button */
+.read-btn {
+  background: linear-gradient(135deg, #000000, #ff5252);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.read-btn:hover {
+  background: linear-gradient(135deg, #ff5252, #000000);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .library-title {
+    font-size: 28px;
+  }
+  .book-card img {
+    width: 60px;
+    height: 60px;
+  }
+}

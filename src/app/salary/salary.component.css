@@ -1,0 +1,131 @@
+/* Page Layout */
+.salary-page {
+  background: linear-gradient(135deg, #ff5252, #000000);
+  min-height: 100vh;
+  padding: 30px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+/* Title */
+.salary-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+/* Summary Cards */
+.salary-summary {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.summary-card {
+  background: white;
+  color: #333;
+  padding: 20px 30px;
+  border-radius: 15px;
+  width: 200px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.summary-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+}
+
+.summary-card h3 {
+  font-size: 18px;
+  color: #d32f2f;
+  margin-bottom: 8px;
+}
+
+.summary-card p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.summary-card.highlight {
+  background: linear-gradient(135deg, #000000, #ff5252);
+  color: white;
+}
+
+/* Salary Details Table */
+.salary-details {
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.salary-details h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #ff5252;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: rgba(255,82,82,0.1);
+}
+
+/* Status Badges */
+.status {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.status.paid {
+  background-color: #4caf50;
+  color: white;
+}
+
+.status.pending {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* Download Button */
+.download-btn {
+  margin-top: 30px;
+  background: white;
+  color: #ff5252;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #ff5252;
+  color: white;
+  transform: translateY(-2px);
+}

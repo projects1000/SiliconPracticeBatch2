@@ -1,78 +1,35 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  padding: 30px;
-}
-
-/* --- TAB CONTAINER --- */
+/* Tab Container */
 .tab-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #ddd;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
-/* --- TAB BUTTONS --- */
-.tab-button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: 12px 30px;
-  font-size: 16px;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: 0.3s;
-}
-
-.tab-button:hover {
-  background-color: #e7e7e7;
-}
-
-.tab-button.active {
-  border-bottom: 3px solid #0400ff;
-  font-weight: bold;
-  color: #0400ff;
-}
-
-/* --- FORM CONTAINER (same as before) --- */
-.form-container {
-  background-color: #fff;
-  padding: 20px;
-  max-width: 400px;
-  margin: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-h2 {
-  text-align: center;
-}
-
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px;
-  background-color: #0400ff;
+/* Individual Tabs */
+.tab-btn {
+  background: linear-gradient(145deg, #d32f2f, #000000);
   color: white;
   border: none;
-  border-radius: 4px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-button:hover {
-  background-color: #0056b3;
+/* Hover Effect */
+.tab-btn:hover {
+  background: linear-gradient(145deg, #000000, #d32f2f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+/* Active Tab */
+.tab-btn.active {
+  background: linear-gradient(145deg, #ff5252, #000000);
+  border-bottom: 3px solid #ff5252;
 }

@@ -1,0 +1,56 @@
+<div class="admission-page">
+  <h1 class="admission-title">🎓 Admission Form</h1>
+  <p class="admission-subtitle">Fill in your details to join NextGen PlayFactory Learning Zone</p>
+
+  <form class="admission-form">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" placeholder="Enter your age" min="3" max="18" required>
+    </div>
+
+    <div class="form-group">
+      <label>Parent/Guardian Name</label>
+      <input type="text" placeholder="Enter parent's name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input type="tel" placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="Enter email address" required>
+    </div>
+
+    <div class="form-group">
+      <label>Choose Course</label>
+      <select required>
+        <option value="">-- Select Course --</option>
+        <option value="brain-games">Brain Games</option>
+        <option value="math-logic">Math & Logic</option>
+        <option value="creative-thinking">Creative Thinking</option>
+        <option value="memory-boost">Memory Boost</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Preferred Start Date</label>
+      <input type="date" required>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="agree" required>
+      <label for="agree">I agree to the Terms & Conditions</label>
+    </div>
+
+    <button type="submit" class="submit-btn">🚀 Submit Application</button>
+  </form>
+    <button routerLink="/">Home</button >
+
+</div>
