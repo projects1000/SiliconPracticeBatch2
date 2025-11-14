@@ -4,7 +4,24 @@
   <nav class="sidebar">
     <a routerLink="team1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 1 (Arya)</a>
     <a routerLink="team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 2 (Pradyumna)</a>
-    <a routerLink="team3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 3 (Narayan)</a>
+    
+    <!-- Team 3 with dropdown -->
+    <div class="dropdown-container">
+      <a routerLink="team3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" 
+         (click)="toggleDropdown($event)">
+        Team 3 (Narayan) 
+        <span class="dropdown-arrow">▼</span>
+      </a>
+      
+      <!-- Dropdown menu -->
+      <div class="dropdown-menu" [class.show]="isDropdownOpen">
+        <div class="dropdown-item" (click)="openProfile('LOKESH')">LOKESH</div>
+        <div class="dropdown-item" (click)="openProfile('SUBHAM')">SUBHAM</div>
+        <div class="dropdown-item" (click)="openProfile('ASHUTOSH')">ASHUTOSH</div>
+        <div class="dropdown-item" (click)="openProfile('TANISH')">TANISH</div>
+        <div class="dropdown-item" (click)="openProfile('NARAYAN')">NARAYAN</div>
+      </div>
+    </div>
   </nav>
 
   <!-- Right Panel: Renders the active child route -->
