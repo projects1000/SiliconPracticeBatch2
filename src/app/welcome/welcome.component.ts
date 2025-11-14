@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,35 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-  
+
   isDropdownOpen = false;
 
   constructor(private router: Router) {}
 
   toggleDropdown(event: Event) {
-    event.preventDefault();
-    event.stopPropagation();
+    event.preventDefault();        // stops routerLink from navigating on click
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: Event) {
-    const target = event.target as HTMLElement;
-    const dropdownContainer = target.closest('.dropdown-container');
-  
-    if (!dropdownContainer && this.isDropdownOpen) {
-      this.isDropdownOpen = false;
-    }
-  }
-
-  selectTeamMember(memberName: string) {
-    console.log('Selected team member:', memberName);
-    this.isDropdownOpen = false;
-  }
-
-  // ✅ FIX: Add this missing function
-  openProfile(name: string) {
-    this.router.navigate(['/team3/profile', name]);
-    this.isDropdownOpen = false;
+  goToMember(member: string) {
+    this.isDropdownOpen = false;   // close dropdown after click
+    this.router.navigate([`/team3/${member}`]);
   }
 }

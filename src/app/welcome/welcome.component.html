@@ -1,25 +1,42 @@
 <!-- Persistent 2-column layout: Left panel is always visible; right shows the selected Team -->
 <div class="container">
+
   <!-- Left Sidebar Menu (relative links to child routes) -->
   <nav class="sidebar">
-    <a routerLink="team1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 1 (Arya)</a>
-    <a routerLink="team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 2 (Pradyumna)</a>
-    
-    <!-- Team 3 with dropdown -->
+
+    <!-- TEAM 1 -->
+    <a routerLink="/team1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Team 1 (Arya)
+    </a>
+
+    <!-- TEAM 2 -->
+    <a routerLink="/team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Team 2 (Pradyumna)
+    </a>
+
+    <!-- TEAM 3 with dropdown -->
     <div class="dropdown-container">
-      <a routerLink="team3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" 
-         (click)="toggleDropdown($event)">
-        Team 3 (Narayan) 
+
+      <!-- Main Team 3 Button -->
+      <a
+        routerLink="/team3"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleDropdown($event)"
+      >
+        Team 3 (Narayan)
         <span class="dropdown-arrow">▼</span>
       </a>
-      
-      <!-- Dropdown menu -->
+
+      <!-- Dropdown Members -->
       <div class="dropdown-menu" [class.show]="isDropdownOpen">
-        <div class="dropdown-item" (click)="openProfile('LOKESH')">LOKESH</div>
-        <div class="dropdown-item" (click)="openProfile('SUBHAM')">SUBHAM</div>
-        <div class="dropdown-item" (click)="openProfile('ASHUTOSH')">ASHUTOSH</div>
-        <div class="dropdown-item" (click)="openProfile('TANISH')">TANISH</div>
-        <div class="dropdown-item" (click)="openProfile('NARAYAN')">NARAYAN</div>
+
+        <div class="dropdown-item" (click)="goToMember('lokesh')">LOKESH</div>
+        <div class="dropdown-item" (click)="goToMember('subham')">SUBHAM</div>
+        <div class="dropdown-item" (click)="goToMember('ashutosh')">ASHUTOSH</div>
+        <div class="dropdown-item" (click)="goToMember('tanish')">TANISH</div>
+        <div class="dropdown-item" (click)="goToMember('narayan')">NARAYAN</div>
+
       </div>
     </div>
   </nav>
@@ -28,4 +45,5 @@
   <section class="content">
     <router-outlet></router-outlet>
   </section>
+
 </div>

@@ -15,7 +15,13 @@ import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team3Component } from './team3/team3.component';
 import { Team4Component } from './team4/team4.component';
-import { ProfileComponent } from './team3/profile/profile.component';   // ✅ Import here
+
+// team 3 members components
+import { LokeshComponent } from './team3/lokesh/lokesh.component';
+import { SubhamComponent } from './team3/subham/subham.component';
+import { AshutoshComponent } from './team3/ashutosh/ashutosh.component';
+import { TanishComponent } from './team3/tanish/tanish.component';
+import { NarayanComponent } from './team3/narayan/narayan.component';   // ✅ Import here
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { ProfileComponent } from './team3/profile/profile.component';   // ✅ I
     Team2Component,
     Team3Component,
     Team4Component,
-    ProfileComponent
+    // extra 
+ // team 3 members components
+    LokeshComponent,
+    SubhamComponent,
+    AshutoshComponent,
+    TanishComponent,
+    NarayanComponent
   ],
   imports: [
     BrowserModule,
