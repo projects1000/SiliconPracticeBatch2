@@ -8,13 +8,11 @@ import { FormsModule } from '@angular/forms'; // ✅ Required for ngModel
 })
 export class AppComponent {
 
-  constructor(  ){ { 
-  alert('App component constructor called');
+  constructor(  ){
+    //alert('App component constructor called');
   }
 
 
 
-}  redirectTest(){
-    window.location.href = '#top';
-  }
-}
+}  
+
