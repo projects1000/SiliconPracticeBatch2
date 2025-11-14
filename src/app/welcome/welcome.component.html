@@ -1,13 +1,28 @@
-<!-- Persistent 2-column layout: Left panel is always visible; right shows the selected Team -->
 <div class="container">
-  <!-- Left Sidebar Menu (relative links to child routes) -->
   <nav class="sidebar">
-    <a routerLink="team1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 1 (Arya)</a>
-    <a routerLink="team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 2 (Pradyumna)</a>
-    <a routerLink="team3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 3 (Narayan)</a>
+
+    <a routerLink="/team1" routerLinkActive="active">Team 1 (Arya)</a>
+
+    <!-- Team 2 main link -->
+    <a routerLink="/team2" routerLinkActive="active">Team 2 (Pradyumna)</a>
+
+    <!-- DROPDOWN ONLY FOR TEAM2 -->
+    <div class="team2-dropdown" *ngIf="isTeam2Active">
+      <label>Select Member:</label>
+      <select (change)="openMember($event)">
+        <option value="">Select</option>
+        <option value="pradyumna">Pradyumna</option>
+        <option value="bhowmick">Bhowmick</option>
+        <option value="ompriya">Ompriya</option>
+        <option value="debesee">Debesee</option>
+        <option value="bhagyashree">Bhagyashree</option>
+        <option value="chinmaya">Chinmaya</option>
+      </select>
+    </div>
+
+    <a routerLink="/team3" routerLinkActive="active">Team 3 (Narayan)</a>
   </nav>
 
-  <!-- Right Panel: Renders the active child route -->
   <section class="content">
     <router-outlet></router-outlet>
   </section>
