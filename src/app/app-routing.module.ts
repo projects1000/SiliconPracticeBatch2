@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AttendanceComponent } from './attendance/attendance.component';
-import { HotelBookComponent } from './hotel-book/hotel-book.component';
-import { SalaryComponent } from './salary/salary.component';
-import { LibraryComponent } from './library/library.component';
-import { AdmissionComponent } from './admission/admission.component';
+import { Team2Component } from './team2/team2.component';
+import { Team1Component } from './team1/team1.component';
+import { Team3Component } from './team3/team3.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 // Define routes outside the class
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
-  { path: 'atteandance', component: AttendanceComponent },
-    { path: 'hotelbook', component: HotelBookComponent },
-    { path: 'sal', component: SalaryComponent },
-    { path: 'library', component: LibraryComponent },
-    { path: 'adm', component: AdmissionComponent }
+  {
+    path: '',
+    component: WelcomeComponent,
+    children: [
+      { path: 'team1', component: Team1Component },
+      { path: 'team2', component: Team2Component },
+      { path: 'team3', component: Team3Component },
+      { path: '', redirectTo: 'team1', pathMatch: 'full' },
+    ],
+  },
+  { path: '**', redirectTo: '' },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

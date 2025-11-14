@@ -10,7 +10,11 @@ import { StudentComponent } from './student/student.component';
 import { SalaryComponent } from './salary/salary.component';
 import { LibraryComponent } from './library/library.component';
 import { AdmissionComponent } from './admission/admission.component';
-import { WelcomeComponent } from './welcome/welcome.component';   // ✅ Import here
+import { WelcomeComponent } from './welcome/welcome.component';
+import { Team1Component } from './team1/team1.component';
+import { Team2Component } from './team2/team2.component';
+import { Team3Component } from './team3/team3.component';
+import { Team4Component } from './team4/team4.component';   // ✅ Import here
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { WelcomeComponent } from './welcome/welcome.component';   // ✅ Import 
     SalaryComponent,
     LibraryComponent,
     AdmissionComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    Team1Component,
+    Team2Component,
+    Team3Component,
+    Team4Component
   ],
   imports: [
     BrowserModule,

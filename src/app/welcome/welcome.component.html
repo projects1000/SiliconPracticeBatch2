@@ -1,1 +1,14 @@
-HI silicon  Practice bacth 2
+<!-- Persistent 2-column layout: Left panel is always visible; right shows the selected Team -->
+<div class="container">
+  <!-- Left Sidebar Menu (relative links to child routes) -->
+  <nav class="sidebar">
+    <a routerLink="team1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 1</a>
+    <a routerLink="team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 2</a>
+    <a routerLink="team3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 3</a>
+  </nav>
+
+  <!-- Right Panel: Renders the active child route -->
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+</div>
