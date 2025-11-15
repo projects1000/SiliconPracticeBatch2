@@ -1,2 +1,8 @@
+<app-test-component [chilcCompFathername]="fathersName"  (sendMessage)="getMessageFromChild($event)"></app-test-component>
+<br>
+------------------------------------------------------------------------------------<br>
+parent component : {{fathersName}}  <br>
 
+
+Message from child to parent: {{parentReceivedMessage}}
 <router-outlet></router-outlet>

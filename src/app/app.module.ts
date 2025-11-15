@@ -14,7 +14,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team3Component } from './team3/team3.component';
-import { Team4Component } from './team4/team4.component';
 
 
 // team 3 members components
@@ -33,7 +32,8 @@ import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';
 import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
-import { PrathanaComponent } from './team1/prathana/prathana.component';   
+import { PrathanaComponent } from './team1/prathana/prathana.component';
+import { TestComponentComponent } from './test-component/test-component.component';   
 
 
 @NgModule({
@@ -49,7 +49,6 @@ import { PrathanaComponent } from './team1/prathana/prathana.component';
     Team1Component,
     Team2Component,
     Team3Component,
-    Team4Component,
 
     // extra 
  // team 3 members components
@@ -71,7 +70,8 @@ import { PrathanaComponent } from './team1/prathana/prathana.component';
     JigyansaComponent,
     PrathanaComponent,
 
-    ChinmayaComponent
+    ChinmayaComponent,
+      TestComponentComponent
 
   ],
   imports: [

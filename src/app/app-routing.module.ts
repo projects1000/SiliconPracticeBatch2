@@ -65,7 +65,7 @@ const routes: Routes = [
         ]
       },
 
-      { path: '', redirectTo: 'team1', pathMatch: 'full' }
+      { path: '', redirectTo: '', pathMatch: 'full' }
     ]
   },
   // Must be last

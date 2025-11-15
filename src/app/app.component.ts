@@ -8,11 +8,20 @@ import { FormsModule } from '@angular/forms'; // ✅ Required for ngModel
 })
 export class AppComponent {
 
+
+  fathersName : string ="XYZ  BBTTTTTTTTTTTTTTTTT";
+  parentReceivedMessage : string ="";
+
+  
   constructor(  ){
     //alert('App component constructor called');
   }
 
 
+
+  getMessageFromChild(chaildVariable: string) {
+  this.parentReceivedMessage = chaildVariable;
+}
 
 }  
 
