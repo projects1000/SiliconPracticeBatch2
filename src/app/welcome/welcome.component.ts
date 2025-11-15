@@ -8,6 +8,13 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class WelcomeComponent {
 
+activeTeam: string | null = null;
+
+toggleTeam(team: string) {
+  this.activeTeam = this.activeTeam === team ? null : team;
+}
+
+
   isTeam2Active = false;
 
   constructor(private router: Router) {

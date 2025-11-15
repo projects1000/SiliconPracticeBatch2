@@ -13,14 +13,27 @@ import { OmpriyaComponent } from './team2/ompriya/ompriya.component';
 import { DebeseeComponent } from './team2/debesee/debesee.component';
 import { BhagyashreeComponent } from './team2/bhagyashree/bhagyashree.component';
 import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';
+import { AryaComponent } from './team1/arya/arya.component';
+import { SubhraComponent } from './team1/subhra/subhra.component';
+import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
+import { PrathanaComponent } from './team1/prathana/prathana.component';
 
 
 const routes: Routes = [
   {
-    path: '',
+ path: '',
     component: WelcomeComponent,
     children: [
-      { path: 'team1', component: Team1Component },
+      {
+        path: 'team1',
+        component: Team1Component,
+        children: [
+          { path: 'arya', component: AryaComponent },
+          { path: 'subhra', component: SubhraComponent },
+          { path: 'jigyansa', component: JigyansaComponent },
+          { path: 'prathana', component: PrathanaComponent },
+        ]
+      },
 
       {
         path: 'team2',

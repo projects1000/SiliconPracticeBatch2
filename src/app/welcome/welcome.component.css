@@ -208,3 +208,50 @@ body, html { margin: 0; padding: 0; font-family: "Poppins", "Inter", sans-serif;
   font-size: 28px;
   font-weight: 500;
 }
+.sidebar a {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sub-menu {
+  margin-left: 15px;
+}
+
+.sub-menu li a {
+  padding: 5px 10px;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  background: #f2f6ff;
+}
+
+.sidebar {
+  width: 230px;
+  background: #304ffe;
+  color: #fff;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar .active {
+  background: #1a237e;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
