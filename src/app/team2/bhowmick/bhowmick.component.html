@@ -1,0 +1,87 @@
+<div class="bhowmick-card">
+  <div class="header">
+    <img class="avatar" src="assets/avatar-placeholder.png" alt="avatar" />
+
+    <div class="title">
+      <h2>{{ profile.name }}</h2>
+      <p class="role">{{ profile.role }}</p>
+      <p class="location">{{ profile.location }}</p>
+    </div>
+
+    <div class="actions">
+      <button (click)="toggleEdit()">{{ editMode ? 'Cancel' : 'Edit' }}</button>
+      <button (click)="downloadVCard()">Download vCard</button>
+    </div>
+  </div>
+
+  <div *ngIf="!editMode" class="body">
+    <p class="bio">{{ profile.bio }}</p>
+    <h4>Skills</h4>
+    <div class="skills">
+      <span class="skill" *ngFor="let s of profile.skills">{{ s }}</span>
+    </div>
+
+    <h4>Projects</h4>
+    <ul class="projects">
+      <li *ngFor="let p of profile.projects">
+        <strong>{{ p.title }}</strong><br />
+        <small>{{ p.desc }}</small><br><br>
+        <strong>{{ p.title1 }}</strong><br />
+        <small>{{ p.desc1 }}</small>
+      </li>
+    </ul>
+
+    <div class="contact">
+      <p *ngIf="profile.contact.email"><strong>Email:</strong> {{ profile.contact.email }}</p>
+      <p *ngIf="profile.contact.github"><strong>GitHub:</strong>
+        <a [href]="profile.contact.github" target="_blank">{{ profile.contact.github }}</a>
+      </p>
+      <p *ngIf="profile.contact.linkedin"><strong>LinkedIn:</strong>
+        <a [href]="profile.contact.linkedin" target="_blank">{{ profile.contact.linkedin }}</a>
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="editMode" class="edit">
+    <label>Full name
+      <input [(ngModel)]="profile.name" />
+    </label>
+
+    <label>Role
+      <input [(ngModel)]="profile.role" />
+    </label>
+
+    <label>Location
+      <input [(ngModel)]="profile.location" />
+    </label>
+
+    <label>Bio
+      <textarea rows="4" [(ngModel)]="profile.bio"></textarea>
+    </label>
+
+    <label>Skills (comma separated)
+      <input [value]="profile.skills.join(', ')" (input)="onSkillsInput($event)" />
+    </label>
+
+    <label>Projects (JSON array)
+      <textarea rows="4" [(ngModel)]="projectsString"></textarea>
+      <small>{{ '[{\"title\":\"X\",\"desc\":\"...\"}]' }}</small>
+    </label>
+
+    <label>Email
+      <input [(ngModel)]="profile.contact.email" />
+    </label>
+
+    <label>GitHub
+      <input [(ngModel)]="profile.contact.github" />
+    </label>
+
+    <label>LinkedIn
+      <input [(ngModel)]="profile.contact.linkedin" />
+    </label>
+
+    <div class="edit-actions">
+      <button (click)="saveProfile()">Save</button>
+    </div>
+  </div>
+</div>

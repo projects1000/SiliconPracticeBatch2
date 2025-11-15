@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -9,16 +9,35 @@ import { Router } from '@angular/router';
 export class WelcomeComponent {
 
   isDropdownOpen = false;
+  isTeam2Active = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
 
+    // Detect if Team2 is active
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isTeam2Active = event.url.startsWith('/team2');
+      }
+    });
+
+  }
+
+  // TEAM 3 DROPDOWN
   toggleDropdown(event: Event) {
-    event.preventDefault();        // stops routerLink from navigating on click
+    event.preventDefault();   
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   goToMember(member: string) {
-    this.isDropdownOpen = false;   // close dropdown after click
+    this.isDropdownOpen = false;
     this.router.navigate([`/team3/${member}`]);
+  }
+
+  // TEAM 2 DROPDOWN
+  openMember(event: any) {
+    const member = event.target.value;
+    if (member) {
+      this.router.navigate(['/team2', member]);
+    }
   }
 }
