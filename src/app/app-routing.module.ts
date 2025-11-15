@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 // TEAM 3 MEMBERS
 import { LokeshComponent } from './team3/lokesh/lokesh.component';
 import { SubhamComponent } from './team3/subham/subham.component';
 import { AshutoshComponent } from './team3/ashutosh/ashutosh.component';
 import { TanishComponent } from './team3/tanish/tanish.component';
 import { NarayanComponent } from './team3/narayan/narayan.component';
-
 import { Team2Component } from './team2/team2.component';
 import { Team1Component } from './team1/team1.component';
 import { Team3Component } from './team3/team3.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-
 // TEAM 2 MEMBERS
 import { PradyumnaComponent } from './team2/pradyumna/pradyumna.component';
 import { BhowmickComponent } from './team2/bhowmick/bhowmick.component';
@@ -58,7 +55,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'team1', pathMatch: 'full' }
     ]
   },
-
   // Must be last
   { path: '**', redirectTo: '' }
 ];
