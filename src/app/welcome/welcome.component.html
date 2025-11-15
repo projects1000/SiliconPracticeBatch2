@@ -3,10 +3,13 @@
   <!-- Left Sidebar Menu -->
   <nav class="sidebar">
 
-    <!-- TEAM 1 -->
-    <a routerLink="/team1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-      Team 1 (Arya)
-    </a>
+    <a (click)="toggleTeam('team1')" [class.active]="activeTeam === 'team1'">Team 1(arya)</a>
+    <ul class="sub-menu" *ngIf="activeTeam === 'team1'">
+      <li><a routerLink="/team1/arya" routerLinkActive="active">Arya</a></li>
+      <li><a routerLink="/team1/subhra" routerLinkActive="active">Subhra</a></li>
+      <li><a routerLink="/team1/jigyansa" routerLinkActive="active">Jigyansa</a></li>
+      <li><a routerLink="/team1/prathana" routerLinkActive="active">Prathana</a></li>
+    </ul>
 
     <!-- TEAM 2 -->
     <a routerLink="/team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">

@@ -29,7 +29,11 @@ import { BhowmickComponent } from './team2/bhowmick/bhowmick.component';
 import { OmpriyaComponent } from './team2/ompriya/ompriya.component';
 import { DebeseeComponent } from './team2/debesee/debesee.component';
 import { BhagyashreeComponent } from './team2/bhagyashree/bhagyashree.component';
-import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';   // âœ… Import here
+import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';
+import { AryaComponent } from './team1/arya/arya.component';
+import { SubhraComponent } from './team1/subhra/subhra.component';
+import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
+import { PrathanaComponent } from './team1/prathana/prathana.component';   
 
 
 @NgModule({
@@ -60,6 +64,13 @@ import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';   // âœ
     OmpriyaComponent,
     DebeseeComponent,
     BhagyashreeComponent,
+
+    ChinmayaComponent,
+    AryaComponent,
+    SubhraComponent,
+    JigyansaComponent,
+    PrathanaComponent,
+
     ChinmayaComponent
 
   ],
