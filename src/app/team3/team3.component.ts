@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team3',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class Team3Component {
 
+  constructor(private router: Router) {}
+  
+
+  openProfile(name: string) {
+    this.router.navigate(['/team3/profile', name]);
+  }
 }

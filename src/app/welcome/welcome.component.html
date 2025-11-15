@@ -1,12 +1,19 @@
 <div class="container">
+
+  <!-- Left Sidebar Menu -->
   <nav class="sidebar">
 
-    <a routerLink="/team1" routerLinkActive="active">Team 1 (Arya)</a>
+    <!-- TEAM 1 -->
+    <a routerLink="/team1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Team 1 (Arya)
+    </a>
 
-    <!-- Team 2 main link -->
-    <a routerLink="/team2" routerLinkActive="active">Team 2 (Pradyumna)</a>
+    <!-- TEAM 2 -->
+    <a routerLink="/team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Team 2 (Pradyumna)
+    </a>
 
-    <!-- DROPDOWN ONLY FOR TEAM2 -->
+    <!-- TEAM 2 DROPDOWN -->
     <div class="team2-dropdown" *ngIf="isTeam2Active">
       <label>Select Member:</label>
       <select (change)="openMember($event)">
@@ -20,10 +27,35 @@
       </select>
     </div>
 
-    <a routerLink="/team3" routerLinkActive="active">Team 3 (Narayan)</a>
+    <!-- TEAM 3 WITH DROPDOWN -->
+    <div class="dropdown-container">
+
+      <a
+        routerLink="/team3"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleDropdown($event)"
+      >
+        Team 3 (Narayan)
+        <span class="dropdown-arrow">▼</span>
+      </a>
+
+      <!-- Dropdown Members -->
+      <div class="dropdown-menu" [class.show]="isDropdownOpen">
+        <div class="dropdown-item" (click)="goToMember('lokesh')">LOKESH</div>
+        <div class="dropdown-item" (click)="goToMember('subham')">SUBHAM</div>
+        <div class="dropdown-item" (click)="goToMember('ashutosh')">ASHUTOSH</div>
+        <div class="dropdown-item" (click)="goToMember('tanish')">TANISH</div>
+        <div class="dropdown-item" (click)="goToMember('narayan')">NARAYAN</div>
+      </div>
+
+    </div>
+
   </nav>
 
+  <!-- Right Content -->
   <section class="content">
     <router-outlet></router-outlet>
   </section>
+
 </div>
