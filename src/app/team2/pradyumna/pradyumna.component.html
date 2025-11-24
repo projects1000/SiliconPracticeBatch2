@@ -1,16 +1,159 @@
-<div class="profile">
-  <div class="avatar">P</div>
-
-  <h1 class="name">Pradyumna Kumar Behera</h1>
-  <p class="role">Java Full Stack Developer</p>
-
-  <p class="bio">
-    Im Btech Student at Silicon University.
-  </p>
-
-  <div class="skills">
-    <span>Angular</span>
-    <span>JAVA</span>
-    <span>HTML/CSS</span>
+<div class="task-right-area">
+  
+  <!-- TOP MENU (only after login) -->
+  <div *ngIf="isLoggedIn" class="top-menu">
+    <button [class.active]="activeMenu==='dashboard'" (click)="switchMenu('dashboard')">Dashboard</button>
+    <button [class.active]="activeMenu==='employees'" (click)="switchMenu('employees')" *ngIf="role==='Admin'">Employees</button>
+    <button [class.active]="activeMenu==='profile'" (click)="switchMenu('profile')">Profile</button>
   </div>
+
+
+  <!-- LOGIN CARD -->
+  <div class="login-card" *ngIf="!isLoggedIn">
+    <h2 class="card-title">Login</h2>
+
+    <input type="text" placeholder="Enter Username" [(ngModel)]="username">
+    <input type="password" placeholder="Enter Password" [(ngModel)]="password">
+
+    <select [(ngModel)]="role">
+      <option value="" disabled selected>Select Role</option>
+      <option value="Admin">Admin</option>
+      <option value="Customer">Customer</option>
+    </select>
+
+    <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+    <button (click)="onLogin()">Login</button>
+  </div>
+
+
+  <!-- ADMIN EMPLOYEE DASHBOARD -->
+  <div *ngIf="isLoggedIn && role === 'Admin' && activeMenu==='employees'" class="dashboard admin">
+
+    <h2>Admin Dashboard 👑</h2>
+    <p>Welcome {{ displayName }} !</p>
+
+    <h3 class="tbl-title">Employee Management</h3>
+
+    <table class="emp-table">
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Role</th>
+        <th>Department</th>
+        <th>Status</th>
+      </tr>
+
+      <tr *ngFor="let emp of employees" 
+          [class.minor]="emp.age < 18"
+          (click)="openEmployeeDetail(emp)">
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.age }}</td>
+        <td>{{ emp.role }}</td>
+        <td>{{ emp.dept }}</td>
+        <td>
+          <span *ngIf="emp.age < 18" class="badge-minor">Minor</span>
+          <span *ngIf="emp.age >= 18" class="badge-adult">Adult</span>
+        </td>
+      </tr>
+    </table>
+
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+  
+  <!-- ADMIN MAIN DASHBOARD -->
+<div *ngIf="isLoggedIn && role === 'Admin' && activeMenu==='dashboard'" class="dashboard admin">
+  <h2>Admin Dashboard 👑</h2>
+  <p>Welcome {{ displayName }}!</p>
+
+  <div style="margin-top:18px; font-size:15px; color:#1e3a8a;">
+     ✓ Use the top menu to manage employees<br>
+     ✓ View your developer profile<br>
+     ✓ You are logged in as an Admin user
+  </div>
+
+  <button class="logout" (click)="logout()">Logout</button>
+</div>
+
+
+
+  <!-- CUSTOMER DASHBOARD -->
+  <div *ngIf="isLoggedIn && role === 'Customer' && activeMenu==='dashboard'" class="dashboard customer">
+    
+    <h2>Customer Dashboard</h2>
+    <p>Welcome {{ displayName }}!</p>
+
+    <h3 class="tbl-title">Your Recent Orders</h3>
+
+    <table class="emp-table">
+      <tr>
+        <th>Order ID</th>
+        <th>Product</th>
+        <th>Amount (₹)</th>
+        <th>Status</th>
+      </tr>
+
+      <tr *ngFor="let order of customerOrders">
+        <td>{{ order.id }}</td>
+        <td>{{ order.product }}</td>
+        <td>{{ order.amount }}</td>
+        <td>
+          <span class="status-pill"
+                [ngClass]="{
+                  'st-completed': order.status === 'Completed',
+                  'st-pending': order.status === 'Pending',
+                  'st-cancelled': order.status === 'Cancelled'
+                }">
+            {{ order.status }}
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+
+
+
+  <!-- PROFILE PAGE -->
+  <div *ngIf="isLoggedIn && activeMenu === 'profile'" class="profile-card">
+    
+    <div class="profile-avatar">{{ displayName.charAt(0) | uppercase }}</div>
+
+    <h2 class="profile-name">{{ displayName }}</h2>
+    <p class="profile-role">Role: {{ displayRole }}</p>
+
+    <ng-container *ngIf="displayRole === 'Admin'">
+      <p class="profile-college">Silicon Institute of Technology</p>
+
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>TypeScript</span>
+        <span>Angular</span>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="displayRole === 'Customer'">
+      <h4 style="margin-top:12px;">Customer Info</h4>
+      <table class="emp-table">
+        <tr><th>Orders Placed</th><td>4</td></tr>
+        <tr><th>Membership</th><td>Standard</td></tr>
+      </table>
+    </ng-container>
+
+  </div>
+
+
+
+  <!-- ⭐ EMPLOYEE DETAIL MODAL (ADDED) ⭐ -->
+  <app-employee-detail
+    *ngIf="selectedEmployee"
+    [employee]="selectedEmployee"
+    (close)="closeEmployeeDetail()">
+  </app-employee-detail>
+
+  
+
+
 </div>

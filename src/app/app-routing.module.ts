@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+
 // TEAM 3 MEMBERS
 import { LokeshComponent } from './team3/lokesh/lokesh.component';
 import { SubhamComponent } from './team3/subham/subham.component';
@@ -11,6 +13,7 @@ import { Team1Component } from './team1/team1.component';
 import { Team3Component } from './team3/team3.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 // TEAM 2 MEMBERS
+import { EmployeeDetailComponent } from './team2/pradyumna/employee-detail/employee-detail.component';
 import { PradyumnaComponent } from './team2/pradyumna/pradyumna.component';
 import { BhowmickComponent } from './team2/bhowmick/bhowmick.component';
 import { OmpriyaComponent } from './team2/ompriya/ompriya.component';
@@ -48,7 +51,8 @@ const routes: Routes = [
           { path: 'debesee', component: DebeseeComponent },
           { path: 'bhagyashree', component: BhagyashreeComponent },
           { path: 'chinmaya', component: ChinmayaComponent },
-          { path: '', redirectTo: 'pradyumna', pathMatch: 'full' }
+          { path: '', component: Team2Component }
+
         ]
       },
 

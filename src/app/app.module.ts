@@ -33,7 +33,9 @@ import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';
 import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
-import { PrathanaComponent } from './team1/prathana/prathana.component';   
+import { PrathanaComponent } from './team1/prathana/prathana.component';
+import { ChildComponent } from './child/child.component';
+import { EmployeeDetailComponent } from './team2/pradyumna/employee-detail/employee-detail.component';   
 
 
 @NgModule({
@@ -71,7 +73,9 @@ import { PrathanaComponent } from './team1/prathana/prathana.component';
     JigyansaComponent,
     PrathanaComponent,
 
-    ChinmayaComponent
+    ChinmayaComponent,
+      ChildComponent,
+      EmployeeDetailComponent
 
   ],
   imports: [

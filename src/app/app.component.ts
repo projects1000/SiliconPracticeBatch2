@@ -11,6 +11,14 @@ export class AppComponent {
   constructor(  ){
     //alert('App component constructor called');
   }
+  finalMessage: string = "";
+
+receive(text: string) {
+  this.finalMessage = text;
+}
+
+
+
 
 
 

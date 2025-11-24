@@ -1,0 +1,31 @@
+<!-- Dark overlay -->
+<div class="modal-backdrop" (click)="onClose()"></div>
+
+<!-- Center modal card -->
+<div class="modal-card">
+
+  <div class="modal-header">
+    <div class="emp-avatar">
+      {{ employee?.name?.charAt(0) | uppercase }}
+    </div>
+
+    <div>
+      <h3 class="emp-name">{{ employee?.name }}</h3>
+      <p class="emp-role">{{ employee?.role }} • {{ employee?.dept }}</p>
+    </div>
+  </div>
+
+  <div class="modal-body">
+    <p><strong>Age:</strong> {{ employee?.age }}</p>
+    <p>
+      <strong>Status:</strong>
+      <span *ngIf="employee?.age < 18">Minor</span>
+      <span *ngIf="employee?.age >= 18">Adult</span>
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn-close" (click)="onClose()">Close</button>
+  </div>
+
+</div>
