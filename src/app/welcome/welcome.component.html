@@ -1,10 +1,13 @@
 <div class="container">
-
-  <!-- Left Sidebar Menu -->
+  <!-- LEFT SIDEBAR MENU -->
   <nav class="sidebar">
 
-    <a (click)="toggleTeam('team1')" [class.active]="activeTeam === 'team1'">Team 1(arya)</a>
-    <ul class="sub-menu" *ngIf="activeTeam === 'team1'">
+    <!-- TEAM 1 -->
+    <a class="team1-main" (click)="toggleTeam('team1')" [class.active]="activeTeam === 'team1'">
+      Team 1 (Arya)
+    </a>
+
+    <ul class="team1-submenu" *ngIf="activeTeam === 'team1'">
       <li><a routerLink="/team1/arya" routerLinkActive="active">Arya</a></li>
       <li><a routerLink="/team1/subhra" routerLinkActive="active">Subhra</a></li>
       <li><a routerLink="/team1/jigyansa" routerLinkActive="active">Jigyansa</a></li>
@@ -30,35 +33,21 @@
       </select>
     </div>
 
-    <!-- TEAM 3 WITH DROPDOWN -->
-    <div class="dropdown-container">
+    <!-- TEAM 3 -->
+    <a class="team3-main" (click)="toggleTeam('team3')" [class.active]="activeTeam === 'team3'">
+      Team 3 (Narayan)
+    </a>
 
-      <a
-        routerLink="/team3"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        (click)="toggleDropdown($event)"
-      >
-        Team 3 (Narayan)
-        <span class="dropdown-arrow">▼</span>
-      </a>
-
-      <!-- Dropdown Members -->
-      <div class="dropdown-menu" [class.show]="isDropdownOpen">
-        <div class="dropdown-item" (click)="goToMember('lokesh')">LOKESH</div>
-        <div class="dropdown-item" (click)="goToMember('subham')">SUBHAM</div>
-        <div class="dropdown-item" (click)="goToMember('ashutosh')">ASHUTOSH</div>
-        <div class="dropdown-item" (click)="goToMember('tanish')">TANISH</div>
-        <div class="dropdown-item" (click)="goToMember('narayan')">NARAYAN</div>
-      </div>
-
-    </div>
+    <ul class="team3-submenu" *ngIf="activeTeam === 'team3'">
+      <li><a routerLink="/team3/subham" routerLinkActive="active">Subham</a></li>
+      <li><a routerLink="/team3/ashutosh" routerLinkActive="active">Ashutosh</a></li>
+      <li><a routerLink="/team3/narayan" routerLinkActive="active">Narayan</a></li>
+    </ul>
 
   </nav>
 
-  <!-- Right Content -->
+  <!-- RIGHT CONTENT -->
   <section class="content">
     <router-outlet></router-outlet>
   </section>
-
 </div>

@@ -18,10 +18,8 @@ import { Team4Component } from './team4/team4.component';
 
 
 // team 3 members components
-import { LokeshComponent } from './team3/lokesh/lokesh.component';
 import { SubhamComponent } from './team3/subham/subham.component';
 import { AshutoshComponent } from './team3/ashutosh/ashutosh.component';
-import { TanishComponent } from './team3/tanish/tanish.component';
 import { NarayanComponent } from './team3/narayan/narayan.component';   // ✅ Import here
 
 import { PradyumnaComponent } from './team2/pradyumna/pradyumna.component';
@@ -51,12 +49,10 @@ import { PrathanaComponent } from './team1/prathana/prathana.component';
     Team3Component,
     Team4Component,
 
-    // extra 
+  
  // team 3 members components
-    LokeshComponent,
     SubhamComponent,
     AshutoshComponent,
-    TanishComponent,
     NarayanComponent,
 
     PradyumnaComponent,
