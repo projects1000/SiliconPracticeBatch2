@@ -1,0 +1,65 @@
+<div class="employee-management">
+  <h1>Employee Management</h1>
+  
+  <div class="controls">
+    <div class="search-box">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        (input)="onSearchChange()"
+        placeholder="Search employees by name, department, or role..."
+        class="search-input">
+    </div>
+    <div class="employee-count">
+      Showing {{filteredEmployees.length}} of {{employees.length}} employees
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr 
+          *ngFor="let employee of filteredEmployees" 
+          [ngClass]="getRowClass(employee)">
+          <td>{{employee.name}}</td>
+          <td>{{employee.age}}</td>
+          <td>{{employee.role}}</td>
+          <td>{{employee.department}}</td>
+          <td>
+            <span *ngIf="isMinor(employee.age)" class="minor-badge">
+              ⚠️ Minor
+            </span>
+            <span *ngIf="!isMinor(employee.age)" class="adult-badge">
+              ✅ Adult
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary">
+    <div class="summary-item">
+      <strong>Total Employees:</strong> {{employees.length}}
+    </div>
+    <div class="summary-item">
+      <strong>Minor Employees:</strong> 
+      <span class="minor-count">
+        {{getMinorCount()}}
+      </span>
+    </div>
+    <div class="summary-item">
+      <strong>Adult Employees:</strong> 
+      {{getAdultCount()}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+<div class="customer-dashboard">
+  <!-- Header Section -->
+  <div class="dashboard-header">
+    <h1>Customer Dashboard</h1>
+    <div class="user-welcome">
+      Welcome, <strong>{{currentUser?.username}}</strong>
+    </div>
+  </div>
+
+  <!-- Profile Overview -->
+  <div class="profile-section">
+    <div class="profile-header">
+      <h2>My Profile</h2>
+      <span class="profile-badge">{{customerProfile?.status}}</span>
+    </div>
+    
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <div class="avatar-circle">
+          {{customerProfile?.name?.charAt(0) || 'U'}}
+        </div>
+      </div>
+      
+      <div class="profile-info">
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Customer ID:</label>
+            <span class="info-value">{{customerProfile?.id}}</span>
+          </div>
+          <div class="info-item">
+            <label>Full Name:</label>
+            <span class="info-value">{{customerProfile?.name}}</span>
+          </div>
+          <div class="info-item">
+            <label>Email:</label>
+            <span class="info-value">{{customerProfile?.email}}</span>
+          </div>
+          <div class="info-item">
+            <label>Phone:</label>
+            <span class="info-value">{{customerProfile?.phone}}</span>
+          </div>
+          <div class="info-item">
+            <label>Member Since:</label>
+            <span class="info-value">{{customerProfile?.joinDate}}</span>
+          </div>
+          <div class="info-item">
+            <label>Loyalty Points:</label>
+            <span class="info-value points">{{customerProfile?.loyaltyPoints}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Stats -->
+  <div class="stats-section">
+    <h2>Account Overview</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-content">
+          <div class="stat-number">{{customerProfile?.totalOrders}}</div>
+          <div class="stat-label">Total Orders</div>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-content">
+          <div class="stat-number">{{customerProfile?.loyaltyPoints}}</div>
+          <div class="stat-label">Loyalty Points</div>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🛡️</div>
+        <div class="stat-content">
+          <div class="stat-number">{{customerProfile?.status}}</div>
+          <div class="stat-label">Account Status</div>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">👑</div>
+        <div class="stat-content">
+          <div class="stat-number">{{customerProfile?.totalOrders > 10 ? 'Premium' : 'Standard'}}</div>
+          <div class="stat-label">Membership Tier</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Orders -->
+  <div class="orders-section">
+    <div class="section-header">
+      <h2>Recent Orders</h2>
+      <span class="orders-count">{{customerOrders.length}} orders</span>
+    </div>
+    
+    <div class="orders-table-container">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of customerOrders" class="order-row">
+            <td class="order-id">{{order.id}}</td>
+            <td class="order-date">{{order.date}}</td>
+            <td class="order-product">{{order.product}}</td>
+            <td class="order-amount">{{order.amount}}</td>
+            <td class="order-status">
+              <span [class]="getStatusClass(order.status)">
+                {{order.status}}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="actions-section">
+    <h2>Quick Actions</h2>
+    <div class="actions-grid">
+      <button class="action-btn">
+        <span class="action-icon">✏️</span>
+        <span class="action-text">Edit Profile</span>
+      </button>
+      <button class="action-btn">
+        <span class="action-icon">🔒</span>
+        <span class="action-text">Change Password</span>
+      </button>
+      <button class="action-btn">
+        <span class="action-icon">📋</span>
+        <span class="action-text">Order History</span>
+      </button>
+      <button class="action-btn">
+        <span class="action-icon">💳</span>
+        <span class="action-text">Payment Methods</span>
+      </button>
+    </div>
+  </div>
+</div>
