@@ -31,7 +31,12 @@ import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';
 import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
-import { PrathanaComponent } from './team1/prathana/prathana.component';   
+import { PrathanaComponent } from './team1/prathana/prathana.component';
+import { ProjectTeam4Component } from './team4/project-team4/project-team4.component';
+import { LoginComponent } from './team4/project-team4/login/login.component';
+import { LayoutComponent } from './team4/project-team4/layout/layout.component';
+import { DashboardComponent } from './team4/project-team4/dashboard/dashboard.component';
+import { EmployeeListComponent } from './team4/project-team4/employee-list/employee-list.component';   
 
 
 @NgModule({
@@ -67,7 +72,12 @@ import { PrathanaComponent } from './team1/prathana/prathana.component';
     JigyansaComponent,
     PrathanaComponent,
 
-    ChinmayaComponent
+    ChinmayaComponent,
+      ProjectTeam4Component,
+      LoginComponent,
+      LayoutComponent,
+      DashboardComponent,
+      EmployeeListComponent
 
   ],
   imports: [

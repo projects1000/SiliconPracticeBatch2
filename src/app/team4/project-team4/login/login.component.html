@@ -1,0 +1,32 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="header">
+        <h2>Welcome Back</h2>
+        <p>Enter your credentials to access the dashboard</p>
+    </div>
+
+    <label>Username</label>
+    <input type="text" [(ngModel)]="username" placeholder="Enter your username" class="input-field">
+
+    <label>Select Role</label>
+    <div class="role-selector">
+        <label class="role-option">
+            <input type="radio" name="role" value="Admin" [(ngModel)]="role"> 
+            <div class="role-text">
+                <strong>Admin</strong>
+                <small>Full access to all features</small>
+            </div>
+        </label>
+        
+        <label class="role-option">
+            <input type="radio" name="role" value="Customer" [(ngModel)]="role"> 
+            <div class="role-text">
+                <strong>Customer</strong>
+                <small>Limited access features</small>
+            </div>
+        </label>
+    </div>
+
+    <button (click)="onLogin()" class="login-btn">Sign In</button>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="layout-container">
+  <aside class="sidebar">
+    <h3>Dashboard App</h3>
+    <nav>
+      <a routerLink="/team4/project-team4/admin/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/team4/project-team4/admin/employees" routerLinkActive="active">Employees</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+        <span class="page-title">Admin Portal</span>
+        <button class="logout-btn" routerLink="/team4/project-team4/login">Logout</button>
+    </header>
+
+    <div class="content-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
