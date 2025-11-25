@@ -1,13 +1,65 @@
-<!-- Persistent 2-column layout: Left panel is always visible; right shows the selected Team -->
 <div class="container">
-  <!-- Left Sidebar Menu (relative links to child routes) -->
+  <!-- LEFT SIDEBAR MENU -->
   <nav class="sidebar">
-    <a routerLink="team1" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 1 (Arya)</a>
-    <a routerLink="team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 2 (Pradyumna)</a>
-    <a routerLink="team3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Team 3 (Narayan)</a>
+
+    <!-- TEAM 1 -->
+    <a class="team1-main" (click)="toggleTeam('team1')" [class.active]="activeTeam === 'team1'">
+      Team 1 (Arya)
+    </a>
+
+    <ul class="team1-submenu" *ngIf="activeTeam === 'team1'">
+      <li><a routerLink="/team1/arya" routerLinkActive="active">Arya</a></li>
+      <li><a routerLink="/team1/subhra" routerLinkActive="active">Subhra</a></li>
+      <li><a routerLink="/team1/jigyansa" routerLinkActive="active">Jigyansa</a></li>
+      <li><a routerLink="/team1/prathana" routerLinkActive="active">Prathana</a></li>
+    </ul>
+
+    <!-- TEAM 2 -->
+    <a routerLink="/team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Team 2 (Pradyumna)
+    </a>
+
+    <!-- TEAM 2 DROPDOWN -->
+    <div class="team2-dropdown" *ngIf="isTeam2Active">
+      <label>Select Member:</label>
+      <select (change)="openMember($event)">
+        <option value="">Select</option>
+        <option value="pradyumna">Pradyumna</option>
+        <option value="bhowmick">Bhowmick</option>
+        <option value="ompriya">Ompriya</option>
+        <option value="debesee">Debesee</option>
+        <option value="bhagyashree">Bhagyashree</option>
+        <option value="chinmaya">Chinmaya</option>
+      </select>
+    </div>
+
+    <!-- TEAM 3 -->
+    <a class="team3-main" (click)="toggleTeam('team3')" [class.active]="activeTeam === 'team3'">
+      Team 3 (Narayan)
+    </a>
+
+    <ul class="team3-submenu" *ngIf="activeTeam === 'team3'">
+      <li><a routerLink="/team3/subham" routerLinkActive="active">Subham</a></li>
+      <li><a routerLink="/team3/ashutosh" routerLinkActive="active">Ashutosh</a></li>
+      <li><a routerLink="/team3/narayan" routerLinkActive="active">Narayan</a></li>
+    </ul>
+
+
+    <!-- TEAM 4 -->
+    <a class="team4-main" (click)="toggleTeam('team4')" [class.active]="activeTeam === 'team4'">
+      Team 4 (Tanish)
+    </a>
+
+    <ul class="team4-submenu" *ngIf="activeTeam === 'team4'">
+      <li><a routerLink="/team4/tanish" routerLinkActive="active">Tanish</a></li>
+      <li><a routerLink="/team4/lokesh" routerLinkActive="active">Lokesh</a></li>
+      <li><a routerLink="/team4/rudra" routerLinkActive="active">Rudra</a></li>
+      <li><a routerLink="/team4/deba" routerLinkActive="active">Debapriya</a></li>
+    </ul>
+
   </nav>
 
-  <!-- Right Panel: Renders the active child route -->
+  <!-- RIGHT CONTENT -->
   <section class="content">
     <router-outlet></router-outlet>
   </section>

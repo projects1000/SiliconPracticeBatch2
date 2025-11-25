@@ -1,0 +1,235 @@
+/* MAIN WRAPPER (Soft Light Theme + Smooth Animation) */
+.team4-wrapper {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fafafa 40%,
+    #fff1f1 100%
+  );
+
+  border-radius: 24px;
+  border: 1px solid rgba(255, 82, 82, 0.18);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+
+  /* Float animation (subtle only) */
+  animation: floatBox 6s ease-in-out infinite;
+}
+
+@keyframes floatBox {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* SOFT RED GLOW ON LIGHT BACKGROUND */
+.team4-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+
+  background: radial-gradient(circle,
+    rgba(255, 82, 82, 0.15),
+    transparent 60%
+  );
+
+  top: -50px;
+  right: -50px;
+  filter: blur(60px);
+  opacity: 0.65;
+
+  animation: glowMove 10s ease-in-out infinite;
+}
+
+.team4-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle,
+    rgba(255, 82, 82, 0.12),
+    transparent 60%
+  );
+
+  bottom: -50px;
+  left: -50px;
+  filter: blur(70px);
+  opacity: 0.55;
+
+  animation: glowMove 12s ease-in-out infinite reverse;
+}
+
+@keyframes glowMove {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(12px, -12px) scale(1.05); }
+}
+
+/* CONTENT */
+.team4-content {
+  text-align: center;
+  z-index: 3;
+  max-width: 600px;
+  position: relative;
+}
+
+/* TITLE (Clean Gradient) */
+.team4-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 18px;
+
+  background: linear-gradient(135deg, #ff5252, #ff8a80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: fadeUp 0.7s ease-out;
+}
+
+/* Accent underline */
+.team4-title .accent {
+  position: relative;
+  display: inline-block;
+}
+
+.team4-title .accent::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #ff5252;
+  bottom: -8px;
+  left: 0;
+  border-radius: 4px;
+
+  animation: underlineGrow 0.8s ease-out;
+}
+
+@keyframes underlineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* TAGLINE */
+.team4-tagline {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.6;
+  animation: fadeUp 0.8s ease-out 0.1s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PREVIEW ICONS */
+.team-preview {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.team-member-preview {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5252, #ff8a80);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 2px solid rgba(255, 82, 82, 0.3);
+
+  transition: 0.3s ease;
+}
+
+.team-member-preview:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 8px 22px rgba(255, 82, 82, 0.2);
+}
+
+/* STATS GRID */
+.team-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin: 40px 0;
+}
+
+.stat-card {
+  padding: 25px 20px;
+  background: white;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 82, 82, 0.18);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.06);
+
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+.stat-card:hover {
+  background: #fff7f7;
+  transform: translateY(-6px);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  color: #ff5252;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ff5252;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* CTA BOX */
+.team-cta {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff3f3;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 82, 82, 0.15);
+}
+
+.cta-text {
+  color: #444;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.cta-text strong {
+  color: #ff5252;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .team4-title { font-size: 2.4rem; }
+  .team4-tagline { font-size: 1rem; }
+
+  .team-stats {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
