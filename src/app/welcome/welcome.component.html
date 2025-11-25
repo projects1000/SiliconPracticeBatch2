@@ -57,6 +57,16 @@
       <li><a routerLink="/team4/deba" routerLinkActive="active">Debapriya</a></li>
     </ul>
 
+    <!--TEAM 6-->
+    <a class="team6-main" (click)="toggleTeam('team6')" [class.active]="activeTeam === 'team6'">
+      Team 6 (Akash)
+    </a>
+
+    <ul class="team6-submenu" *ngIf="activeTeam === 'team6'">
+      <li><a routerLink="/team6/akash" routerLinkActive="active">Akash</a></li>
+      <li><a routerLink="/team6/rajashree" routerLinkActive="active">Rajashree</a></li>
+    </ul>
+
   </nav>
 
   <!-- RIGHT CONTENT -->
