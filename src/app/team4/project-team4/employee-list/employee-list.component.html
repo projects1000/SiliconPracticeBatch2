@@ -1,0 +1,32 @@
+<div class="page-container">
+  <h2>Employee Management</h2>
+  <p class="subtitle">Complete list of employees. Employees under 18 are marked as <span class="badge badge-red">Minor</span></p>
+  
+  <div class="table-card">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees" [class.minor-row]="emp.age < 18">
+          <td>{{ emp.id }}</td>
+          <td [class.red-text]="emp.age < 18">{{ emp.name }}</td>
+          <td [class.red-text]="emp.age < 18">{{ emp.age }}</td>
+          <td [class.red-text]="emp.age < 18">{{ emp.role }}</td>
+          <td [class.red-text]="emp.age < 18">{{ emp.dept }}</td>
+          <td>
+            <span *ngIf="emp.age < 18" class="badge badge-red">Minor</span>
+            <span *ngIf="emp.age >= 18" class="badge badge-grey">Active</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

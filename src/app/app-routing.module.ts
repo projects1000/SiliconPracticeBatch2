@@ -26,6 +26,8 @@ import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
 import { PrathanaComponent } from './team1/prathana/prathana.component';
+
+// PROJECT TEAM 4 COMPONENTS
 import { TanishComponent } from './team4/tanish/tanish.component';
 import { LokeshComponent } from './team4/lokesh/lokesh.component';
 import { RudraComponent } from './team4/rudra/rudra.component';
@@ -118,17 +120,47 @@ const routes: Routes = [
       },
 
       // ⭐ TEAM 4 ADDED PROPERLY ⭐
+      // ... previous teams (team1, team2, team3)
+
       {
         path: 'team4',
         component: Team4Component,
         children: [
+          // Individual Members
           { path: 'tanish', component: TanishComponent },
           { path: 'lokesh', component: LokeshComponent },
           { path: 'rudra', component: RudraComponent },
           { path: 'deba', component: DebaComponent },
+          
+          // ⭐ THE PROJECT-TEAM4 CONFIGURATION ⭐
+          { 
+            path: 'project-team4', 
+            component: ProjectTeam4Component, // Acts as the shell
+            children: [
+                // 1. Default redirect to login
+                { path: '', redirectTo: 'login', pathMatch: 'full' },
+                
+                // 2. Login Page
+                { path: 'login', component: LoginComponent },
+                
+                // 3. Admin Section (Protected by Layout)
+                { 
+                    path: 'admin', 
+                    component: LayoutComponent, // Sidebar + Topbar
+                    children: [
+                        { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+                        { path: 'dashboard', component: DashboardComponent },
+                        { path: 'employees', component: EmployeeListComponent }
+                    ]
+                }
+            ]
+          },
+
           { path: '', redirectTo: 'tanish', pathMatch: 'full' }
         ]
       },
+
+      // ... rest of the file
 
       { path: '', redirectTo: 'team1', pathMatch: 'full' }
     ]

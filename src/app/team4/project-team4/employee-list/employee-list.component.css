@@ -1,0 +1,16 @@
+.page-container { width: 100%; }
+.subtitle { color: #666; margin-bottom: 20px; }
+.table-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+.styled-table { width: 100%; border-collapse: collapse; }
+.styled-table th { text-align: left; padding: 15px; border-bottom: 2px solid #eee; color: #555; }
+.styled-table td { padding: 15px; border-bottom: 1px solid #eee; color: #333; }
+
+/* Minor Logic */
+.minor-row { background-color: #ffebee; }
+.red-text { color: #d32f2f; }
+
+/* Badges */
+.badge { padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; color: white; font-weight: bold; }
+.badge-red { background: #d32f2f; }
+.badge-grey { background: #546e7a; }
