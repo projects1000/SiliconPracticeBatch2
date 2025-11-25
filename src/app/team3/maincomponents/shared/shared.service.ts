@@ -30,11 +30,27 @@ export class SharedService {
   selectedMenuItem$ = this.selectedMenuItem.asObservable();
 
   employees: Employee[] = [
-    { name: 'John Doe', age: 25, role: 'Developer', department: 'IT' },
-    { name: 'Jane Smith', age: 17, role: 'Intern', department: 'HR' },
-    { name: 'Mike Johnson', age: 30, role: 'Manager', department: 'Finance' },
-    { name: 'Sarah Wilson', age: 16, role: 'Trainee', department: 'Marketing' },
-    { name: 'Robert Brown', age: 22, role: 'Analyst', department: 'Finance' }
+    // Team 3 Members
+    { name: 'Narayan Sahu', age: 24, role: 'Full Stack Developer', department: 'IT' },
+    { name: 'Ashutosh Sahoo', age: 23, role: 'Backend Developer', department: 'IT' },
+    { name: 'Subham Satyaprakash Sahoo', age: 18, role: 'Frontend Developer', department: 'IT' },
+    
+    // Additional Indian Employees
+    { name: 'Priya Sharma', age: 28, role: 'Project Manager', department: 'Management' },
+    { name: 'Rajesh Kumar', age: 32, role: 'Senior Developer', department: 'IT' },
+    { name: 'Anjali Patel', age: 16, role: 'UI/UX Designer', department: 'Design' },
+    { name: 'Amit Singh', age: 29, role: 'DevOps Engineer', department: 'Operations' },
+    { name: 'Sneha Reddy', age: 15, role: 'QA Engineer', department: 'Testing' },
+    { name: 'Vikram Malhotra', age: 35, role: 'Team Lead', department: 'IT' },
+    { name: 'Pooja Gupta', age: 17, role: 'Business Analyst', department: 'Analytics' },
+    { name: 'Rahul Verma', age: 31, role: 'Database Administrator', department: 'IT' },
+    { name: 'Kavita Joshi', age: 24, role: 'Junior Developer', department: 'IT' },
+    { name: 'Sanjay Mehta', age: 13, role: 'System Architect', department: 'IT' },
+    
+    { name: 'Divya Nair', age: 26, role: 'Content Strategist', department: 'Marketing' },
+    { name: 'Manish Tiwari', age: 30, role: 'Network Engineer', department: 'IT' },
+    { name: 'Lakshmi Iyer', age: 22, role: 'Digital Marketer', department: 'Marketing' },
+    { name: 'Arjun Desai', age: 17, role: 'Security Analyst', department: 'IT' }
   ];
 
   menuItems: MenuItem[] = [
@@ -47,9 +63,12 @@ export class SharedService {
   ];
 
   customerData = [
-    { id: 1, name: 'Customer A', email: 'a@email.com', orders: 5 },
-    { id: 2, name: 'Customer B', email: 'b@email.com', orders: 12 },
-    { id: 3, name: 'Customer C', email: 'c@email.com', orders: 8 }
+    { id: 1, name: 'narayan sahu', email: 'a@email.com', orders: 5 },
+    { id: 2, name: 'subha', email: 'b@email.com', orders: 12 },
+    { id: 3, name: 'nakula', email: 'c@email.com', orders: 8 },
+    { id: 4, name: 'Rohit Sharma', email: 'rohit@email.com', orders: 15 },
+    { id: 5, name: 'Neha Kapoor', email: 'neha@email.com', orders: 8 },
+    { id: 6, name: 'Arun Kumar', email: 'arun@email.com', orders: 12 }
   ];
 
   setCurrentUser(user: User) {
@@ -77,10 +96,8 @@ export class SharedService {
   }
 
   logout() {
-  this.currentUser.next(null);
-  this.selectedMenuItem.next('');
-  // Clear any other session data if needed
-}
-
-  
+    this.currentUser.next(null);
+    this.selectedMenuItem.next('');
+    // Clear any other session data if needed
+  }
 }
