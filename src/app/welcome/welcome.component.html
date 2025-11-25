@@ -44,6 +44,19 @@
       <li><a routerLink="/team3/narayan" routerLinkActive="active">Narayan</a></li>
     </ul>
 
+
+    <!-- TEAM 4 -->
+    <a class="team4-main" (click)="toggleTeam('team4')" [class.active]="activeTeam === 'team4'">
+      Team 4 (Tanish)
+    </a>
+
+    <ul class="team4-submenu" *ngIf="activeTeam === 'team4'">
+      <li><a routerLink="/team4/tanish" routerLinkActive="active">Tanish</a></li>
+      <li><a routerLink="/team4/lokesh" routerLinkActive="active">Lokesh</a></li>
+      <li><a routerLink="/team4/rudra" routerLinkActive="active">Rudra</a></li>
+      <li><a routerLink="/team4/deba" routerLinkActive="active">Debapriya</a></li>
+    </ul>
+
   </nav>
 
   <!-- RIGHT CONTENT -->

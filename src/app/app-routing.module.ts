@@ -26,6 +26,10 @@ import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
 import { PrathanaComponent } from './team1/prathana/prathana.component';
+import { TanishComponent } from './team4/tanish/tanish.component';
+import { LokeshComponent } from './team4/lokesh/lokesh.component';
+import { RudraComponent } from './team4/rudra/rudra.component';
+import { DebaComponent } from './team4/deba/deba.component';
 
 const routes: Routes = [
   {
@@ -71,7 +75,14 @@ const routes: Routes = [
       // ⭐ TEAM 4 ADDED PROPERLY ⭐
       {
         path: 'team4',
-        component: Team4Component
+        component: Team4Component,
+        children: [
+          { path: 'tanish', component: TanishComponent },
+          { path: 'lokesh', component: LokeshComponent },
+          { path: 'rudra', component: RudraComponent },
+          { path: 'deba', component: DebaComponent },
+          { path: '', redirectTo: 'tanish', pathMatch: 'full' }
+        ]
       },
 
       { path: '', redirectTo: 'team1', pathMatch: 'full' }

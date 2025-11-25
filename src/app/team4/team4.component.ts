@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataserviceService } from '../service/dataservice.service';   
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team4',
@@ -8,16 +8,10 @@ import { DataserviceService } from '../service/dataservice.service';
 })
 export class Team4Component {
 
-  constructor(private abc: DataserviceService) {  
-    alert("Team4Component is created");
+  constructor(private router: Router) {}
+  
+
+  openProfile(name: string) {
+    this.router.navigate(['/team4/profile', name]);
   }
-
-  ngOnInit(): void {
-    console.log(this.abc.serviceData);
-  }
-  handleClick() {
-  alert("Button clicked!");
-}
-
-
 }
