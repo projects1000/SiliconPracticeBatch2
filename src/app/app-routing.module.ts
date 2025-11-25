@@ -26,8 +26,6 @@ import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
 import { PrathanaComponent } from './team1/prathana/prathana.component';
-
-// Team 4 Members
 import { TanishComponent } from './team4/tanish/tanish.component';
 import { LokeshComponent } from './team4/lokesh/lokesh.component';
 import { RudraComponent } from './team4/rudra/rudra.component';
@@ -78,11 +76,12 @@ const routes: Routes = [
       {
         path: 'team4',
         component: Team4Component,
-        children:[
-          { path: 'tanish',component:TanishComponent},
-          { path: 'lokesh',component:LokeshComponent},
-          { path: 'rudra',component:RudraComponent},
-          { path: 'deba',component:DebaComponent},
+        children: [
+          { path: 'tanish', component: TanishComponent },
+          { path: 'lokesh', component: LokeshComponent },
+          { path: 'rudra', component: RudraComponent },
+          { path: 'deba', component: DebaComponent },
+          { path: '', redirectTo: 'tanish', pathMatch: 'full' }
         ]
       },
 

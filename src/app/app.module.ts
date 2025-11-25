@@ -31,11 +31,7 @@ import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';
 import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
-import { PrathanaComponent } from './team1/prathana/prathana.component';
-import { TanishComponent } from './team4/tanish/tanish.component';
-import { LokeshComponent } from './team4/lokesh/lokesh.component';
-import { RudraComponent } from './team4/rudra/rudra.component';
-import { DebaComponent } from './team4/deba/deba.component';   
+import { PrathanaComponent } from './team1/prathana/prathana.component';   
 
 
 @NgModule({
@@ -71,11 +67,7 @@ import { DebaComponent } from './team4/deba/deba.component';
     JigyansaComponent,
     PrathanaComponent,
 
-    ChinmayaComponent,
-      TanishComponent,
-      LokeshComponent,
-      RudraComponent,
-      DebaComponent
+    ChinmayaComponent
 
   ],
   imports: [
