@@ -31,7 +31,10 @@ import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';
 import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
-import { PrathanaComponent } from './team1/prathana/prathana.component';   
+import { PrathanaComponent } from './team1/prathana/prathana.component';
+import { TruptiComponent } from './team5/trupti/trupti.component';
+import { Team5Component } from './team5/team5.component';
+import { RitishComponent } from './team5/ritish/ritish.component';   
 
 
 @NgModule({
@@ -67,7 +70,10 @@ import { PrathanaComponent } from './team1/prathana/prathana.component';
     JigyansaComponent,
     PrathanaComponent,
 
-    ChinmayaComponent
+    ChinmayaComponent,
+      TruptiComponent,
+      Team5Component,
+      RitishComponent
 
   ],
   imports: [

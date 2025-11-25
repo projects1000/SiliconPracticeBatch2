@@ -31,6 +31,11 @@ import { LokeshComponent } from './team4/lokesh/lokesh.component';
 import { RudraComponent } from './team4/rudra/rudra.component';
 import { DebaComponent } from './team4/deba/deba.component';
 
+// TEAM 5 MEMBERS 
+import { Team5Component } from './team5/team5.component'; 
+import { TruptiComponent } from './team5/trupti/trupti.component';
+import { RitishComponent } from './team5/ritish/ritish.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -82,6 +87,18 @@ const routes: Routes = [
           { path: 'rudra', component: RudraComponent },
           { path: 'deba', component: DebaComponent },
           { path: '', redirectTo: 'tanish', pathMatch: 'full' }
+        ]
+      },
+
+
+      // TEAM 5 MEMBERS
+      {
+        path: 'team5',
+        component: Team5Component,     // ⬅️ parent
+        children: [
+          { path: 'trupti', component: TruptiComponent },
+          { path: 'ritish', component: RitishComponent },   // ⬅️ child
+          { path: '', redirectTo: 'trupti', pathMatch: 'full' }
         ]
       },
 
