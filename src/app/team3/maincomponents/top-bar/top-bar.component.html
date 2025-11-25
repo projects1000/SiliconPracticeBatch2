@@ -1,0 +1,30 @@
+<div class="top-bar">
+  <div class="left-section">
+    <div class="app-brand">
+      <span class="app-icon">🚀</span>
+      <span class="app-name">Team3 App</span>
+    </div>
+    <div class="current-section">
+      <span class="section-badge">{{ selectedMenu }}</span>
+    </div>
+  </div>
+
+  <div class="right-section">
+    <div class="user-info" *ngIf="currentUser">
+      <span class="welcome-text">
+        Welcome, <strong>{{ currentUser.username }}</strong>
+      </span>
+      <span class="user-role">({{ currentUser.role }})</span>
+    </div>
+    
+    <div class="time-display">
+      <span class="time-icon">🕒</span>
+      <span class="time">{{ currentTime }}</span>
+    </div>
+
+    <button (click)="onLogout()" class="logout-btn">
+      <span class="logout-icon">🚪</span>
+      Logout
+    </button>
+  </div>
+</div>

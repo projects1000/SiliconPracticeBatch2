@@ -31,6 +31,18 @@ import { LokeshComponent } from './team4/lokesh/lokesh.component';
 import { RudraComponent } from './team4/rudra/rudra.component';
 import { DebaComponent } from './team4/deba/deba.component';
 
+// PROJECT team3 components
+import { LoginComponent } from './team3/maincomponents/login/login.component';
+import { MainComponent } from './team3/maincomponents/main/main.component';
+import { AdminDashboardComponent } from './team3/maincomponents/admin/admin-dashboard/admin-dashboard.component';
+import { CustomerDashboardComponent } from './team3/maincomponents/customer/customer-dashboard/customer-dashboard.component';
+import { EmployeeManagementComponent } from './team3/maincomponents/employee/employee-management/employee-management.component';
+import { PageNotFoundComponent } from './team3/maincomponents/page-not-found/page-not-found.component';
+
+// GUARDS
+import { AuthGuard } from './team3/maincomponents/guards/auth.guard';
+import { RoleGuard } from './team3/maincomponents/guards/role.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -61,6 +73,8 @@ const routes: Routes = [
         ]
       },
 
+      //team3 routes
+
       {
         path: 'team3',
         component: Team3Component,
@@ -68,6 +82,37 @@ const routes: Routes = [
           { path: 'subham', component: SubhamComponent },
           { path: 'ashutosh', component: AshutoshComponent },
           { path: 'narayan', component: NarayanComponent },
+          
+          { path: 'project/login', component: LoginComponent },
+          {
+            path: 'project/app',
+            component: MainComponent,
+            canActivate: [AuthGuard],
+            children: [
+              { 
+                path: 'admin/dashboard', 
+                component: AdminDashboardComponent, 
+                canActivate: [RoleGuard], 
+                data: { role: 'admin' } 
+              },
+              { 
+                path: 'customer/dashboard', 
+                component: CustomerDashboardComponent, 
+                canActivate: [RoleGuard], 
+                data: { role: 'customer' } 
+              },
+              { 
+                path: 'admin/employees', 
+                component: EmployeeManagementComponent, 
+                canActivate: [RoleGuard], 
+                data: { role: 'admin' } 
+              },
+              { path: '', redirectTo: 'admin/dashboard', pathMatch: 'full' }
+            ]
+          },
+          { path: 'project', redirectTo: 'project/login', pathMatch: 'full' },
+          { path: 'project/**', component: PageNotFoundComponent },
+          
           { path: '', redirectTo: 'narayan', pathMatch: 'full' }
         ]
       },

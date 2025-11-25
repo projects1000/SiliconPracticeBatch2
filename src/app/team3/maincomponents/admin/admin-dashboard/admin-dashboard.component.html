@@ -1,0 +1,38 @@
+<div class="admin-dashboard">
+  <h1>Admin Dashboard</h1>
+  
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>Total Employees</h3>
+      <div class="stat-number">{{dashboardData?.totalEmployees}}</div>
+    </div>
+    
+    <div class="stat-card">
+      <h3>Total Customers</h3>
+      <div class="stat-number">{{dashboardData?.totalCustomers}}</div>
+    </div>
+    
+    <div class="stat-card">
+      <h3>Minor Employees</h3>
+      <div class="stat-number">{{dashboardData?.minorEmployees}}</div>
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <h2>Quick Actions</h2>
+    <div class="action-buttons">
+      <button class="action-btn" routerLink="../employees">Manage Employees</button>
+      <button class="action-btn">View Reports</button>
+      <button class="action-btn">System Settings</button>
+    </div>
+  </div>
+
+  <div class="recent-data">
+    <h2>Recent Data from Shared Service</h2>
+    <p>This data is coming from the shared service component as required.</p>
+    <div class="data-preview">
+      <strong>Employee Count:</strong> {{dashboardData?.totalEmployees}}<br>
+      <strong>Customer Count:</strong> {{dashboardData?.totalCustomers}}
+    </div>
+  </div>
+</div>
