@@ -305,3 +305,158 @@
     justify-content: center;
   }
 }
+/* Add these to your existing CSS without changing positions */
+
+/* Enhanced App Icon */
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Status dot for section badge */
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ffa726;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: status-pulse 2s infinite;
+}
+
+@keyframes status-pulse {
+  0%, 50% { opacity: 1; transform: scale(1); }
+  51%, 100% { opacity: 0.6; transform: scale(0.8); }
+}
+
+/* Role icon enhancement */
+.role-icon {
+  margin-right: 4px;
+  font-size: 0.8em;
+}
+
+/* Time underline effect */
+.time {
+  position: relative;
+}
+
+.time-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ecf0f1, transparent);
+  opacity: 0.6;
+}
+
+/* Logout button glow effect */
+.logout-btn {
+  position: relative;
+}
+
+.logout-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53, #ff6b6b);
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.logout-btn:hover .logout-glow {
+  opacity: 1;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Top bar gradient border */
+.top-bar-border {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 167, 38, 0.4) 25%, 
+    rgba(255, 167, 38, 0.6) 50%, 
+    rgba(255, 167, 38, 0.4) 75%, 
+    transparent 100%);
+  pointer-events: none;
+}
+
+/* Enhanced text shadows for better readability */
+.app-name {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-badge {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-text {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced glass morphism */
+.user-info,
+.time-display {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+/* Micro-interactions */
+.user-info:active,
+.time-display:active {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+.logout-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Focus states for accessibility */
+.app-brand:focus,
+.section-badge:focus,
+.user-info:focus,
+.time-display:focus,
+.logout-btn:focus {
+  outline: 2px solid rgba(255, 167, 38, 0.6);
+  outline-offset: 2px;
+}
+
+/* Mobile optimizations for new elements */
+@media (max-width: 768px) {
+  .status-dot {
+    margin-right: 6px;
+    width: 5px;
+    height: 5px;
+  }
+  
+  .role-icon {
+    margin-right: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-dot,
+  .role-icon,
+  .time-underline,
+  .logout-glow {
+    display: none;
+  }
+}
