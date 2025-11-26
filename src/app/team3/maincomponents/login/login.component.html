@@ -27,6 +27,11 @@
           <option value="admin">Admin</option>
         </select>
       </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{errorMessage}}
+      </div>
       
       <button 
         type="submit" 
