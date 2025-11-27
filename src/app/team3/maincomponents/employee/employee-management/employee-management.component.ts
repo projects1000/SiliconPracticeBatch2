@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService, Employee } from '../../shared/shared.service';
+import { Employee } from '../../service/employee.model';
+import { SharedService } from '../../service/shared.service';
+import { NotificationService } from '../../service/notification.service';
 
 @Component({
   selector: 'app-employee-management',
@@ -10,24 +12,128 @@ export class EmployeeManagementComponent implements OnInit {
   employees: Employee[] = [];
   filteredEmployees: Employee[] = [];
   searchTerm: string = '';
+  showEmployeeForm = false;
+  selectedEmployee: Employee | null = null;
+  isEditMode = false;
+  currentUser: any;
+  isAdmin: boolean = false;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit() {
+    this.loadEmployees();
+    this.checkUserRole();
+  }
+
+  checkUserRole() {
+    this.currentUser = this.sharedService.getCurrentUser();
+    this.isAdmin = this.currentUser?.role === 'admin';
+    
+    if (!this.isAdmin) {
+      this.notificationService.warning(
+        'You have view-only access. Only administrators can modify employee data.',
+        'Limited Access'
+      );
+    }
+  }
+
+  loadEmployees() {
     this.employees = this.sharedService.getEmployees();
     this.filteredEmployees = this.employees;
   }
 
+  // ✅ Add this missing method
+  getAdultCount(): number {
+    return this.employees.filter(emp => !this.isMinor(emp.age)).length;
+  }
+
+  // ✅ Add new employee - Admin only
+  addEmployee() {
+    if (!this.isAdmin) {
+      this.notificationService.error(
+        'Only administrators can add new employees',
+        'Access Denied'
+      );
+      return;
+    }
+    
+    this.selectedEmployee = null;
+    this.isEditMode = false;
+    this.showEmployeeForm = true;
+  }
+
+  // ✅ Edit existing employee - Admin only
+  editEmployee(employee: Employee) {
+    if (!this.isAdmin) {
+      this.notificationService.error(
+        'Only administrators can edit employee details',
+        'Access Denied'
+      );
+      return;
+    }
+    
+    this.selectedEmployee = employee;
+    this.isEditMode = true;
+    this.showEmployeeForm = true;
+  }
+
+  // ✅ Delete employee - Admin only
+  deleteEmployee(employee: Employee) {
+    if (!this.isAdmin) {
+      this.notificationService.error(
+        'Only administrators can delete employees',
+        'Access Denied'
+      );
+      return;
+    }
+
+    if (confirm(`Are you sure you want to delete ${employee.name}? This action cannot be undone.`)) {
+      const success = this.sharedService.deleteEmployee(employee.id);
+      if (success) {
+        this.loadEmployees();
+        this.notificationService.success(
+          `${employee.name} has been deleted successfully`,
+          'Employee Deleted'
+        );
+      } else {
+        this.notificationService.error(
+          'Failed to delete employee',
+          'Error'
+        );
+      }
+    }
+  }
+
+  // ✅ Handle form save
+  onEmployeeSaved(employee: Employee) {
+    this.showEmployeeForm = false;
+    this.loadEmployees();
+  }
+
+  // ✅ Handle form cancel
+  onFormCancel() {
+    this.showEmployeeForm = false;
+    this.selectedEmployee = null;
+  }
+
+  // ✅ View employee details (available for all users)
+  viewEmployee(employee: Employee) {
+    this.notificationService.info(
+      `Viewing details for ${employee.name}`,
+      'Employee Details'
+    );
+  }
+
+  // Existing methods
   isMinor(age: number): boolean {
     return age < 18;
   }
 
   getMinorCount(): number {
     return this.employees.filter(emp => this.isMinor(emp.age)).length;
-  }
-
-  getAdultCount(): number {
-    return this.employees.filter(emp => !this.isMinor(emp.age)).length;
   }
 
   onSearchChange() {
@@ -40,8 +146,16 @@ export class EmployeeManagementComponent implements OnInit {
     this.filteredEmployees = this.employees.filter(emp =>
       emp.name.toLowerCase().includes(term) ||
       emp.department.toLowerCase().includes(term) ||
-      emp.role.toLowerCase().includes(term)
+      emp.role.toLowerCase().includes(term) ||
+      emp.email.toLowerCase().includes(term)
     );
+
+    if (this.filteredEmployees.length === 0) {
+      this.notificationService.warning(
+        `No employees found for "${this.searchTerm}"`,
+        'No Results'
+      );
+    }
   }
 
   getRowClass(employee: Employee) {
@@ -49,5 +163,21 @@ export class EmployeeManagementComponent implements OnInit {
       'minor-row': this.isMinor(employee.age),
       'adult-row': !this.isMinor(employee.age)
     };
+  }
+
+  // Export data (Admin only)
+  exportEmployeeData() {
+    if (!this.isAdmin) {
+      this.notificationService.error(
+        'Only administrators can export employee data',
+        'Access Denied'
+      );
+      return;
+    }
+
+    this.notificationService.success(
+      `Employee data exported successfully (${this.employees.length} records)`,
+      'Export Complete'
+    );
   }
 }

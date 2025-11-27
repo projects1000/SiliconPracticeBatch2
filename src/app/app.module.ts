@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-
+// Project Components
 import { HotelBookComponent } from './hotel-book/hotel-book.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { StudentComponent } from './student/student.component';
@@ -11,11 +11,11 @@ import { SalaryComponent } from './salary/salary.component';
 import { LibraryComponent } from './library/library.component';
 import { AdmissionComponent } from './admission/admission.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+// Team Modules and Components
 import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team4Component } from './team4/team4.component';
 import { Team6Component } from './team6/team6.component';
-
 // Team 2 members components
 import { PradyumnaComponent } from './team2/pradyumna/pradyumna.component';
 import { BhowmickComponent } from './team2/bhowmick/bhowmick.component';
@@ -23,7 +23,6 @@ import { OmpriyaComponent } from './team2/ompriya/ompriya.component';
 import { DebeseeComponent } from './team2/debesee/debesee.component';
 import { BhagyashreeComponent } from './team2/bhagyashree/bhagyashree.component';
 import { ChinmayaComponent } from './team2/chinmaya/chinmaya.component';
-
 // Team 1 members components
 import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
@@ -36,10 +35,9 @@ import { TanishComponent } from './team4/tanish/tanish.component';
 import { LokeshComponent } from './team4/lokesh/lokesh.component';
 import { RudraComponent } from './team4/rudra/rudra.component';
 import { DebaComponent } from './team4/deba/deba.component';
-
 // Team3 Module (Lazy Loading)
 import { Team3Module } from './team3/team3.module';
-
+// Note: Team3Module is imported here for eager loading.
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,20 +48,18 @@ import { Team3Module } from './team3/team3.module';
     LibraryComponent,
     AdmissionComponent,
     WelcomeComponent,
+    // Team Components
     Team1Component,
     Team2Component,
     Team4Component,
     Team6Component,
-
-  
- // team 3 members components
-    
     // Team 2 members components
     PradyumnaComponent,
     BhowmickComponent,
     OmpriyaComponent,
     DebeseeComponent,
     BhagyashreeComponent,
+    ChinmayaComponent,
     ChinmayaComponent,
     // Team 1 members components
     AryaComponent,
@@ -75,18 +71,16 @@ import { Team3Module } from './team3/team3.module';
     LokeshComponent,
     RudraComponent,
     DebaComponent,
-
-    ChinmayaComponent,
+    // Team 6 members components
     RajashreeComponent,
     AkashComponent
-
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    Team3Module //Team3Module
+    Team3Module // Eagerly load Team3Module
   ],
   providers: [],
   bootstrap: [AppComponent]

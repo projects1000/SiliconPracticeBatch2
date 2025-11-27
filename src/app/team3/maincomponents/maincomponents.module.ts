@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // Make sure this is imported
 import { RouterModule } from '@angular/router';
-
-import { MaincomponentsRoutingModule } from './maincomponents-routing.module';
 
 // Components
 import { MainComponent } from './main/main.component';
@@ -13,34 +11,29 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
 import { EmployeeManagementComponent } from './employee/employee-management/employee-management.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { ReportsComponent } from './admin/reports/reports.component';
+import { SettingsComponent } from './admin/settings/settings.component';
 
 @NgModule({
   declarations: [
-    // Main Layout Components
     MainComponent,
     LoginComponent,
     PageNotFoundComponent,
-    
-    // Dashboard Components
     AdminDashboardComponent,
     CustomerDashboardComponent,
     EmployeeManagementComponent,
-    
-    // Shared Components
-    TopBarComponent
-    // Team 3 Profile Components REMOVED - No comma needed here since it's the last item
+    TopBarComponent,
+    ReportsComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    RouterModule,
-    MaincomponentsRoutingModule
+    FormsModule, // Make sure this is here
+    RouterModule
   ],
   exports: [
     MainComponent,
-    LoginComponent,
-    PageNotFoundComponent,
-    TopBarComponent
+    LoginComponent
   ]
 })
 export class MaincomponentsModule { }

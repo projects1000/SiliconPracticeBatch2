@@ -1,0 +1,69 @@
+<div class="data-management">
+  <h2>Data Management</h2>
+  
+  <div class="info-card" *ngIf="!isAdmin">
+    <div class="info-icon">⚠️</div>
+    <div class="info-content">
+      <h3>Access Restricted</h3>
+      <p>Only administrators can manage application data.</p>
+    </div>
+  </div>
+
+  <div *ngIf="isAdmin" class="admin-actions">
+    <!-- Export Data -->
+    <div class="action-card">
+      <div class="action-icon">📤</div>
+      <div class="action-content">
+        <h3>Export Data</h3>
+        <p>Download all employee data as JSON file for backup.</p>
+        <button (click)="exportData()" class="btn btn-primary">
+          Export to JSON
+        </button>
+      </div>
+    </div>
+
+    <!-- Import Data -->
+    <div class="action-card">
+      <div class="action-icon">📥</div>
+      <div class="action-content">
+        <h3>Import Data</h3>
+        <p>Upload JSON file to restore employee data.</p>
+        <div class="file-upload">
+          <input 
+            type="file" 
+            (change)="importData($event)" 
+            accept=".json" 
+            class="file-input"
+            id="fileInput">
+          <label for="fileInput" class="btn btn-secondary">
+            Choose JSON File
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Data -->
+    <div class="action-card warning">
+      <div class="action-icon">🔄</div>
+      <div class="action-content">
+        <h3>Reset Data</h3>
+        <p>Reset all data to default values. This action cannot be undone.</p>
+        <button (click)="resetData()" class="btn btn-danger">
+          Reset to Default
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Storage Info -->
+  <div class="storage-info">
+    <h4>Storage Information</h4>
+    <p>Data is stored in your browser's local storage.</p>
+    <ul>
+      <li>✅ Data persists between page refreshes</li>
+      <li>✅ Works offline</li>
+      <li>⚠️ Data is browser-specific</li>
+      <li>⚠️ Clear browser data will reset everything</li>
+    </ul>
+  </div>
+</div>

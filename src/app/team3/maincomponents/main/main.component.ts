@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService, User, MenuItem } from '../shared/shared.service';
+import { SharedService, User, MenuItem } from '../service/shared.service';
+// Remove this line: import { NotificationComponent } from './notification/notification.component';
 
 @Component({
   selector: 'app-main',
@@ -54,7 +55,6 @@ export class MainComponent implements OnInit {
 
   logout() {
     this.sharedService.logout();
-    // FIXED: Redirect to the Angular project login page, not team1
     this.router.navigate(['/team3/project/login']);
   }
 }

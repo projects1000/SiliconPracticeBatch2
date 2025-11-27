@@ -375,3 +375,187 @@
     color: #000;
   }
 }
+
+/* Role-based styling */
+.user-role-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.user-role-info.admin {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  color: white;
+}
+
+.user-role-info.customer {
+  background: linear-gradient(135deg, #ffd93d, #ff9c3d);
+  color: #2c3e50;
+}
+
+.role-badge {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.access-info {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Action buttons visibility */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: #3498db;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #7f8c8d;
+}
+
+/* Employee actions */
+.employee-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-action {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.btn-view {
+  color: #3498db;
+}
+
+.btn-view:hover {
+  background: #3498db;
+  color: white;
+}
+
+.btn-edit {
+  color: #f39c12;
+}
+
+.btn-edit:hover {
+  background: #f39c12;
+  color: white;
+}
+
+.btn-delete {
+  color: #e74c3c;
+}
+
+.btn-delete:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+/* Access indicators */
+.access-admin {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.access-customer {
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.minor-count {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Status badges */
+.status-active {
+  background: #2ecc71;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-inactive {
+  background: #95a5a6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-on-leave {
+  background: #f39c12;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Department badges */
+.dept-badge {
+  background: #3498db;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Minor indicator */
+.minor-indicator {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
