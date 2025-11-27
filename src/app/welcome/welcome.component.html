@@ -34,16 +34,26 @@
     </div>
 
     <!-- TEAM 3 -->
-    <a class="team3-main" (click)="toggleTeam('team3')" [class.active]="activeTeam === 'team3'">
-      Team 3 (Narayan)
+<a class="team3-main" (click)="toggleTeam('team3')" [class.active]="activeTeam === 'team3'">
+  Team 3 (Narayan)
+</a>
+
+<ul class="team3-submenu" *ngIf="activeTeam === 'team3'">
+  
+  <!-- Project-->
+  <li>
+    <a 
+      class="project-link" 
+      routerLink="/team3/project/login" 
+      routerLinkActive="active">
+      Project
     </a>
-
-    <ul class="team3-submenu" *ngIf="activeTeam === 'team3'">
-      <li><a routerLink="/team3/subham" routerLinkActive="active">Subham</a></li>
-      <li><a routerLink="/team3/ashutosh" routerLinkActive="active">Ashutosh</a></li>
-      <li><a routerLink="/team3/narayan" routerLinkActive="active">Narayan</a></li>
-    </ul>
-
+  </li>
+  <li><a routerLink="/team3/subham" routerLinkActive="active">Subham</a></li>
+  <li><a routerLink="/team3/ashutosh" routerLinkActive="active">Ashutosh</a></li>
+  <li><a routerLink="/team3/narayan" routerLinkActive="active">Narayan</a></li>
+  
+</ul>
 
     <!-- TEAM 4 -->
     <a class="team4-main" (click)="toggleTeam('team4')" [class.active]="activeTeam === 'team4'">
@@ -55,6 +65,7 @@
       <li><a routerLink="/team4/lokesh" routerLinkActive="active">Lokesh</a></li>
       <li><a routerLink="/team4/rudra" routerLinkActive="active">Rudra</a></li>
       <li><a routerLink="/team4/deba" routerLinkActive="active">Debapriya</a></li>
+      <li><a routerLink="/team4/project-team4" routerLinkActive="active">Project</a></li>
     </ul>
 
     <!--TEAM 6-->
