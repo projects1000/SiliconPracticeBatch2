@@ -9,7 +9,6 @@
   <div class="content-wrapper">
     <!-- Left Panel -->
     <div class="left-panel">
-      <h3>Navigation</h3>
       <div 
         *ngFor="let item of menuItems" 
         class="nav-item"
@@ -27,4 +26,8 @@
       <router-outlet></router-outlet>
     </div>
   </div>
+
+  <!-- Notification stays here, outside top-bar -->
+  <app-notification></app-notification>
+  
 </div>

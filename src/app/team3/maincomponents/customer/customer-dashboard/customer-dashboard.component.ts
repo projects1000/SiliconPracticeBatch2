@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService, CustomerProfile } from '../../shared/shared.service';
+import { SharedService, CustomerProfile } from '../../service/shared.service';
+import { NotificationService } from '../../service/notification.service'; // Add this
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -11,9 +12,11 @@ export class CustomerDashboardComponent implements OnInit {
   customerProfile!: CustomerProfile;
   customerOrders: any[] = [];
   isEditingProfile = false;
-  showEditSuccess = false;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private notificationService: NotificationService // Add this
+  ) {}
 
   ngOnInit() {
     this.loadCustomerData();
@@ -26,28 +29,60 @@ export class CustomerDashboardComponent implements OnInit {
       this.customerProfile.id, 
       this.customerProfile.totalOrders
     );
+
+    // Personalized welcome message
+    let welcomeMessage = `Welcome to your dashboard, ${this.customerProfile.name}!`;
+    
+    // Special messages for team members
+    if (this.currentUser.username.toLowerCase() === 'narayan') {
+      welcomeMessage = 'Welcome Narayan! Your customer profile is active with premium features.';
+    } else if (this.currentUser.username.toLowerCase() === 'subham') {
+      welcomeMessage = 'Hi Subham! Great to see you back. Your orders are ready for review.';
+    } else if (this.currentUser.username.toLowerCase() === 'ashutosh') {
+      welcomeMessage = 'Hello Ashutosh! Your loyalty points are growing fast!';
+    }
+    
+    this.notificationService.success(welcomeMessage, 'Welcome Back');
+    
+    // Show loyalty points notification if high
+    if (this.customerProfile.loyaltyPoints > 1000) {
+      this.notificationService.info(
+        `You have ${this.customerProfile.loyaltyPoints} loyalty points! Redeem them for rewards.`,
+        'Loyalty Reward'
+      );
+    }
   }
 
   startEditProfile() {
     this.isEditingProfile = true;
+    this.notificationService.info('You can now edit your profile information', 'Edit Mode Enabled');
   }
 
-  // ✅ FIXED: Accept CustomerProfile parameter
   onProfileUpdated(updatedProfile: CustomerProfile) {
     this.customerProfile = updatedProfile;
     this.isEditingProfile = false;
-    this.showEditSuccess = true;
     
-    setTimeout(() => {
-      this.showEditSuccess = false;
-    }, 3000);
+    this.notificationService.success(
+      'Your profile has been updated successfully!',
+      'Profile Updated'
+    );
   }
 
   onCancelEdit() {
     this.isEditingProfile = false;
+    this.notificationService.warning('Profile editing cancelled', 'Edit Cancelled');
   }
 
   getStatusClass(status: string): string {
     return status.toLowerCase() === 'completed' ? 'status-completed' : 'status-pending';
+  }
+
+  // Test customer actions
+  placeOrder() {
+    this.notificationService.success('Order placed successfully! It will arrive in 2-3 days.', 'Order Confirmed');
+  }
+
+  contactSupport() {
+    this.notificationService.info('Support team has been notified. They will contact you soon.', 'Support Requested');
   }
 }

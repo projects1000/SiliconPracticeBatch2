@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { SharedService, User } from '../shared/shared.service';
+import { SharedService, User } from '../service/shared.service';
 
 @Component({
   selector: 'app-top-bar',

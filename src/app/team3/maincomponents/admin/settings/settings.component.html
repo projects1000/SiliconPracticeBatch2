@@ -1,0 +1,120 @@
+<div class="settings-container">
+  <div class="settings-header">
+    <h1>System Settings</h1>
+    <p>Manage your application configuration and preferences</p>
+  </div>
+
+  <div class="settings-layout">
+    <!-- Sidebar Tabs -->
+    <div class="settings-sidebar">
+      <div class="tab" [class.active]="activeTab === 'general'" (click)="selectTab('general')">
+        ⚙️ General Settings
+      </div>
+      <div class="tab" [class.active]="activeTab === 'departments'" (click)="selectTab('departments')">
+        🏢 Department Management
+      </div>
+      <div class="tab" [class.active]="activeTab === 'roles'" (click)="selectTab('roles')">
+        👥 Role Management
+      </div>
+      <div class="tab" [class.active]="activeTab === 'financial'" (click)="selectTab('financial')">
+        💰 Financial Settings
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="settings-content">
+      
+      <!-- General Settings -->
+      <div *ngIf="activeTab === 'general'" class="tab-content">
+        <h2>General Settings</h2>
+        
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" [value]="companyName" (input)="companyName = $any($event.target).value" class="form-control" placeholder="Enter company name">
+        </div>
+
+        <div class="form-group">
+          <label>Financial Year</label>
+          <input type="text" [value]="financialYear" (input)="financialYear = $any($event.target).value" class="form-control" placeholder="e.g., 2024">
+        </div>
+
+        <div class="form-group">
+          <label>Currency</label>
+          <select [value]="currency" (change)="currency = $any($event.target).value" class="form-control">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="INR">INR (₹)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Tax Rate (%)</label>
+          <input type="number" [value]="taxRate" (input)="taxRate = +$any($event.target).value" class="form-control" min="0" max="50" step="0.1">
+        </div>
+
+        <button class="save-btn" (click)="saveGeneralSettings()">Save General Settings</button>
+      </div>
+
+      <!-- Department Management -->
+      <div *ngIf="activeTab === 'departments'" class="tab-content">
+        <h2>Department Management</h2>
+        
+        <div class="add-item-form">
+          <input #newDept type="text" class="form-control" placeholder="Enter new department name">
+          <button class="add-btn" (click)="addDepartment(newDept.value); newDept.value=''">Add Department</button>
+        </div>
+
+        <div class="items-list">
+          <h3>Current Departments</h3>
+          <div *ngFor="let dept of settings.departments" class="item-card">
+            <span class="item-name">{{dept}}</span>
+            <button class="remove-btn" (click)="removeDepartment(dept)">Remove</button>
+          </div>
+        </div>
+
+        <button class="save-btn" (click)="saveDepartments()">Save Departments</button>
+      </div>
+
+      <!-- Role Management -->
+      <div *ngIf="activeTab === 'roles'" class="tab-content">
+        <h2>Role Management</h2>
+        
+        <div class="add-item-form">
+          <input #newRole type="text" class="form-control" placeholder="Enter new role name">
+          <button class="add-btn" (click)="addRole(newRole.value); newRole.value=''">Add Role</button>
+        </div>
+
+        <div class="items-list">
+          <h3>Current Roles</h3>
+          <div *ngFor="let role of settings.roles" class="item-card">
+            <span class="item-name">{{role}}</span>
+            <button class="remove-btn" (click)="removeRole(role)">Remove</button>
+          </div>
+        </div>
+
+        <button class="save-btn" (click)="saveDepartments()">Save Roles</button>
+      </div>
+
+      <!-- Financial Settings -->
+      <div *ngIf="activeTab === 'financial'" class="tab-content">
+        <h2>Financial Settings</h2>
+        
+        <div class="info-card">
+          <h3>💰 Financial Configuration</h3>
+          <p>Configure financial year settings, tax rates, and currency preferences in the General Settings tab.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>📊 Report Settings</h3>
+          <p>Customize financial report formats, export options, and automated reporting schedules.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>🔔 Alert Settings</h3>
+          <p>Set up notifications for budget overruns, low profit margins, and financial milestones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

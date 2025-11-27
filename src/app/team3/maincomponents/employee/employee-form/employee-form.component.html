@@ -1,0 +1,132 @@
+<div class="employee-form-container">
+  <h3>{{ isEditMode ? 'Edit Employee' : 'Add New Employee' }}</h3>
+  
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input 
+          type="text" 
+          id="name" 
+          formControlName="name" 
+          class="form-control"
+          placeholder="Enter full name">
+        <div *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched" class="error-message">
+          Name is required and must be at least 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age *</label>
+        <input 
+          type="number" 
+          id="age" 
+          formControlName="age" 
+          class="form-control"
+          placeholder="Enter age"
+          min="16"
+          max="65">
+        <div *ngIf="employeeForm.get('age')?.invalid && employeeForm.get('age')?.touched" class="error-message">
+          Age must be between 16 and 65
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="department">Department *</label>
+        <select id="department" formControlName="department" class="form-control">
+          <option value="">Select Department</option>
+          <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+        </select>
+        <div *ngIf="employeeForm.get('department')?.invalid && employeeForm.get('department')?.touched" class="error-message">
+          Department is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="role">Role *</label>
+        <select id="role" formControlName="role" class="form-control">
+          <option value="">Select Role</option>
+          <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+        </select>
+        <div *ngIf="employeeForm.get('role')?.invalid && employeeForm.get('role')?.touched" class="error-message">
+          Role is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input 
+        type="email" 
+        id="email" 
+        formControlName="email" 
+        class="form-control"
+        placeholder="Enter email address">
+      <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched" class="error-message">
+        Valid email is required
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="salary">Salary *</label>
+        <input 
+          type="number" 
+          id="salary" 
+          formControlName="salary" 
+          class="form-control"
+          placeholder="Enter salary"
+          min="0">
+        <div *ngIf="employeeForm.get('salary')?.invalid && employeeForm.get('salary')?.touched" class="error-message">
+          Salary is required and must be positive
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="joinDate">Join Date</label>
+        <input 
+          type="date" 
+          id="joinDate" 
+          formControlName="joinDate" 
+          class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        formControlName="phone" 
+        class="form-control"
+        placeholder="Enter phone number">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea 
+        id="address" 
+        formControlName="address" 
+        class="form-control"
+        placeholder="Enter address"
+        rows="3"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button 
+        type="button" 
+        (click)="onCancel()" 
+        class="btn btn-secondary">
+        Cancel
+      </button>
+      <button 
+        type="submit" 
+        [disabled]="employeeForm.invalid" 
+        class="btn btn-primary">
+        {{ isEditMode ? 'Update Employee' : 'Add Employee' }}
+      </button>
+    </div>
+  </form>
+</div>
