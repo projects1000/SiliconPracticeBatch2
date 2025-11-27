@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team4Component } from './team4/team4.component';
+
+import { Team6Component } from './team6/team6.component';
+
 import { WelcomeComponent } from './welcome/welcome.component';
 // TEAM 2 MEMBERS
 import { PradyumnaComponent } from './team2/pradyumna/pradyumna.component';
@@ -22,6 +25,11 @@ import { TanishComponent } from './team4/tanish/tanish.component';
 import { LokeshComponent } from './team4/lokesh/lokesh.component';
 import { RudraComponent } from './team4/rudra/rudra.component';
 import { DebaComponent } from './team4/deba/deba.component';
+
+
+import { RajashreeComponent } from './team6/rajashree/rajashree.component';
+import { AkashComponent } from './team6/akash/akash.component';
+
 
 const routes: Routes = [
   {
@@ -70,6 +78,17 @@ const routes: Routes = [
           { path: '', redirectTo: 'tanish', pathMatch: 'full' }
         ]
       },
+
+      {
+        path: 'team6',
+        component: Team6Component,
+        children: [
+          { path: 'rajashree', component: RajashreeComponent },
+          { path: 'akash', component: AkashComponent },
+          { path: '', redirectTo: 'akash', pathMatch: 'full' }
+        ]
+      },
+
       { path: '', redirectTo: 'team1', pathMatch: 'full' }
     ]
   },

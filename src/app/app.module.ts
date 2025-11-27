@@ -14,6 +14,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team4Component } from './team4/team4.component';
+import { Team6Component } from './team6/team6.component';
 
 // Team 2 members components
 import { PradyumnaComponent } from './team2/pradyumna/pradyumna.component';
@@ -28,6 +29,8 @@ import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
 import { PrathanaComponent } from './team1/prathana/prathana.component';
+import { RajashreeComponent } from './team6/rajashree/rajashree.component';
+import { AkashComponent } from './team6/akash/akash.component';   
 // Team 4 members components
 import { TanishComponent } from './team4/tanish/tanish.component';
 import { LokeshComponent } from './team4/lokesh/lokesh.component';
@@ -50,6 +53,11 @@ import { Team3Module } from './team3/team3.module';
     Team1Component,
     Team2Component,
     Team4Component,
+    Team6Component,
+
+  
+ // team 3 members components
+    
     // Team 2 members components
     PradyumnaComponent,
     BhowmickComponent,
@@ -67,6 +75,10 @@ import { Team3Module } from './team3/team3.module';
     LokeshComponent,
     RudraComponent,
     DebaComponent,
+
+    ChinmayaComponent,
+    RajashreeComponent,
+    AkashComponent
 
     
   ],
