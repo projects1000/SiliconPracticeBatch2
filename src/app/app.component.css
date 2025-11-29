@@ -6,6 +6,13 @@
   margin-top: 30px;
   flex-wrap: wrap;
 }
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000; /* optional, matches dark theme */
+  overflow-x: hidden;
+}
+
 
 /* Individual Tabs */
 .tab-btn {
