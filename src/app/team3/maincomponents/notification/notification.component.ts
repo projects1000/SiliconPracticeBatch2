@@ -26,7 +26,8 @@ export class NotificationComponent implements OnInit {
       'success': '✅',
       'error': '❌',
       'warning': '⚠️',
-      'info': 'ℹ️'
+      'info': 'ℹ️',
+      'employee-delete': '🗑️' // Added employee-delete icon
     };
     return icons[type] || '💡';
   }

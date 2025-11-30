@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export interface Notification {
   id: number;
-  type: 'success' | 'error' | 'warning' | 'info';
+  type: 'success' | 'error' | 'warning' | 'info' | 'employee-delete';
   title: string;
   message: string;
   duration?: number;
@@ -59,5 +59,40 @@ export class NotificationService {
 
   info(message: string, title: string = 'Info') {
     this.show({ type: 'info', title, message });
+  }
+
+  // Employee Delete Notification
+  employeeDelete(employeeName: string, title: string = 'Employee Deleted') {
+    this.show({ 
+      type: 'employee-delete', 
+      title, 
+      message: `${employeeName} has been successfully removed from the system.`,
+      duration: 5000 // Longer duration for delete notifications
+    });
+  }
+
+  // Employee Action Notifications
+  employeeCreated(employeeName: string) {
+    this.show({
+      type: 'success',
+      title: 'Employee Created',
+      message: `${employeeName} has been successfully added to the system.`
+    });
+  }
+
+  employeeUpdated(employeeName: string) {
+    this.show({
+      type: 'success',
+      title: 'Employee Updated',
+      message: `${employeeName}'s details have been successfully updated.`
+    });
+  }
+
+  employeeDeleteError(employeeName: string) {
+    this.show({
+      type: 'error',
+      title: 'Delete Failed',
+      message: `Failed to delete ${employeeName}. Please try again.`
+    });
   }
 }

@@ -1,5 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { SharedService, User } from '../service/shared.service';
+
+export interface User {
+  username: string;
+  role: string;
+}
 
 @Component({
   selector: 'app-top-bar',
@@ -7,11 +11,16 @@ import { SharedService, User } from '../service/shared.service';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+
   @Input() currentUser: User | null = null;
   @Input() selectedMenu: string = '';
+  @Input() menuItems: any[] = [];     // <-- FIXED: ADDED
+  @Output() menuSelect = new EventEmitter<string>(); // <-- FIXED: ADDED
+
   @Output() logout = new EventEmitter<void>();
-  
+
   currentTime: string = '';
+  isMenuOpen: boolean = false;
 
   ngOnInit() {
     this.updateTime();
@@ -19,14 +28,27 @@ export class TopBarComponent implements OnInit {
   }
 
   updateTime() {
-    this.currentTime = new Date().toLocaleTimeString('en-US', { 
-      hour: '2-digit', 
+    this.currentTime = new Date().toLocaleTimeString('en-US', {
+      hour: '2-digit',
       minute: '2-digit',
-      hour12: true 
+      hour12: true
     });
   }
 
   onLogout() {
     this.logout.emit();
+    this.isMenuOpen = false;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+   onResize() {
+  if (window.innerWidth >= 769) {
+    this.isMenuOpen = false;
   }
 }
+
+}
+
+
