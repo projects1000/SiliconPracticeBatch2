@@ -248,48 +248,6 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator {
   background: #f0f9f4;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .employee-form-container {
-    padding: 1.5rem;
-    margin: 1rem;
-    border-radius: 8px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .form-actions {
-    flex-direction: column-reverse;
-  }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .employee-form-container h3 {
-    font-size: 1.3rem;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .employee-form-container {
-    padding: 1rem;
-  }
-
-  .form-control {
-    padding: 0.75rem;
-  }
-
-  .btn {
-    padding: 0.75rem 1.5rem;
-  }
-}
-
 /* Focus styles for accessibility */
 .form-control:focus-visible {
   outline: 2px solid #3498db;
@@ -394,4 +352,91 @@ button, input, select, textarea {
 /* Remove default focus for mouse users */
 *:focus:not(:focus-visible) {
   outline: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN ONLY
+   ============================================ */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .employee-form-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .employee-form-container h3 {
+    text-align: center;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .employee-form-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .form-control {
+    padding: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .employee-form-container {
+    padding: 0.75rem;
+  }
+
+  .employee-form-container h3 {
+    font-size: 1.3rem;
+  }
+
+  .form-control {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  select.form-control {
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Remove status indicators on mobile */
+@media (max-width: 480px) {
+  .form-group:has(.form-control.ng-valid.ng-touched)::after,
+  .form-group:has(.form-control.ng-invalid.ng-touched)::after {
+    display: none;
+  }
+}
+
+/* Landscape mode for small phones */
+@media (max-height: 500px) and (max-width: 768px) {
+  .employee-form-container {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 }

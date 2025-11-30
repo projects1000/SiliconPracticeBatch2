@@ -2,8 +2,7 @@
   <!-- Header Section -->
   <div class="header-section">
     <h1>Employee Management</h1>
-    
-   
+  </div>
 
   <!-- Controls Section -->
   <div class="controls">
@@ -26,6 +25,9 @@
         Add Employee
       </button>
       
+      <!-- Additional Admin Actions -->
+     
+      
       <!-- View Counter -->
       <div class="employee-count">
         {{filteredEmployees.length}} of {{employees.length}} employees
@@ -43,25 +45,24 @@
     </app-employee-form>
   </div>
 
-  <!-- Employee Table -->
-  <div class="table-container" *ngIf="!showEmployeeForm">
+  <!-- Desktop Table View -->
+  <div class="table-container" *ngIf="!showEmployeeForm && !isMobile">
     <table class="employee-table">
       <thead>
         <tr>
           <th>Name</th>
           <th>Age</th>
-          <th>Role</th>
           <th>Department</th>
+          <th>Role</th>
           <th>Email</th>
           <th>Salary</th>
-          <th>Actions</th>
+          <th *ngIf="isAdmin">Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr 
           *ngFor="let employee of filteredEmployees" 
           [ngClass]="getRowClass(employee)">
-          
           
           <td class="employee-name">
             <div class="name-wrapper">
@@ -70,35 +71,36 @@
               <span *ngIf="isMinor(employee.age)" class="minor-indicator">👶</span>
             </div>
           </td>
+          
           <td class="employee-age">{{employee.age}}</td>
-          <td class="employee-role">{{employee.role}}</td>
           <td class="employee-department">
             <span class="dept-badge">{{employee.department}}</span>
           </td>
+          <td class="employee-role">{{employee.role}}</td>
           <td class="employee-email">{{employee.email}}</td>
           <td class="employee-salary">
             {{employee.salary?.toLocaleString()}}
           </td>
           
-          
-          <td class="employee-actions">
-            <!-- Edit Button (Admin Only) -->
+          <td class="employee-actions" *ngIf="isAdmin">
+            <!-- Edit Button -->
             <button 
-              *ngIf="isAdmin"
               (click)="editEmployee(employee)"
               class="btn-action btn-edit"
               title="Edit Employee">
               ✏️
             </button>
             
-            <!-- Delete Button (Admin Only) -->
+            <!-- Delete Button -->
             <button 
-              *ngIf="isAdmin"
               (click)="deleteEmployee(employee)"
               class="btn-action btn-delete"
               title="Delete Employee">
               🗑️
             </button>
+
+            <!-- View Button (for all users) -->
+           
           </td>
         </tr>
       </tbody>
@@ -118,8 +120,50 @@
     </div>
   </div>
 
+  <!-- Mobile Card View -->
+  <div class="mobile-card-view" *ngIf="!showEmployeeForm && isMobile">
+    <div class="emp-card" 
+         *ngFor="let employee of filteredEmployees" 
+         [ngClass]="{'minor-row': isMinor(employee.age)}">
+      
+      <div class="emp-card-header">
+        <div class="emp-avatar"></div>
+        <div class="emp-name">
+          {{employee.name}}
+          <span *ngIf="isMinor(employee.age)" class="minor-badge">👶 Minor</span>
+        </div>
+      </div>
+
+      <div class="emp-card-body">
+        <p><strong>Age:</strong> {{employee.age}}</p>
+        <p><strong>Department:</strong> {{employee.department}}</p>
+        <p><strong>Role:</strong> {{employee.role}}</p>
+        <p><strong>Email:</strong> {{employee.email}}</p>
+        <p><strong>Salary:</strong> ${{employee.salary?.toLocaleString()}}</p>
+      </div>
+
+      <div class="emp-card-actions">
+        <button *ngIf="isAdmin" class="card-btn edit" (click)="editEmployee(employee)">✏️ Edit</button>
+        <button *ngIf="isAdmin" class="card-btn delete" (click)="deleteEmployee(employee)">🗑️ Delete</button>
+      </div>
+    </div>
+
+    <!-- Mobile Empty State -->
+    <div *ngIf="filteredEmployees.length === 0" class="empty-state">
+      <div class="empty-icon">📝</div>
+      <h3>No Employees Found</h3>
+      <p *ngIf="searchTerm">
+        No employees match your search for "{{searchTerm}}"
+      </p>
+      <p *ngIf="!searchTerm">
+        No employees available.
+        <span *ngIf="isAdmin">Tap "Add Employee" to get started.</span>
+      </p>
+    </div>
+  </div>
+
   <!-- Summary Section -->
-  <div class="summary" *ngIf="!showEmployeeForm">
+  <div class="summary" *ngIf="!showEmployeeForm && filteredEmployees.length > 0">
     <div class="summary-item">
       <strong>Total Employees:</strong> {{employees.length}}
     </div>
@@ -135,5 +179,21 @@
         {{isAdmin ? 'Full Administrator' : 'View Only'}}
       </span>
     </div>
+  </div>
+
+  <!-- File Import Section (Hidden but functional) -->
+  <div *ngIf="isAdmin" class="file-import-section" style="display: none;">
+    <input 
+      type="file" 
+      #fileInput
+      (change)="importEmployeeData($event)"
+      accept=".json"
+      style="display: none;">
+    <button 
+      (click)="fileInput.click()"
+      class="btn btn-info">
+      <span class="btn-icon">📥</span>
+      Import Data
+    </button>
   </div>
 </div>

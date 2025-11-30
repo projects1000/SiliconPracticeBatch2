@@ -25,15 +25,27 @@ export interface CustomerProfile {
   address: string;
 }
 
+export interface Notification {
+  id: number;
+  type: 'success' | 'error' | 'warning' | 'info' | 'employee-delete';
+  title: string;
+  message: string;
+  duration?: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
   private currentUser = new BehaviorSubject<User | null>(null);
   private selectedMenuItem = new BehaviorSubject<string>('');
+  private notifications = new BehaviorSubject<Notification[]>([]);
   
   currentUser$: Observable<User | null> = this.currentUser.asObservable();
   selectedMenuItem$: Observable<string> = this.selectedMenuItem.asObservable();
+  public notifications$ = this.notifications.asObservable();
+  
+  private currentId = 0;
 
   // Local Storage Keys
   private readonly EMPLOYEES_KEY = 'team3_employees_data';
@@ -310,6 +322,62 @@ export class SharedService {
     localStorage.setItem(this.CUSTOMERS_KEY, JSON.stringify(this.customerData));
   }
 
+  // ========== NOTIFICATION METHODS ==========
+
+  showNotification(notification: Omit<Notification, 'id'>) {
+    const newNotification: Notification = {
+      id: this.currentId++,
+      duration: 3000,
+      ...notification
+    };
+
+    const currentNotifications = this.notifications.value;
+    this.notifications.next([...currentNotifications, newNotification]);
+
+    // Auto remove after duration
+    if (newNotification.duration && newNotification.duration > 0) {
+      setTimeout(() => {
+        this.removeNotification(newNotification.id);
+      }, newNotification.duration);
+    }
+  }
+
+  removeNotification(id: number) {
+    const currentNotifications = this.notifications.value;
+    this.notifications.next(currentNotifications.filter(n => n.id !== id));
+  }
+
+  clearNotifications() {
+    this.notifications.next([]);
+  }
+
+  // Predefined notification methods
+  success(message: string, title: string = 'Success') {
+    this.showNotification({ type: 'success', title, message });
+  }
+
+  error(message: string, title: string = 'Error') {
+    this.showNotification({ type: 'error', title, message });
+  }
+
+  warning(message: string, title: string = 'Warning') {
+    this.showNotification({ type: 'warning', title, message });
+  }
+
+  info(message: string, title: string = 'Info') {
+    this.showNotification({ type: 'info', title, message });
+  }
+
+  // Employee Delete Notification - RED ALERT
+  employeeDelete(employeeName: string) {
+    this.showNotification({ 
+      type: 'employee-delete', 
+      title: 'EMPLOYEE DELETED', 
+      message: `${employeeName} has been permanently removed from the system.`,
+      duration: 5000 // Longer duration for important notifications
+    });
+  }
+
   // ========== CRUD OPERATIONS WITH LOCALSTORAGE ==========
 
   addEmployee(employeeData: Omit<Employee, 'id'>): Employee {
@@ -320,14 +388,23 @@ export class SharedService {
     };
     this.employees.push(newEmployee);
     this.saveEmployeesToStorage(); // Save to localStorage
+    
+    // Show success notification
+    this.success(`${employeeData.name} has been added successfully`, 'Employee Added');
+    
     return newEmployee;
   }
 
   updateEmployee(id: number, updatedEmployee: Partial<Employee>): Employee | null {
     const index = this.employees.findIndex(emp => emp.id === id);
     if (index !== -1) {
+      const oldName = this.employees[index].name;
       this.employees[index] = { ...this.employees[index], ...updatedEmployee };
       this.saveEmployeesToStorage(); // Save to localStorage
+      
+      // Show success notification
+      this.success(`${oldName}'s details have been updated`, 'Employee Updated');
+      
       return this.employees[index];
     }
     return null;
@@ -336,9 +413,14 @@ export class SharedService {
   deleteEmployee(id: number): boolean {
     const index = this.employees.findIndex(emp => emp.id === id);
     if (index !== -1) {
+      const employeeName = this.employees[index].name;
       this.employees.splice(index, 1);
       this.reassignSerialIds(); // Reassign IDs after deletion
       this.saveEmployeesToStorage();
+      
+      // Show red alert notification
+      this.employeeDelete(employeeName);
+      
       return true;
     }
     return false;
@@ -389,6 +471,9 @@ export class SharedService {
     // Save defaults to localStorage
     this.saveEmployeesToStorage();
     this.saveCustomersToStorage();
+    
+    // Show notification
+    this.info('Data has been reset to default values', 'Data Reset');
   }
 
   importEmployeesData(importedData: Employee[]): boolean {
@@ -409,14 +494,21 @@ export class SharedService {
 
       this.employees = importedData;
       this.saveEmployeesToStorage();
+      
+      // Show success notification
+      this.success(`${importedData.length} employees imported successfully`, 'Data Imported');
+      
       return true;
     } catch (error) {
       console.error('Data import failed:', error);
+      this.error('Failed to import employee data', 'Import Failed');
       return false;
     }
   }
 
   exportEmployeesData(): Employee[] {
+    // Show notification
+    this.info('Employee data exported successfully', 'Data Exported');
     return [...this.employees];
   }
 
@@ -514,5 +606,6 @@ export class SharedService {
   logout() {
     this.currentUser.next(null);
     this.selectedMenuItem.next('');
+    this.clearNotifications();
   }
 }

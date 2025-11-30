@@ -375,3 +375,139 @@
     border: 1px solid #000;
   }
 }
+
+/* ============================
+   EXTRA MOBILE RESPONSIVE FIXES
+   ============================ */
+
+/* Medium Screens (<= 1024px) */
+@media (max-width: 1024px) {
+
+  .admin-dashboard {
+    padding: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .stat-number {
+    font-size: 2.3rem;
+  }
+
+  .action-buttons {
+    gap: 0.75rem;
+  }
+
+  .action-btn {
+    padding: 0.9rem 1.5rem;
+  }
+}
+
+/* Tablets & Small Devices (<= 768px) */
+@media (max-width: 768px) {
+
+  .admin-dashboard {
+    padding: 1rem;
+  }
+
+  .admin-dashboard h1 {
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Stack statistics one per row */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  /* Quick Actions */
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .action-btn {
+    width: 100%;
+    min-width: unset;
+    text-align: center;
+  }
+
+  /* Recent Data scaling */
+  .recent-data {
+    padding: 1.5rem;
+  }
+
+  .data-preview {
+    font-size: 1rem;
+    padding: 1.25rem;
+  }
+}
+
+/* Small Mobile Screens (<= 480px) */
+@media (max-width: 480px) {
+
+  .admin-dashboard h1 {
+    font-size: 1.7rem;
+  }
+
+  .stat-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-card {
+    padding: 1.2rem;
+  }
+
+  .action-btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .quick-actions h2,
+  .recent-data h2 {
+    font-size: 1.3rem;
+  }
+
+  .data-preview {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+}
+
+/* Ultra-Small Phones (<= 360px) */
+@media (max-width: 360px) {
+
+  .admin-dashboard h1 {
+    font-size: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .action-btn {
+    font-size: 0.85rem;
+  }
+
+  .data-preview {
+    font-size: 0.9rem;
+  }
+}

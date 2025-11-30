@@ -17,6 +17,7 @@ export class EmployeeManagementComponent implements OnInit {
   isEditMode = false;
   currentUser: any;
   isAdmin: boolean = false;
+  isMobile = false;
 
   constructor(
     private sharedService: SharedService,
@@ -26,6 +27,7 @@ export class EmployeeManagementComponent implements OnInit {
   ngOnInit() {
     this.loadEmployees();
     this.checkUserRole();
+    this.checkDevice();
   }
 
   checkUserRole() {
@@ -38,6 +40,14 @@ export class EmployeeManagementComponent implements OnInit {
         'Limited Access'
       );
     }
+  }
+
+  checkDevice() {
+    this.isMobile = window.innerWidth <= 768;
+
+    window.addEventListener('resize', () => {
+      this.isMobile = window.innerWidth <= 768;
+    });
   }
 
   loadEmployees() {
@@ -80,7 +90,7 @@ export class EmployeeManagementComponent implements OnInit {
     this.showEmployeeForm = true;
   }
 
-  // ✅ Delete employee - Admin only
+  // ✅ Delete employee - Admin only (WITH RED ALERT NOTIFICATION)
   deleteEmployee(employee: Employee) {
     if (!this.isAdmin) {
       this.notificationService.error(
@@ -94,10 +104,10 @@ export class EmployeeManagementComponent implements OnInit {
       const success = this.sharedService.deleteEmployee(employee.id);
       if (success) {
         this.loadEmployees();
-        this.notificationService.success(
-          `${employee.name} has been deleted successfully`,
-          'Employee Deleted'
-        );
+        
+        // ✅ Show RED ALERT notification for employee deletion
+        this.notificationService.employeeDelete(employee.name);
+        
       } else {
         this.notificationService.error(
           'Failed to delete employee',
@@ -111,6 +121,19 @@ export class EmployeeManagementComponent implements OnInit {
   onEmployeeSaved(employee: Employee) {
     this.showEmployeeForm = false;
     this.loadEmployees();
+    
+    // Show success notification based on mode
+    if (this.isEditMode) {
+      this.notificationService.success(
+        `${employee.name} has been updated successfully`,
+        'Employee Updated'
+      );
+    } else {
+      this.notificationService.success(
+        `${employee.name} has been added successfully`,
+        'Employee Added'
+      );
+    }
   }
 
   // ✅ Handle form cancel
@@ -150,7 +173,7 @@ export class EmployeeManagementComponent implements OnInit {
       emp.email.toLowerCase().includes(term)
     );
 
-    if (this.filteredEmployees.length === 0) {
+    if (this.filteredEmployees.length === 0 && this.searchTerm.length > 0) {
       this.notificationService.warning(
         `No employees found for "${this.searchTerm}"`,
         'No Results'
@@ -175,9 +198,57 @@ export class EmployeeManagementComponent implements OnInit {
       return;
     }
 
+    const exportedData = this.sharedService.exportEmployeesData();
     this.notificationService.success(
-      `Employee data exported successfully (${this.employees.length} records)`,
+      `Employee data exported successfully (${exportedData.length} records)`,
       'Export Complete'
     );
+  }
+
+  // Import data (Admin only)
+  importEmployeeData(event: any) {
+    if (!this.isAdmin) {
+      this.notificationService.error(
+        'Only administrators can import employee data',
+        'Access Denied'
+      );
+      return;
+    }
+
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        try {
+          const importedData = JSON.parse(e.target.result);
+          const success = this.sharedService.importEmployeesData(importedData);
+          if (success) {
+            this.loadEmployees();
+          }
+        } catch (error) {
+          this.notificationService.error(
+            'Invalid file format. Please upload a valid JSON file.',
+            'Import Failed'
+          );
+        }
+      };
+      reader.readAsText(file);
+    }
+  }
+
+  // Reset to default data (Admin only)
+  resetToDefaultData() {
+    if (!this.isAdmin) {
+      this.notificationService.error(
+        'Only administrators can reset data',
+        'Access Denied'
+      );
+      return;
+    }
+
+    if (confirm('Are you sure you want to reset all employee data to default? This action cannot be undone.')) {
+      this.sharedService.resetToDefaultData();
+      this.loadEmployees();
+    }
   }
 }

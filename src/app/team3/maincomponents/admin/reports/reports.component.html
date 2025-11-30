@@ -1,23 +1,26 @@
 <div class="reports-container">
+
   <div class="reports-header">
     <h1>Financial Reports</h1>
+
     <div class="filters">
-      <select #deptSelect (change)="selectedDepartment = deptSelect.value" class="filter-select">
+      <select class="filter-select" (change)="onDepartmentChange($event)">
         <option value="all">All Departments</option>
-        <option *ngFor="let dept of financialData.departments" [value]="dept.name">
-          {{dept.name}} Department
+
+        <option *ngFor="let dept of departments" [value]="dept">
+          {{ dept }} Department
         </option>
       </select>
     </div>
   </div>
 
-  <!-- Rest of the template remains the same -->
   <div class="summary-cards">
+
     <div class="card revenue-card">
       <div class="card-icon">💰</div>
       <div class="card-content">
         <h3>Total Revenue</h3>
-        <div class="amount">${{financialData.totalRevenue.toLocaleString()}}</div>
+        <div class="amount">{{financialData.totalRevenue | number}}</div>
       </div>
     </div>
 
@@ -25,7 +28,7 @@
       <div class="card-icon">💸</div>
       <div class="card-content">
         <h3>Total Salary</h3>
-        <div class="amount">${{financialData.totalSalary.toLocaleString()}}</div>
+        <div class="amount">{{financialData.totalSalary | number}}</div>
       </div>
     </div>
 
@@ -33,11 +36,11 @@
       <div class="card-icon">📊</div>
       <div class="card-content">
         <h3>Net Profit</h3>
-        <div class="amount">${{financialData.netProfit.toLocaleString()}}</div>
+        <div class="amount">{{financialData.netProfit | number}}</div>
         <div class="profit-margin">Margin: {{financialData.profitMargin}}%</div>
       </div>
     </div>
+
   </div>
 
-  <!-- Rest of the template... -->
 </div>

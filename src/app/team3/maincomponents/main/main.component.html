@@ -1,33 +1,37 @@
 <div class="main-layout">
-  <!-- Top Bar Component -->
+
+  <!-- TOP BAR -->
   <app-top-bar
     [currentUser]="currentUser"
     [selectedMenu]="selectedMenu"
+    [menuItems]="menuItems"
+    (menuSelect)="onMenuItemSelectByTop($event)"
     (logout)="logout()">
   </app-top-bar>
 
   <div class="content-wrapper">
-    <!-- Left Panel -->
-    <div class="left-panel">
-      <div 
-        *ngFor="let item of menuItems" 
-        class="nav-item"
-        [class.active]="selectedMenu === item.label"
-        (click)="onMenuItemSelect(item)">
-        <span class="nav-icon">
-          {{ getIconForLabel(item.label) }}
-        </span>
-        <span class="nav-label">{{ item.label }}</span>
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel" [class.open]="isSideMenuOpen">
+
+      <div *ngFor="let item of menuItems"
+           class="nav-item"
+           [class.active]="selectedMenu === item.label"
+           (click)="onMenuItemSelect(item)">
+
+        {{ item.label }}
+
       </div>
+
     </div>
 
-    <!-- Main Content -->
+    <!-- MAIN CONTENT -->
     <div class="main-content">
       <router-outlet></router-outlet>
     </div>
+
   </div>
 
-  <!-- Notification stays here, outside top-bar -->
   <app-notification></app-notification>
-  
+
 </div>
