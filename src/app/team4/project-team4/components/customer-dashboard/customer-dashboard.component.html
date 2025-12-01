@@ -1,0 +1,43 @@
+<section class="dash">
+  <header class="dash-header">
+    <div>
+      <h2 class="dash-title">Customer Dashboard</h2>
+      <p class="dash-subtitle">
+        Welcome! Here is a simple summary of customer accounts.
+      </p>
+    </div>
+    <div class="dash-badge customer">Customer</div>
+  </header>
+
+  <article class="dash-card">
+    <div class="card-header">
+      <span class="card-title">Customer overview</span>
+      <span class="card-caption">
+        Static data for assignment demonstration
+      </span>
+    </div>
+
+    <div class="customer-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Plan</th>
+            <th class="text-right">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of customers">
+            <td>{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.plan }}</td>
+            <td class="text-right">
+              ₹{{ c.balance | number: '1.0-0' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>

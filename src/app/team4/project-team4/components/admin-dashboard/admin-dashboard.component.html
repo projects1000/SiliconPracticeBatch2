@@ -1,0 +1,75 @@
+<section class="admin-page">
+  <!-- Header -->
+  <header class="admin-header">
+    <div>
+      <h2 class="admin-title">Admin Dashboard</h2>
+      <p class="admin-subtitle">
+        Quick overview of employees and customers.
+      </p>
+    </div>
+
+    <div class="admin-badge">
+      <span class="dot"></span>
+      Admin Panel
+    </div>
+  </header>
+
+  <!-- Cards -->
+  <div class="stats-grid">
+    <!-- Total Employees -->
+    <article class="stat-card card-blue">
+      <div class="stat-top">
+        <div class="stat-icon">
+          👥
+        </div>
+        <span class="stat-label">Total Employees</span>
+      </div>
+      <div class="stat-bottom">
+        <span class="stat-value">{{ totalEmployees }}</span>
+        <span class="stat-note">Active in all departments</span>
+      </div>
+    </article>
+
+    <!-- Total Customers -->
+    <!-- <article class="stat-card card-teal">
+      <div class="stat-top">
+        <div class="stat-icon">
+          🧑‍💼
+        </div>
+        <span class="stat-label">Total Customers</span>
+      </div>
+      <div class="stat-bottom">
+        <span class="stat-value teal">{{ totalCustomers }}</span>
+        <span class="stat-note">Currently onboarded</span>
+      </div>
+    </article> -->
+
+    <!-- Minor Employees -->
+    <article class="stat-card card-orange">
+      <div class="stat-top">
+        <div class="stat-icon">
+          🧒
+        </div>
+        <span class="stat-label">Minor Employees</span>
+      </div>
+      <div class="stat-bottom">
+        <span class="stat-value orange">{{ minorEmployees }}</span>
+        <span class="stat-note">Require special policy</span>
+      </div>
+    </article>
+
+    <!-- Adult Employees -->
+    <article class="stat-card card-indigo">
+      <div class="stat-top">
+        <div class="stat-icon">
+          🧑‍💻
+        </div>
+        <span class="stat-label">Adult Employees</span>
+      </div>
+      <div class="stat-bottom">
+        <span class="stat-value">{{ adultEmployees }}</span>
+        <span class="stat-note">Standard contracts</span>
+      </div>
+    </article>
+  </div>
+</section>

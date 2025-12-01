@@ -1,0 +1,44 @@
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="breadcrumb-pill">
+      <span class="crumb-label">Selected</span>
+      <span class="crumb-value">
+        {{ currentMenu || 'Dashboard' }}
+      </span>
+    </div>
+
+    <span class="role-chip" *ngIf="role">
+      <span class="dot"></span>
+      {{ role }} mode
+    </span>
+  </div>
+
+  <!-- <nav class="topbar-nav">
+    <button class="top-btn">Overview</button>
+    <button class="top-btn">Activity</button>
+    <button class="top-btn">Settings</button>
+  </nav> -->
+
+  <div class="topbar-right">
+    <!-- USERNAME + AVATAR -->
+    <div class="user-pill" *ngIf="username">
+      <div class="avatar">
+        {{ username[0] | uppercase }}
+      </div>
+      <div class="user-meta">
+        <span class="user-name">{{ username }}</span>
+        <span class="user-role" *ngIf="role">{{ role }}</span>
+      </div>
+    </div>
+
+    <!-- <button class="icon-btn" aria-label="Help">
+      ?
+    </button>
+    <button class="icon-btn" aria-label="Profile">
+      ⚙
+    </button> -->
+    <button class="btn-logout" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</header>
