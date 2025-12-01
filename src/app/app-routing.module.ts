@@ -10,6 +10,7 @@ import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team3Component } from './team3/team3.component';
 import { Team4Component } from './team4/team4.component';
+import { Team5Component } from './team5/team5.component';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 
@@ -32,9 +33,10 @@ import { RudraComponent } from './team4/rudra/rudra.component';
 import { DebaComponent } from './team4/deba/deba.component';
 
 // TEAM 5 MEMBERS 
-import { Team5Component } from './team5/team5.component'; 
+
 import { TruptiComponent } from './team5/trupti/trupti.component';
 import { RitishComponent } from './team5/ritish/ritish.component';
+
 
 const routes: Routes = [
   {
@@ -91,16 +93,21 @@ const routes: Routes = [
       },
 
 
-      // TEAM 5 MEMBERS
+      // TEAM 5
       {
         path: 'team5',
-        component: Team5Component,     // ⬅️ parent
+        component: Team5Component,
         children: [
           { path: 'trupti', component: TruptiComponent },
-          { path: 'ritish', component: RitishComponent },   // ⬅️ child
-          { path: '', redirectTo: 'trupti', pathMatch: 'full' }
+          { path: 'ritish', component: RitishComponent },
+
+          // Default page → trupti
+          { path: '', redirectTo: 'trupti', pathMatch: 'full' },
+
+          
         ]
       },
+
 
       { path: '', redirectTo: 'team1', pathMatch: 'full' }
     ]

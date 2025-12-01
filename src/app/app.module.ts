@@ -15,6 +15,8 @@ import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team3Component } from './team3/team3.component';
 import { Team4Component } from './team4/team4.component';
+import { Team5Component } from './team5/team5.component';
+
 
 
 // team 3 members components
@@ -32,9 +34,11 @@ import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
 import { PrathanaComponent } from './team1/prathana/prathana.component';
+// Team 5 Members & Pages
 import { TruptiComponent } from './team5/trupti/trupti.component';
-import { Team5Component } from './team5/team5.component';
-import { RitishComponent } from './team5/ritish/ritish.component';   
+import { RitishComponent } from './team5/ritish/ritish.component';
+
+
 
 
 @NgModule({
@@ -51,6 +55,7 @@ import { RitishComponent } from './team5/ritish/ritish.component';
     Team2Component,
     Team3Component,
     Team4Component,
+    Team5Component,
 
   
  // team 3 members components
@@ -71,15 +76,17 @@ import { RitishComponent } from './team5/ritish/ritish.component';
     PrathanaComponent,
 
     ChinmayaComponent,
-      TruptiComponent,
-      Team5Component,
-      RitishComponent
+    // Team5 members & pages
+    TruptiComponent,
+    RitishComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule   
+    FormsModule,
+      
 
   ],
   providers: [],

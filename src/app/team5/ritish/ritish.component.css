@@ -1,102 +1,122 @@
-/* Background */
-.profile-wrapper {
+/* --------------------------
+   Wrapper
+-------------------------- */
+.timeline-profile {
   min-height: 100vh;
-  padding: 40px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-
-  background: radial-gradient(circle at top left, #1e1b4b, #0a0a0a);
-  color: white;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
 }
 
-/* Card */
-.profile-card {
-  width: 380px;
-  padding: 30px;
-  border-radius: 18px;
-
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 25px rgba(0, 255, 200, 0.25);
-
+/* --------------------------
+   Profile Header
+-------------------------- */
+.profile-header {
   text-align: center;
+  margin-bottom: 50px;
 }
 
-/* Profile Photo */
-.photo-box {
-  height: 110px;
-  width: 110px;
+.profile-header .photo {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #03e9f4, #3b82f6);
-  color: black;
-  font-size: 42px;
-  font-weight: bold;
-
+  background: #a37eff;
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  box-shadow: 0 0 20px rgba(3, 233, 244, 0.8);
-  margin: 0 auto 18px;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 auto 15px;
+  box-shadow: 0 5px 15px rgba(255,255,255,0.2);
 }
 
-/* Name & Role */
-.name {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 6px;
+.profile-header h2 {
+  margin: 0;
+  font-size: 24px;
 }
 
-.role {
-  font-size: 15px;
-  color: #a0a0a0;
-}
-
-/* Divider */
-.divider {
-  margin: 18px 0;
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-/* Sections */
-.section-card {
-  padding: 14px;
-  margin-bottom: 22px;
-
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-
-  border-left: 3px solid #00f7ff;
-}
-
-.section-title {
-  margin-bottom: 6px;
-  font-size: 18px;
-  color: #00f7ff;
-}
-
-.text {
+.profile-header p {
   font-size: 14px;
-  color: #dcdcdc;
+  opacity: 0.8;
+  margin-top: 4px;
 }
 
-/* Skills */
-.skills {
+/* --------------------------
+   Timeline Container
+-------------------------- */
+.timeline {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  padding-left: 20px;
+  border-left: 3px solid #a37eff;
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -12px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #a37eff;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(128, 126, 255, 0.6);
+}
+
+/* Timeline Content */
+.timeline-content {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.timeline-content h3 {
+  color: #a37eff;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Skills Tags */
+.skill-tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
 }
 
-.badge {
-  padding: 6px 14px;
-  background: #00f7ff;
-  color: black;
-  font-weight: 600;
-  border-radius: 20px;
+.skill-tags span {
+  background: #a37eff;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
 
-  box-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
+/* --------------------------
+   Responsive
+-------------------------- */
+@media(max-width: 600px){
+  .timeline {
+    padding-left: 15px;
+  }
+
+  .timeline-dot {
+    left: -10px;
+  }
 }
