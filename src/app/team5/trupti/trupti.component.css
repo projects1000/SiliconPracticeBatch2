@@ -1,122 +1,142 @@
-/* --------------------------
-   Wrapper
--------------------------- */
-.timeline-profile {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+/* ====== RESUME CONTAINER ====== */
+.resume-container {
+  display: flex;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ====== LEFT PANEL ====== */
+.left-section {
+  background: #1e293b;
+  color: #fff;
+  width: 280px;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
 }
 
-/* --------------------------
-   Profile Header
--------------------------- */
-.profile-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.profile-header .photo {
-  width: 100px;
-  height: 100px;
+.left-section .profile-pic img {
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  background: #ff7eb3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 42px;
+  border: 4px solid #818cf8;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.left-section .name {
+  font-size: 1.5rem;
   font-weight: 700;
-  margin: 0 auto 15px;
-  box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+  margin-bottom: 0.25rem;
+  text-align: center;
 }
 
-.profile-header h2 {
-  margin: 0;
-  font-size: 24px;
+.left-section .role {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #cbd5e1;
 }
 
-.profile-header p {
-  font-size: 14px;
-  opacity: 0.8;
-  margin-top: 4px;
-}
-
-/* --------------------------
-   Timeline Container
--------------------------- */
-.timeline {
-  position: relative;
-  max-width: 600px;
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #818cf8;
   width: 100%;
-  padding-left: 20px;
-  border-left: 3px solid #ff7eb3;
+  padding-bottom: 0.25rem;
 }
 
-/* Timeline Item */
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
+.left-section p {
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+  color: #e2e8f0;
 }
 
-.timeline-dot {
-  position: absolute;
-  left: -12px;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  background: #ff7eb3;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0 0 10px rgba(255, 126, 179, 0.6);
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0;
 }
 
-/* Timeline Content */
-.timeline-content {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+.skill-list li {
+  background: #3b82f6;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 4px 0;
+  text-align: center;
 }
 
-.timeline-content h3 {
-  color: #ff7eb3;
-  margin-bottom: 10px;
+/* ====== RIGHT PANEL ====== */
+.right-section {
+  flex: 1;
+  padding: 2rem;
+  background: #fff;
+  color: #1e293b; /* Add this line to make text dark */
 }
 
-.timeline-content p {
-  font-size: 14px;
-  line-height: 1.6;
+.right-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: #1e293b; /* ensure headers are dark */
+  border-bottom: 2px solid #818cf8;
+  padding-bottom: 0.25rem;
 }
 
-/* Skills Tags */
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.exp-card, .edu-card {
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  color: #1e293b; /* ensure text inside cards is dark */
 }
 
-.skill-tags span {
-  background: #ff7eb3;
-  padding: 5px 12px;
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: 500;
+.exp-card p, .edu-card p {
+  color: #475569; /* slightly lighter for paragraphs */
 }
 
-/* --------------------------
-   Responsive
--------------------------- */
-@media(max-width: 600px){
-  .timeline {
-    padding-left: 15px;
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .resume-container {
+    flex-direction: column;
   }
 
-  .timeline-dot {
-    left: -10px;
+  .left-section {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .right-section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .left-section .profile-pic img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .left-section .name {
+    font-size: 1.25rem;
+  }
+
+  .right-section h2 {
+    font-size: 1.2rem;
   }
 }
