@@ -1,0 +1,37 @@
+<div class="main-layout">
+
+  <!-- TOP BAR -->
+  <app-top-bar
+    [currentUser]="currentUser"
+    [selectedMenu]="selectedMenu"
+    [menuItems]="menuItems"
+    (menuSelect)="onMenuItemSelectByTop($event)"
+    (logout)="logout()">
+  </app-top-bar>
+
+  <div class="content-wrapper">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel" [class.open]="isSideMenuOpen">
+
+      <div *ngFor="let item of menuItems"
+           class="nav-item"
+           [class.active]="selectedMenu === item.label"
+           (click)="onMenuItemSelect(item)">
+
+        {{ item.label }}
+
+      </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+  <app-notification></app-notification>
+
+</div>

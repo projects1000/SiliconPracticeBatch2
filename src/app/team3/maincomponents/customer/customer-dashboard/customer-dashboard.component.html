@@ -1,0 +1,80 @@
+<div class="customer-dashboard">
+  <!-- Header Section -->
+  <div class="dashboard-header">
+    <h1>Customer Dashboard</h1>
+   
+  </div>
+
+  <!-- Profile Overview -->
+  <div class="profile-section">
+    <div class="profile-header">
+      <h2>My Profile</h2>
+      <span class="profile-badge">{{customerProfile.status}}</span>
+    </div>
+    
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <div class="avatar-circle">
+          {{customerProfile.name.charAt(0) || 'U'}}
+        </div>
+      </div>
+      
+      <div class="profile-info">
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Customer ID:</label>
+            <span class="info-value">{{customerProfile.id}}</span>
+          </div>
+          <div class="info-item">
+            <label>Full Name:</label>
+            <span class="info-value">{{customerProfile.name}}</span>
+          </div>
+          <div class="info-item">
+            <label>Email:</label>
+            <span class="info-value">{{customerProfile.email}}</span>
+          </div>
+          <div class="info-item">
+            <label>Phone:</label>
+            <span class="info-value">{{customerProfile.phone}}</span>
+          </div>
+          <div class="info-item">
+            <label>Member Since:</label>
+            <span class="info-value">{{customerProfile.joinDate}}</span>
+          </div>
+          <div class="info-item">
+            <label>Loyalty Points:</label>
+            <span class="info-value points">{{customerProfile.loyaltyPoints}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Stats -->
+  <div class="stats-section">
+    <h2>Account Overview</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-content">
+          <div class="stat-number">{{customerProfile.totalOrders}}</div>
+          <div class="stat-label">Total Orders</div>
+        </div>
+      </div>
+      
+     
+      
+      <div class="stat-card">
+        <div class="stat-icon">🛡️</div>
+        <div class="stat-content">
+          <div class="stat-number">{{customerProfile.status}}</div>
+          <div class="stat-label">Account Status</div>
+        </div>
+      </div>
+      
+      
+    </div>
+  
+
+  </div>
+</div>

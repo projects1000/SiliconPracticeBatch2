@@ -1,38 +1,162 @@
-<div class="container">
-  <!-- LEFT SIDEBAR MENU -->
-  <nav class="sidebar">
+<div class="scm-page">
 
-    <!-- TEAM 1 -->
-    <a class="team1-main" (click)="toggleTeam('team1')" [class.active]="activeTeam === 'team1'">
+  <!-- ================= HEADER ================= -->
+  <header class="scm-header">
+
+    <!-- Brand (Home button) -->
+    <button class="brand brand-btn" (click)="goHome()">
+      <div class="logo">
+        <div class="monogram">
+          <span>SP</span><span>B2</span>
+        </div>
+      </div>
+      <div class="brand-text">
+        <div class="title">
+          Silicon <span class="accent">Practice Batch 2</span>
+        </div>
+        <div class="subtitle">Teams • Projects • Practice Work</div>
+      </div>
+    </button>
+
+    <!-- ================= TEAM NAV ================= -->
+    <nav class="team-nav">
+
+  <!-- TEAM 1 -->
+  <div class="nav-item"
+       (mouseenter)="openTeam('team1')"
+       [class.open]="activeTeam === 'team1'">
+
+    <button class="nav-btn"
+            (click)="toggleTeam('team1')"
+            [class.active]="activeTeam === 'team1'">
       Team 1 (Arya)
-    </a>
+    </button>
 
-    <ul class="team1-submenu" *ngIf="activeTeam === 'team1'">
-      <li><a routerLink="/team1/arya" routerLinkActive="active">Arya</a></li>
-      <li><a routerLink="/team1/subhra" routerLinkActive="active">Subhra</a></li>
-      <li><a routerLink="/team1/jigyansa" routerLinkActive="active">Jigyansa</a></li>
-      <li><a routerLink="/team1/prathana" routerLinkActive="active">Prathana</a></li>
+    <ul class="dropdown-menu"
+        *ngIf="activeTeam === 'team1'"
+        (mouseleave)="closeTeam()">
+      <li><a routerLink="/team1/arya">Arya</a></li>
+      <li><a routerLink="/team1/subhra">Subhra</a></li>
+      <li><a routerLink="/team1/jigyansa">Jigyansa</a></li>
+      <li><a routerLink="/team1/prathana">Prathana</a></li>
     </ul>
+  </div>
 
-    <!-- TEAM 2 -->
-    <a routerLink="/team2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+  <!-- TEAM 2 -->
+  <div class="nav-item"
+       (mouseenter)="openTeam('team2')"
+       [class.open]="activeTeam === 'team2'">
+
+    <button class="nav-btn"
+            (click)="toggleTeam('team2')"
+            [class.active]="activeTeam === 'team2'">
       Team 2 (Pradyumna)
-    </a>
+    </button>
 
-    <!-- TEAM 2 DROPDOWN -->
-    <div class="team2-dropdown" *ngIf="isTeam2Active">
-      <label>Select Member:</label>
-      <select (change)="openMember($event)">
-        <option value="">Select</option>
-        <option value="pradyumna">Pradyumna</option>
-        <option value="bhowmick">Bhowmick</option>
-        <option value="ompriya">Ompriya</option>
-        <option value="debesee">Debesee</option>
-        <option value="bhagyashree">Bhagyashree</option>
-        <option value="chinmaya">Chinmaya</option>
-      </select>
+    <ul class="dropdown-menu"
+        *ngIf="activeTeam === 'team2'"
+        (mouseleave)="closeTeam()">
+      <li><a routerLink="/team2/pradyumna">Pradyumna</a></li>
+      <li><a routerLink="/team2/bhowmick">Bhowmick</a></li>
+      <li><a routerLink="/team2/ompriya">Ompriya</a></li>
+      <li><a routerLink="/team2/debesee">Debesee</a></li>
+      <li><a routerLink="/team2/bhagyashree">Bhagyashree</a></li>
+      <li><a routerLink="/team2/chinmaya">Chinmaya</a></li>
+    </ul>
+  </div>
+
+  <!-- TEAM 3 -->
+  <div class="nav-item"
+       (mouseenter)="openTeam('team3')"
+       [class.open]="activeTeam === 'team3'">
+
+    <button class="nav-btn team3-main"
+            (click)="toggleTeam('team3')"
+            [class.active]="activeTeam === 'team3'">
+      Team 3 (Narayan)
+    </button>
+
+    <ul class="dropdown-menu team3-submenu"
+        *ngIf="activeTeam === 'team3'"
+        (mouseleave)="closeTeam()">
+      <li><a routerLink="/team3/project/login">Project</a></li>
+      <li><a routerLink="/team3/subham">Subham</a></li>
+      <li><a routerLink="/team3/ashutosh">Ashutosh</a></li>
+      <li><a routerLink="/team3/narayan">Narayan</a></li>
+    </ul>
+  </div>
+
+  <!-- TEAM 4 -->
+  <div class="nav-item"
+       (mouseenter)="openTeam('team4')"
+       [class.open]="activeTeam === 'team4'">
+
+    <button class="nav-btn"
+            (click)="toggleTeam('team4')"
+            [class.active]="activeTeam === 'team4'">
+      Team 4 (Tanish)
+    </button>
+
+    <ul class="dropdown-menu"
+        *ngIf="activeTeam === 'team4'"
+        (mouseleave)="closeTeam()">
+      <li><a routerLink="/team4/tanish">Tanish</a></li>
+      <li><a routerLink="/team4/lokesh">Lokesh</a></li>
+      <li><a routerLink="/team4/rudra">Rudra</a></li>
+      <li><a routerLink="/team4/deba">Debapriya</a></li>
+      <li><a routerLink="/team4/project-team4">Project</a></li>
+    </ul>
+  </div>
+
+  <!-- TEAM 6 -->
+  <div class="nav-item"
+       (mouseenter)="openTeam('team6')"
+       [class.open]="activeTeam === 'team6'">
+
+    <button class="nav-btn"
+            (click)="toggleTeam('team6')"
+            [class.active]="activeTeam === 'team6'">
+      Team 6 (Akash)
+    </button>
+
+    <ul class="dropdown-menu"
+        *ngIf="activeTeam === 'team6'"
+        (mouseleave)="closeTeam()">
+      <li><a routerLink="/team6/akash">Akash</a></li>
+      <li><a routerLink="/team6/rajashree">Rajashree</a></li>
+    </ul>
+  </div>
+
+</nav>
+
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="eyebrow">Internal Learning Portal</p>
+
+      <h1>
+        Welcome to
+        <span class="highlight">Silicon Practice Batch 2</span>
+      </h1>
+
+      <p class="lead">
+        A curated space for practice projects, daily tasks and collaborative learning.
+        Jump into any team, explore member profiles, and review deployed mini-projects.
+      </p>
+
+      <div class="hero-ctas">
+        <button class="btn primary" (click)="exploreMentor()">Explore Mentor</button>
+      </div>
+
+      <div class="hero-meta">
+        <span>Angular • Java • Spring Boot</span>
+        <span>Guided by RISE Java</span>
+      </div>
     </div>
 
+<<<<<<< HEAD
     <!-- TEAM 3 -->
     <a class="team3-main" (click)="toggleTeam('team3')" [class.active]="activeTeam === 'team3'">
       Team 3 (Narayan)
@@ -72,5 +196,160 @@
   <!-- RIGHT CONTENT -->
   <section class="content">
     <router-outlet></router-outlet>
+=======
+    <div class="hero-right">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Teams</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Students</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Practice Hours</div>
+        </div>
+      </div>
+    </div>
+>>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
   </section>
+
+  <!-- ================= FEATURE ROW ================= -->
+  <section class="feature-row">
+    <div class="feature-card">
+      <h3>Team Boards</h3>
+      <p>Quickly switch between teams and review member-specific assignments and progress.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Project Gallery</h3>
+      <p>Access team capstone projects, individual modules, and experimental builds.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Practice First</h3>
+      <p>Every card and route here points to real code written during the practice sessions.</p>
+    </div>
+  </section>
+
+  <!-- ================= MAIN ROUTED PANEL ================= -->
+  <main class="main-shell">
+    <section class="route-panel">
+      <div class="route-panel-header">
+        <h2>Team / Project View</h2>
+        <p>Select a team from the top navigation to load its workspace here.</p>
+      </div>
+
+      <div class="route-panel-body">
+
+        <!-- MENTOR PROFILE -->
+        <div *ngIf="showMentor" class="mentor-wrapper">
+          <div class="profile-card">
+
+            <div class="profile-header">
+              <div class="photo-wrapper">
+                <img class="profile-photo"
+                     src="https://ui-avatars.com/api/?name=Priyabrata+Pattanaik&background=1e293b&color=fff&bold=true&size=200"
+                     alt="Priyabrata Pattanaik">
+              </div>
+
+              <h2 class="profile-name">Priyabrata Pattanaik</h2>
+              <p class="profile-role">Full Stack Developer · Mentor</p>
+            </div>
+
+            <div class="info-section animate-delay-1">
+              <span class="info-label">About</span>
+              <p class="info-text">
+                Hardworking developer and mentor with strong problem-solving skills,
+                focused on building scalable frontend & backend solutions and guiding
+                students through real-world projects.
+              </p>
+            </div>
+
+            <div class="info-section animate-delay-2">
+              <span class="info-label">Tech Stack</span>
+              <div class="skills-container">
+                <span class="skill-tag">Angular</span>
+                <span class="skill-tag">SpringBoot</span>
+                <span class="skill-tag">Mysql</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">JavaScript</span>
+              </div>
+            </div>
+
+            <div class="info-section animate-delay-3">
+              <span class="info-label">Details</span>
+
+              <div class="contact-grid">
+                <div class="contact-item">
+                  <span class="info-label" style="opacity: 0.7;">Role</span>
+                  <span class="info-text" style="font-weight: 600;">Mentor</span>
+                </div>
+
+                <div class="contact-item">
+                  <span class="info-label" style="opacity: 0.7;">Experience</span>
+                  <span class="info-text" style="font-weight: 600;">2+ Years</span>
+                </div>
+
+                <div class="contact-item email-full">
+                  <span class="info-label" style="opacity: 0.7;">Contact</span>
+                  <span class="info-text" style="color: #818cf8;">priyabrata@team4.com</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ROUTES ONLY WHEN MENTOR HIDDEN -->
+        <router-outlet *ngIf="!showMentor"></router-outlet>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-col brand-col">
+      <div class="footer-logo">SPB2</div>
+      <p class="footer-brand-text">
+        Silicon Practice Batch 2 is an internal training initiative focused on
+        hands-on Java & Angular development.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a routerLink="/">Home</a>
+      <a routerLink="/team1/arya">Team 1</a>
+      <a routerLink="/team4/lokesh">Team 4</a>
+      <a routerLink="/team3/project/login">Team 3 Project</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <span>Daily practice tasks</span>
+      <span>Mini-projects & labs</span>
+      <span>Code reviews & feedback</span>
+    </div>
+
+    <div class="footer-col footer-meta-col">
+      <h4>RISE Java</h4>
+      <span>Internal learning environment</span>
+      <span>Stack: Angular • Java • SQL</span>
+      <span>Build • Break • Learn</span>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    <span>© {{ currentYear }} Silicon Practice Batch 2 · RISE Java</span>
+    <span>Guided Practice • Teams • Projects</span>
+  </div>
+
 </div>

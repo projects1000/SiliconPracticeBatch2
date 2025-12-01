@@ -1,0 +1,442 @@
+.employee-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e8ed;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.employee-form-container h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #3498db;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.employee-form-container h3::before {
+  content: "👥";
+  font-size: 1.3rem;
+}
+
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.form-group label::after {
+  content: attr(data-required);
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-left: 0.25rem;
+}
+
+.form-control {
+  padding: 0.875rem 1rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fafbfc;
+  font-family: inherit;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #3498db;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-control:hover {
+  border-color: #bdc3c7;
+}
+
+.form-control.ng-invalid.ng-touched {
+  border-color: #e74c3c;
+  background: #fdf2f2;
+}
+
+.form-control.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* Select dropdown styling */
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 3rem;
+}
+
+/* Textarea specific styling */
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+/* Number input specific styling */
+input[type="number"].form-control {
+  appearance: textfield;
+}
+
+input[type="number"].form-control::-webkit-outer-spin-button,
+input[type="number"].form-control::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Date input specific styling */
+input[type="date"].form-control {
+  position: relative;
+}
+
+input[type="date"].form-control::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.error-message::before {
+  content: "⚠️";
+  font-size: 0.8rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ecf0f1;
+}
+
+.btn {
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2980b9, #2573a7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+  box-shadow: 0 2px 10px rgba(149, 165, 166, 0.3);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #7f8c8d, #6c7b7d);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(149, 165, 166, 0.4);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Loading state */
+.btn:disabled::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success state for form */
+.employee-form.ng-submitted .form-control.ng-valid {
+  border-color: #27ae60;
+  background: #f0f9f4;
+}
+
+/* Focus styles for accessibility */
+.form-control:focus-visible {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #2c3e50;
+  outline-offset: 2px;
+}
+
+/* Placeholder styling */
+.form-control::placeholder {
+  color: #a0a0a0;
+  opacity: 1;
+}
+
+/* Animation for form elements */
+.form-group {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for form rows */
+.form-row:nth-child(1) .form-group { animation-delay: 0.1s; }
+.form-row:nth-child(2) .form-group { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-row:nth-child(4) .form-group { animation-delay: 0.4s; }
+.form-group:nth-child(5) { animation-delay: 0.5s; }
+.form-group:nth-child(6) { animation-delay: 0.6s; }
+.form-actions { animation-delay: 0.7s; }
+
+/* Custom scrollbar for textarea */
+textarea.form-control::-webkit-scrollbar {
+  width: 6px;
+}
+
+textarea.form-control::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+textarea.form-control::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+textarea.form-control::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Status indicators */
+.form-group:has(.form-control.ng-valid.ng-touched)::after {
+  content: "✅";
+  position: absolute;
+  right: 1rem;
+  top: 2.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group:has(.form-control.ng-invalid.ng-touched)::after {
+  content: "❌";
+  position: absolute;
+  right: 1rem;
+  top: 2.5rem;
+  font-size: 0.9rem;
+}
+
+/* Global form enhancements */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  background-color: #f8f9fa;
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, select, textarea {
+  transition: all 0.3s ease;
+}
+
+/* Focus styles for better accessibility */
+*:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN ONLY
+   ============================================ */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .employee-form-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .employee-form-container h3 {
+    text-align: center;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .employee-form-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .form-control {
+    padding: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .employee-form-container {
+    padding: 0.75rem;
+  }
+
+  .employee-form-container h3 {
+    font-size: 1.3rem;
+  }
+
+  .form-control {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  select.form-control {
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Remove status indicators on mobile */
+@media (max-width: 480px) {
+  .form-group:has(.form-control.ng-valid.ng-touched)::after,
+  .form-group:has(.form-control.ng-invalid.ng-touched)::after {
+    display: none;
+  }
+}
+
+/* Landscape mode for small phones */
+@media (max-height: 500px) and (max-width: 768px) {
+  .employee-form-container {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}

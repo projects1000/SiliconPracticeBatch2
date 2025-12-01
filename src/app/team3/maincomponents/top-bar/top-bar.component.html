@@ -1,0 +1,53 @@
+<div class="top-bar">
+
+  <!-- LEFT: TIME -->
+  <div class="top-left">
+     <span class="time">{{ currentTime }}</span>
+  </div>
+
+  <!-- CENTER: WELCOME -->
+  <div class="top-center">
+    Welcome, <strong>{{ currentUser?.username }}</strong>
+  </div>
+
+  <!-- RIGHT LOGOUT (DESKTOP) -->
+  <div class="top-right desktop-only">
+    <button class="logout-btn" (click)="onLogout()">
+      <i class="fas fa-right-from-bracket"></i> Logout
+    </button>
+  </div>
+
+  <!-- MOBILE MENU BUTTON -->
+  <div class="menu-btn mobile-only" (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+</div>
+
+<!-- MOBILE DROPDOWN -->
+<div class="mobile-menu" *ngIf="isMenuOpen">
+
+
+  <div class="menu-item">
+    Welcome, <strong>{{ currentUser?.username }}</strong>
+  </div>
+
+  <hr class="menu-divider">
+
+ <!-- MENU ITEMS (from left sidebar) → MOBILE ONLY -->
+<div class="mobile-only" *ngFor="let item of menuItems"
+     class="menu-item"
+     (click)="menuSelect.emit(item.label); toggleMenu()">
+
+  {{ item.label }}
+
+</div>
+
+
+  <hr class="menu-divider">
+
+  <div class="menu-item logout-mobile" (click)="onLogout()">
+    <i class="fas fa-right-from-bracket"></i> Logout
+  </div>
+
+</div>

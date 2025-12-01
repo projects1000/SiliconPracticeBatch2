@@ -1,0 +1,215 @@
+.reports-container {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reports-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.reports-header h1 {
+  color: #1e3c72;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: white;
+  font-size: 0.9rem;
+}
+
+/* Summary Cards */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-left: 4px solid;
+}
+
+.card-icon {
+  font-size: 2rem;
+}
+
+.card-content h3 {
+  margin: 0 0 0.5rem 0;
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.profit-margin {
+  font-size: 0.8rem;
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.revenue-card { border-left-color: #3498db; }
+.salary-card { border-left-color: #e74c3c; }
+.profit-card { border-left-color: #27ae60; }
+
+/* Department Analysis */
+.department-analysis {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.department-analysis h2 {
+  color: #1e3c72;
+  margin-bottom: 1.5rem;
+}
+
+.department-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.dept-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.dept-card.profit {
+  border-left: 4px solid #27ae60;
+  background: linear-gradient(135deg, #f8fff8 0%, #f0fff0 100%);
+}
+
+.dept-card.loss {
+  border-left: 4px solid #e74c3c;
+  background: linear-gradient(135deg, #fff8f8 0%, #fff0f0 100%);
+}
+
+.dept-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.dept-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.profit-badge {
+  background: #27ae60;
+  color: white;
+}
+
+.loss-badge {
+  background: #e74c3c;
+  color: white;
+}
+
+.dept-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat label {
+  color: #666;
+  font-weight: 500;
+}
+
+.revenue { color: #3498db; font-weight: 600; }
+.salary { color: #e74c3c; font-weight: 600; }
+.positive { color: #27ae60; font-weight: 600; }
+.negative { color: #e74c3c; font-weight: 600; }
+.employees { color: #9b59b6; font-weight: 600; }
+
+/* Quick Stats */
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.stat-item h4 {
+  margin: 0 0 0.5rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e3c72;
+}
+
+.stat-value.loss {
+  color: #e74c3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reports-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .department-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-stats {
+    grid-template-columns: 1fr;
+  }
+}
