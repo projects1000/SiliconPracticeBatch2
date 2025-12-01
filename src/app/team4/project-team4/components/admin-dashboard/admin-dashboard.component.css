@@ -1,0 +1,189 @@
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Header */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #e5edf9;
+}
+
+.admin-subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.8);
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.3), rgba(15, 23, 42, 0.95));
+  font-size: 12px;
+  color: #bfdbfe;
+}
+
+.admin-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card base */
+.stat-card {
+  position: relative;
+  padding: 16px 16px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.5), rgba(15, 23, 42, 0.98));
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  overflow: hidden;
+  isolation: isolate;
+  animation: cardFadeIn 0.35s ease-out;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background: radial-gradient(circle at top right, rgba(248, 250, 252, 0.18), transparent 55%);
+  pointer-events: none;
+}
+
+/* Card top */
+.stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.7);
+}
+
+.stat-label {
+  margin-left: auto;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #cbd5f5;
+}
+
+/* Card bottom */
+.stat-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 30px;
+  font-weight: 600;
+  color: #e5edf9;
+}
+
+.stat-value.teal {
+  color: #4ade80;
+}
+
+.stat-value.orange {
+  color: #fb923c;
+}
+
+.stat-note {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* Card color variations */
+.card-blue {
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.75), rgba(15, 23, 42, 0.98));
+}
+
+.card-teal {
+  background: radial-gradient(circle at top left, rgba(45, 212, 191, 0.75), rgba(15, 23, 42, 0.98));
+}
+
+.card-orange {
+  background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.8), rgba(15, 23, 42, 0.98));
+}
+
+.card-indigo {
+  background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.8), rgba(15, 23, 42, 0.98));
+}
+
+/* Hover interaction */
+.stat-card {
+  transition:
+    transform 0.14s ease-out,
+    box-shadow 0.16s ease-out,
+    border-color 0.16s ease-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 45px rgba(15, 23, 42, 0.9);
+  border-color: rgba(226, 232, 240, 0.7);
+}
+
+/* Entry animation */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

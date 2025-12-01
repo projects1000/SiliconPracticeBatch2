@@ -9,7 +9,6 @@ import { Team5Component } from './team5/team5.component';
 
 import { Team6Component } from './team6/team6.component';
 
-
 import { WelcomeComponent } from './welcome/welcome.component';
 // TEAM 2 MEMBERS
 import { PradyumnaComponent } from './team2/pradyumna/pradyumna.component';
@@ -32,12 +31,10 @@ import { DebaComponent } from './team4/deba/deba.component';
 import { RajashreeComponent } from './team6/rajashree/rajashree.component';
 import { AkashComponent } from './team6/akash/akash.component';
 
-
-// TEAM 5 MEMBERS 
+// TEAM 5 MEMBERS
 
 import { TruptiComponent } from './team5/trupti/trupti.component';
 import { RitishComponent } from './team5/ritish/ritish.component';
-
 
 const routes: Routes = [
   {
@@ -53,9 +50,9 @@ const routes: Routes = [
           { path: 'subhra', component: SubhraComponent },
           { path: 'jigyansa', component: JigyansaComponent },
           { path: 'prathana', component: PrathanaComponent },
-        ]
+        ],
       },
-       // TEAM 2
+      // TEAM 2
       {
         path: 'team2',
         component: Team2Component,
@@ -66,13 +63,14 @@ const routes: Routes = [
           { path: 'debesee', component: DebeseeComponent },
           { path: 'bhagyashree', component: BhagyashreeComponent },
           { path: 'chinmaya', component: ChinmayaComponent },
-          { path: '', redirectTo: 'pradyumna', pathMatch: 'full' }
-        ]
+          { path: '', redirectTo: 'pradyumna', pathMatch: 'full' },
+        ],
       },
       // Team 3 (Lazy Loading)
       {
         path: 'team3',
-        loadChildren: () => import('./team3/team3.module').then(m => m.Team3Module)
+        loadChildren: () =>
+          import('./team3/team3.module').then((m) => m.Team3Module),
       },
       // TEAM 4
       {
@@ -83,8 +81,17 @@ const routes: Routes = [
           { path: 'lokesh', component: LokeshComponent },
           { path: 'rudra', component: RudraComponent },
           { path: 'deba', component: DebaComponent },
-          { path: '', redirectTo: 'tanish', pathMatch: 'full' }
-        ]
+          {
+            path: '',
+            loadChildren: () =>
+              import('./team4/project-team4/project-team4.module').then(
+                (m) => m.ProjectTeam4Module
+              ),
+          },
+          { path: '', redirectTo: 'team4/login', pathMatch: 'full' },
+          { path: '**', redirectTo: 'team4/page-not-found' },
+          // { path: '', redirectTo: 'tanish', pathMatch: 'full' },
+        ],
       },
       // TEAM 6
       {
@@ -93,10 +100,9 @@ const routes: Routes = [
         children: [
           { path: 'rajashree', component: RajashreeComponent },
           { path: 'akash', component: AkashComponent },
-          { path: '', redirectTo: 'akash', pathMatch: 'full' }
-        ]
+          { path: '', redirectTo: 'akash', pathMatch: 'full' },
+        ],
       },
-
 
       // TEAM 5
       {
@@ -108,21 +114,18 @@ const routes: Routes = [
 
           // Default page → trupti
           { path: '', redirectTo: 'trupti', pathMatch: 'full' },
-
-          
-        ]
+        ],
       },
 
-
-      { path: '', redirectTo: 'team1', pathMatch: 'full' }
-    ]
+      { path: '', redirectTo: 'team1', pathMatch: 'full' },
+    ],
   },
 
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

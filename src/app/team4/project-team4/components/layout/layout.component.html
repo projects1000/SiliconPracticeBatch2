@@ -1,0 +1,28 @@
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-logo">
+        <div class="logo-mark">T4</div>
+        <div class="logo-text">
+          <span class="logo-title">Project Team 4</span>
+          <span class="logo-subtitle">Angular Assignment</span>
+        </div>
+      </div>
+
+      <app-left-nav></app-left-nav>
+
+      <div class="sidebar-footer">
+        <span class="footer-label">Version</span>
+        <span class="footer-value">v1.0.0</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <app-top-bar></app-top-bar>
+
+    <main class="app-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

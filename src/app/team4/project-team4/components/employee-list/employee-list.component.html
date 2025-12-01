@@ -1,0 +1,35 @@
+<div class="employee-card">
+  <h3 class="employee-title">Employee Management</h3>
+  <p class="employee-subtitle">
+    Employees under 18 are highlighted and marked as minors.
+  </p>
+
+  <div class="employee-table-wrap">
+    <table class="data-table employees">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let emp of employees"
+          [ngClass]="{ 'minor-row': emp.age < 18 }"
+        >
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.age }}</td>
+          <td>{{ emp.role }}</td>
+          <td>{{ emp.department }}</td>
+          <td>
+            <span class="badge badge-minor" *ngIf="emp.age < 18">Minor</span>
+            <span class="badge badge-adult" *ngIf="emp.age >= 18">Adult</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

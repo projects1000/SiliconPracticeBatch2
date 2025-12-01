@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:host {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.app-shell {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  background: transparent;
+  color: var(--text-main);
+}
+
+.app-sidebar {
+  border-right: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at top left, #020617 0, #020617 40%, #020617 100%);
+  backdrop-filter: blur(16px);
+}
+
+.sidebar-inner {
+  height: 100%;
+  padding: 18px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar-logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.96));
+  box-shadow: var(--shadow-subtle);
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background: radial-gradient(circle at top left, var(--accent), var(--accent-strong));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #f9fafb;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.logo-subtitle {
+  font-size: 11px;
+  color: var(--text-soft);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 8px 10px 4px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--text-soft);
+}
+
+.footer-label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  backdrop-filter: blur(24px);
+}
+
+.app-content {
+  padding: 18px 20px 14px;
+  overflow: auto;
+  height: calc(100vh - 64px);
+}
+
+/* Mobile: collapse sidebar */
+@media (max-width: 768px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .app-sidebar {
+    display: none;
+  }
+
+  .app-content {
+    padding: 14px 14px 10px;
+  }
+}
+
+
+/* Smooth fade+slide for every routed page */
+.app-content > * {
+  animation: fadeSlideIn 0.35s ease-out;
+}
+
+/* Keyframes for content enter animation */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
