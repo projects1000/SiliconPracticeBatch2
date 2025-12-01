@@ -1,0 +1,389 @@
+.notification-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 400px;
+  width: 100%;
+}
+
+.notification {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation: slideInRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.notification::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s;
+}
+
+.notification:hover::before {
+  left: 100%;
+}
+
+.notification:hover {
+  transform: translateX(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+/* Specific Employee Delete Notification */
+.notification-employee-delete {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  border-left: 5px solid #dc3545;
+  animation: shakeAlert 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), slideInRight 0.5s ease-out;
+  border: 2px solid rgba(220, 53, 69, 0.3);
+  box-shadow: 0 8px 35px rgba(220, 53, 69, 0.4);
+}
+
+@keyframes shakeAlert {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.notification-employee-delete::before {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+.notification-employee-delete::after {
+  content: '🗑️';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 2rem;
+  opacity: 0.1;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(10deg); }
+}
+
+.notification-employee-delete .notification-icon {
+  animation: trashBounce 0.8s ease-out 0.2s both;
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
+@keyframes trashBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  60% {
+    transform: scale(1.3) rotate(10deg);
+  }
+  80% {
+    transform: scale(0.9) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.notification-employee-delete .notification-title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: textPulse 2s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.notification-employee-delete .notification-message {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Other notification types */
+.notification-success {
+  background: linear-gradient(135deg, #00b09b, #96c93d);
+  color: white;
+  border-left: 5px solid #27ae60;
+}
+
+.notification-error {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  border-left: 5px solid #e74c3c;
+}
+
+.notification-warning {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+  color: #2c3e50;
+  border-left: 5px solid #f39c12;
+}
+
+.notification-info {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  border-left: 5px solid #3498db;
+}
+
+.notification-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+  animation: iconBounce 0.6s ease-out 0.2s both;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+@keyframes iconBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  60% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+  animation: contentReveal 0.5s ease-out 0.3s both;
+}
+
+@keyframes contentReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notification-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.notification-message {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.notification-close {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  color: inherit;
+  font-size: 1.4rem;
+  font-weight: bold;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  margin-top: 2px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.notification-close:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.15) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Progress Bar */
+.notification::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.5);
+  transform: scaleX(1);
+  transform-origin: left;
+  animation: progressBar 5s linear forwards;
+}
+
+.notification-employee-delete::after {
+  animation: progressBarDelete 5s linear forwards;
+  background: linear-gradient(90deg, #ff8a00, #ff4b2b, #ff416c);
+}
+
+@keyframes progressBar {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes progressBarDelete {
+  0% {
+    transform: scaleX(1);
+    background: linear-gradient(90deg, #ff8a00, #ff4b2b, #ff416c);
+  }
+  100% {
+    transform: scaleX(0);
+    background: linear-gradient(90deg, #ff416c, #ff4b2b, #ff8a00);
+  }
+}
+
+/* Exit Animation */
+.notification.exiting {
+  animation: slideOutRight 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+.notification-employee-delete.exiting {
+  animation: slideOutRight 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards, shakeAlertExit 0.4s ease-out;
+}
+
+@keyframes shakeAlertExit {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .notification-container {
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .notification {
+    padding: 14px;
+    margin-bottom: 8px;
+    border-radius: 14px;
+    animation: slideInUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .notification-employee-delete {
+    animation: shakeAlertMobile 0.5s ease-out, slideInUp 0.4s ease-out;
+  }
+
+  @keyframes shakeAlertMobile {
+    0%, 100% { transform: translateY(0); }
+    20%, 60% { transform: translateY(-3px); }
+    40%, 80% { transform: translateY(3px); }
+  }
+
+  @keyframes slideInUp {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .notification.exiting {
+    animation: slideOutDown 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+  }
+
+  .notification-employee-delete.exiting {
+    animation: slideOutDown 0.3s ease-out forwards, shakeAlertExitMobile 0.3s ease-out;
+  }
+
+  @keyframes shakeAlertExitMobile {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes slideOutDown {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  .notification-employee-delete::after {
+    font-size: 1.5rem;
+    top: -5px;
+    right: -5px;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .notification-employee-delete {
+    padding: 12px;
+  }
+  
+  .notification-employee-delete .notification-title {
+    font-size: 1.1rem;
+  }
+  
+  .notification-employee-delete .notification-icon {
+    font-size: 1.8rem;
+  }
+}

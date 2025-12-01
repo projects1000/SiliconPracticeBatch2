@@ -1,0 +1,21 @@
+<div class="notification-container">
+  <div 
+    *ngFor="let notification of notifications" 
+    class="notification"
+    [class]="'notification-' + notification.type"
+    (click)="removeNotification(notification.id)">
+    
+    <div class="notification-icon">
+      {{ getNotificationIcon(notification.type) }}
+    </div>
+    
+    <div class="notification-content">
+      <div class="notification-title">{{ notification.title }}</div>
+      <div class="notification-message">{{ notification.message }}</div>
+    </div>
+    
+    <button class="notification-close" (click)="removeNotification(notification.id)">
+      ×
+    </button>
+  </div>
+</div>

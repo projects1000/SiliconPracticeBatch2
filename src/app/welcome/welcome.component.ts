@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -7,44 +7,36 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
+  activeTeam: 'team1' | 'team2' | 'team3' | 'team4' | 'team5' |'team6' | null = null;
+  currentYear = new Date().getFullYear();
+  showMentor = false;
 
-activeTeam: string | null = null;
-  isDropdownOpen: boolean | undefined;
+  constructor(private router: Router) {}
 
-toggleTeam(team: string) {
-  this.activeTeam = this.activeTeam === team ? null : team;
-}
-
-
-  isTeam2Active = false;
-
-  constructor(private router: Router) {
-
-    // Detect if Team2 is active
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.isTeam2Active = event.url.startsWith('/team2');
-      }
-    });
-
+  // click toggle (still works)
+  toggleTeam(team: 'team1' | 'team2' | 'team3' | 'team4' | 'team5' | 'team6') {
+    this.activeTeam = this.activeTeam === team ? null : team;
+    this.showMentor = false;
   }
 
-  // TEAM 3 DROPDOWN
-  toggleDropdown(event: Event) {
-    event.preventDefault();   
-    this.isDropdownOpen = !this.isDropdownOpen;
+  // hover open
+  openTeam(team: 'team1' | 'team2' | 'team3' | 'team4' | 'team5' | 'team6') {
+    this.activeTeam = team;
+    this.showMentor = false;
   }
 
-  goToMember(member: string) {
-    this.isDropdownOpen = false;
-    this.router.navigate([`/team3/${member}`]);
+  // close when mouse leaves dropdown menu
+  closeTeam() {
+    this.activeTeam = null;
   }
 
-  // TEAM 2 DROPDOWN
-  openMember(event: any) {
-    const member = event.target.value;
-    if (member) {
-      this.router.navigate(['/team2', member]);
-    }
+  goHome() {
+    this.activeTeam = null;
+    this.showMentor = false;
+    this.router.navigate(['/']);
+  }
+
+  exploreMentor() {
+    this.showMentor = !this.showMentor;
   }
 }
