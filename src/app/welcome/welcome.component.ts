@@ -7,20 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-  activeTeam: 'team1' | 'team2' | 'team3' | 'team4' | 'team6' | null = null;
+  activeTeam: 'team1' | 'team2' | 'team3' | 'team4' | 'team5' |'team6' | null = null;
   currentYear = new Date().getFullYear();
   showMentor = false;
 
   constructor(private router: Router) {}
 
   // click toggle (still works)
-  toggleTeam(team: 'team1' | 'team2' | 'team3' | 'team4' | 'team6') {
+  toggleTeam(team: 'team1' | 'team2' | 'team3' | 'team4' | 'team5' | 'team6') {
     this.activeTeam = this.activeTeam === team ? null : team;
     this.showMentor = false;
   }
 
   // hover open
-  openTeam(team: 'team1' | 'team2' | 'team3' | 'team4' | 'team6') {
+  openTeam(team: 'team1' | 'team2' | 'team3' | 'team4' | 'team5' | 'team6') {
     this.activeTeam = team;
     this.showMentor = false;
   }

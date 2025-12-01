@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team4Component } from './team4/team4.component';
-<<<<<<< HEAD
+
 import { Team5Component } from './team5/team5.component';
-=======
+
 import { Team6Component } from './team6/team6.component';
->>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
+
 
 import { WelcomeComponent } from './welcome/welcome.component';
 // TEAM 2 MEMBERS

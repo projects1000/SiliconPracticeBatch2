@@ -21,182 +21,107 @@
     <!-- ================= TEAM NAV ================= -->
     <nav class="team-nav">
 
-  <!-- TEAM 1 -->
-  <div class="nav-item"
-       (mouseenter)="openTeam('team1')"
-       [class.open]="activeTeam === 'team1'">
+      <!-- TEAM 1 -->
+      <div class="nav-item" (mouseenter)="openTeam('team1')" [class.open]="activeTeam === 'team1'">
+        <button class="nav-btn" (click)="toggleTeam('team1')" [class.active]="activeTeam === 'team1'">
+          Team 1 (Arya)
+        </button>
+        <ul class="dropdown-menu" *ngIf="activeTeam === 'team1'" (mouseleave)="closeTeam()">
+          <li><a routerLink="/team1/arya">Arya</a></li>
+          <li><a routerLink="/team1/subhra">Subhra</a></li>
+          <li><a routerLink="/team1/jigyansa">Jigyansa</a></li>
+          <li><a routerLink="/team1/prathana">Prathana</a></li>
+        </ul>
+      </div>
 
-    <button class="nav-btn"
-            (click)="toggleTeam('team1')"
-            [class.active]="activeTeam === 'team1'">
-      Team 1 (Arya)
-    </button>
+      <!-- TEAM 2 -->
+      <div class="nav-item" (mouseenter)="openTeam('team2')" [class.open]="activeTeam === 'team2'">
+        <button class="nav-btn" (click)="toggleTeam('team2')" [class.active]="activeTeam === 'team2'">
+          Team 2 (Pradyumna)
+        </button>
+        <ul class="dropdown-menu" *ngIf="activeTeam === 'team2'" (mouseleave)="closeTeam()">
+          <li><a routerLink="/team2/pradyumna">Pradyumna</a></li>
+          <li><a routerLink="/team2/bhowmick">Bhowmick</a></li>
+          <li><a routerLink="/team2/ompriya">Ompriya</a></li>
+          <li><a routerLink="/team2/debesee">Debesee</a></li>
+          <li><a routerLink="/team2/bhagyashree">Bhagyashree</a></li>
+          <li><a routerLink="/team2/chinmaya">Chinmaya</a></li>
+        </ul>
+      </div>
 
-    <ul class="dropdown-menu"
-        *ngIf="activeTeam === 'team1'"
-        (mouseleave)="closeTeam()">
-      <li><a routerLink="/team1/arya">Arya</a></li>
-      <li><a routerLink="/team1/subhra">Subhra</a></li>
-      <li><a routerLink="/team1/jigyansa">Jigyansa</a></li>
-      <li><a routerLink="/team1/prathana">Prathana</a></li>
-    </ul>
-  </div>
+      <!-- TEAM 3 -->
+      <div class="nav-item" (mouseenter)="openTeam('team3')" [class.open]="activeTeam === 'team3'">
+        <button class="nav-btn team3-main" (click)="toggleTeam('team3')" [class.active]="activeTeam === 'team3'">
+          Team 3 (Narayan)
+        </button>
+        <ul class="dropdown-menu team3-submenu" *ngIf="activeTeam === 'team3'" (mouseleave)="closeTeam()">
+          <li><a routerLink="/team3/project/login">Project</a></li>
+          <li><a routerLink="/team3/subham">Subham</a></li>
+          <li><a routerLink="/team3/ashutosh">Ashutosh</a></li>
+          <li><a routerLink="/team3/narayan">Narayan</a></li>
+        </ul>
+      </div>
 
-  <!-- TEAM 2 -->
-  <div class="nav-item"
-       (mouseenter)="openTeam('team2')"
-       [class.open]="activeTeam === 'team2'">
+      <!-- TEAM 4 -->
+      <div class="nav-item" (mouseenter)="openTeam('team4')" [class.open]="activeTeam === 'team4'">
+        <button class="nav-btn" (click)="toggleTeam('team4')" [class.active]="activeTeam === 'team4'">
+          Team 4 (Tanish)
+        </button>
+        <ul class="dropdown-menu" *ngIf="activeTeam === 'team4'" (mouseleave)="closeTeam()">
+          <li><a routerLink="/team4/tanish">Tanish</a></li>
+          <li><a routerLink="/team4/lokesh">Lokesh</a></li>
+          <li><a routerLink="/team4/rudra">Rudra</a></li>
+          <li><a routerLink="/team4/deba">Debapriya</a></li>
+          <li><a routerLink="/team4/project-team4">Project</a></li>
+        </ul>
+      </div>
 
-    <button class="nav-btn"
-            (click)="toggleTeam('team2')"
-            [class.active]="activeTeam === 'team2'">
-      Team 2 (Pradyumna)
-    </button>
+      <!-- TEAM 5 -->
+      <div class="nav-item" (mouseenter)="openTeam('team5')" [class.open]="activeTeam === 'team5'">
+        <button class="nav-btn" (click)="toggleTeam('team5')" [class.active]="activeTeam === 'team5'">
+          Team 5 (Trupti)
+        </button>
+        <ul class="dropdown-menu" *ngIf="activeTeam === 'team5'" (mouseleave)="closeTeam()">
+          <li><a routerLink="/team5/trupti">Trupti</a></li>
+          <li><a routerLink="/team5/ritish">Ritish</a></li>
+        </ul>
+      </div>
 
-    <ul class="dropdown-menu"
-        *ngIf="activeTeam === 'team2'"
-        (mouseleave)="closeTeam()">
-      <li><a routerLink="/team2/pradyumna">Pradyumna</a></li>
-      <li><a routerLink="/team2/bhowmick">Bhowmick</a></li>
-      <li><a routerLink="/team2/ompriya">Ompriya</a></li>
-      <li><a routerLink="/team2/debesee">Debesee</a></li>
-      <li><a routerLink="/team2/bhagyashree">Bhagyashree</a></li>
-      <li><a routerLink="/team2/chinmaya">Chinmaya</a></li>
-    </ul>
-  </div>
+      <!-- TEAM 6 -->
+      <div class="nav-item" (mouseenter)="openTeam('team6')" [class.open]="activeTeam === 'team6'">
+        <button class="nav-btn" (click)="toggleTeam('team6')" [class.active]="activeTeam === 'team6'">
+          Team 6 (Akash)
+        </button>
+        <ul class="dropdown-menu" *ngIf="activeTeam === 'team6'" (mouseleave)="closeTeam()">
+          <li><a routerLink="/team6/akash">Akash</a></li>
+          <li><a routerLink="/team6/rajashree">Rajashree</a></li>
+        </ul>
+      </div>
 
-  <!-- TEAM 3 -->
-  <div class="nav-item"
-       (mouseenter)="openTeam('team3')"
-       [class.open]="activeTeam === 'team3'">
-
-    <button class="nav-btn team3-main"
-            (click)="toggleTeam('team3')"
-            [class.active]="activeTeam === 'team3'">
-      Team 3 (Narayan)
-    </button>
-
-    <ul class="dropdown-menu team3-submenu"
-        *ngIf="activeTeam === 'team3'"
-        (mouseleave)="closeTeam()">
-      <li><a routerLink="/team3/project/login">Project</a></li>
-      <li><a routerLink="/team3/subham">Subham</a></li>
-      <li><a routerLink="/team3/ashutosh">Ashutosh</a></li>
-      <li><a routerLink="/team3/narayan">Narayan</a></li>
-    </ul>
-  </div>
-
-  <!-- TEAM 4 -->
-  <div class="nav-item"
-       (mouseenter)="openTeam('team4')"
-       [class.open]="activeTeam === 'team4'">
-
-    <button class="nav-btn"
-            (click)="toggleTeam('team4')"
-            [class.active]="activeTeam === 'team4'">
-      Team 4 (Tanish)
-    </button>
-
-    <ul class="dropdown-menu"
-        *ngIf="activeTeam === 'team4'"
-        (mouseleave)="closeTeam()">
-      <li><a routerLink="/team4/tanish">Tanish</a></li>
-      <li><a routerLink="/team4/lokesh">Lokesh</a></li>
-      <li><a routerLink="/team4/rudra">Rudra</a></li>
-      <li><a routerLink="/team4/deba">Debapriya</a></li>
-      <li><a routerLink="/team4/project-team4">Project</a></li>
-    </ul>
-  </div>
-
-  <!-- TEAM 6 -->
-  <div class="nav-item"
-       (mouseenter)="openTeam('team6')"
-       [class.open]="activeTeam === 'team6'">
-
-    <button class="nav-btn"
-            (click)="toggleTeam('team6')"
-            [class.active]="activeTeam === 'team6'">
-      Team 6 (Akash)
-    </button>
-
-    <ul class="dropdown-menu"
-        *ngIf="activeTeam === 'team6'"
-        (mouseleave)="closeTeam()">
-      <li><a routerLink="/team6/akash">Akash</a></li>
-      <li><a routerLink="/team6/rajashree">Rajashree</a></li>
-    </ul>
-  </div>
-
-</nav>
-
+    </nav>
   </header>
 
   <!-- ================= HERO ================= -->
   <section class="hero">
     <div class="hero-left">
       <p class="eyebrow">Internal Learning Portal</p>
-
       <h1>
         Welcome to
         <span class="highlight">Silicon Practice Batch 2</span>
       </h1>
-
       <p class="lead">
         A curated space for practice projects, daily tasks and collaborative learning.
         Jump into any team, explore member profiles, and review deployed mini-projects.
       </p>
-
       <div class="hero-ctas">
         <button class="btn primary" (click)="exploreMentor()">Explore Mentor</button>
       </div>
-
       <div class="hero-meta">
         <span>Angular • Java • Spring Boot</span>
         <span>Guided by RISE Java</span>
       </div>
     </div>
 
-<<<<<<< HEAD
-    <!-- TEAM 3 -->
-    <a class="team3-main" (click)="toggleTeam('team3')" [class.active]="activeTeam === 'team3'">
-      Team 3 (Narayan)
-    </a>
-
-    <ul class="team3-submenu" *ngIf="activeTeam === 'team3'">
-      <li><a routerLink="/team3/subham" routerLinkActive="active">Subham</a></li>
-      <li><a routerLink="/team3/ashutosh" routerLinkActive="active">Ashutosh</a></li>
-      <li><a routerLink="/team3/narayan" routerLinkActive="active">Narayan</a></li>
-    </ul>
-
-
-    <!-- TEAM 4 -->
-    <a class="team4-main" (click)="toggleTeam('team4')" [class.active]="activeTeam === 'team4'">
-      Team 4 (Tanish)
-    </a>
-
-    <ul class="team4-submenu" *ngIf="activeTeam === 'team4'">
-      <li><a routerLink="/team4/tanish" routerLinkActive="active">Tanish</a></li>
-      <li><a routerLink="/team4/lokesh" routerLinkActive="active">Lokesh</a></li>
-      <li><a routerLink="/team4/rudra" routerLinkActive="active">Rudra</a></li>
-      <li><a routerLink="/team4/deba" routerLinkActive="active">Debapriya</a></li>
-    </ul>
-
-    <!-- TEAM 5  -->
-    <a class="team5-main" (click)="toggleTeam('team5')" [class.active]="activeTeam === 'team5'">
-      Team 5 (Trupti)
-    </a>
-
-    <ul class="team5-submenu" *ngIf="activeTeam === 'team5'">
-      <li><a routerLink="/team5/trupti" routerLinkActive="active">Trupti</a></li>
-      <li><a routerLink="/team5/ritish" routerLinkActive="active">Ritish</a></li>
-    </ul>
-
-  </nav>
-
-  <!-- RIGHT CONTENT -->
-  <section class="content">
-    <router-outlet></router-outlet>
-=======
     <div class="hero-right">
       <div class="stats-grid">
         <div class="stat-card">
@@ -217,7 +142,6 @@
         </div>
       </div>
     </div>
->>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
   </section>
 
   <!-- ================= FEATURE ROW ================= -->
@@ -226,12 +150,10 @@
       <h3>Team Boards</h3>
       <p>Quickly switch between teams and review member-specific assignments and progress.</p>
     </div>
-
     <div class="feature-card">
       <h3>Project Gallery</h3>
       <p>Access team capstone projects, individual modules, and experimental builds.</p>
     </div>
-
     <div class="feature-card">
       <h3>Practice First</h3>
       <p>Every card and route here points to real code written during the practice sessions.</p>
@@ -251,18 +173,15 @@
         <!-- MENTOR PROFILE -->
         <div *ngIf="showMentor" class="mentor-wrapper">
           <div class="profile-card">
-
             <div class="profile-header">
               <div class="photo-wrapper">
                 <img class="profile-photo"
                      src="https://ui-avatars.com/api/?name=Priyabrata+Pattanaik&background=1e293b&color=fff&bold=true&size=200"
                      alt="Priyabrata Pattanaik">
               </div>
-
               <h2 class="profile-name">Priyabrata Pattanaik</h2>
               <p class="profile-role">Full Stack Developer · Mentor</p>
             </div>
-
             <div class="info-section animate-delay-1">
               <span class="info-label">About</span>
               <p class="info-text">
@@ -271,7 +190,6 @@
                 students through real-world projects.
               </p>
             </div>
-
             <div class="info-section animate-delay-2">
               <span class="info-label">Tech Stack</span>
               <div class="skills-container">
@@ -282,28 +200,23 @@
                 <span class="skill-tag">JavaScript</span>
               </div>
             </div>
-
             <div class="info-section animate-delay-3">
               <span class="info-label">Details</span>
-
               <div class="contact-grid">
                 <div class="contact-item">
                   <span class="info-label" style="opacity: 0.7;">Role</span>
                   <span class="info-text" style="font-weight: 600;">Mentor</span>
                 </div>
-
                 <div class="contact-item">
                   <span class="info-label" style="opacity: 0.7;">Experience</span>
                   <span class="info-text" style="font-weight: 600;">2+ Years</span>
                 </div>
-
                 <div class="contact-item email-full">
                   <span class="info-label" style="opacity: 0.7;">Contact</span>
                   <span class="info-text" style="color: #818cf8;">priyabrata@team4.com</span>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -323,7 +236,6 @@
         hands-on Java & Angular development.
       </p>
     </div>
-
     <div class="footer-col">
       <h4>Navigation</h4>
       <a routerLink="/">Home</a>
@@ -331,14 +243,12 @@
       <a routerLink="/team4/lokesh">Team 4</a>
       <a routerLink="/team3/project/login">Team 3 Project</a>
     </div>
-
     <div class="footer-col">
       <h4>Resources</h4>
       <span>Daily practice tasks</span>
       <span>Mini-projects & labs</span>
       <span>Code reviews & feedback</span>
     </div>
-
     <div class="footer-col footer-meta-col">
       <h4>RISE Java</h4>
       <span>Internal learning environment</span>
