@@ -156,6 +156,47 @@
       </div>
     </div>
 
+<<<<<<< HEAD
+    <!-- TEAM 3 -->
+    <a class="team3-main" (click)="toggleTeam('team3')" [class.active]="activeTeam === 'team3'">
+      Team 3 (Narayan)
+    </a>
+
+    <ul class="team3-submenu" *ngIf="activeTeam === 'team3'">
+      <li><a routerLink="/team3/subham" routerLinkActive="active">Subham</a></li>
+      <li><a routerLink="/team3/ashutosh" routerLinkActive="active">Ashutosh</a></li>
+      <li><a routerLink="/team3/narayan" routerLinkActive="active">Narayan</a></li>
+    </ul>
+
+
+    <!-- TEAM 4 -->
+    <a class="team4-main" (click)="toggleTeam('team4')" [class.active]="activeTeam === 'team4'">
+      Team 4 (Tanish)
+    </a>
+
+    <ul class="team4-submenu" *ngIf="activeTeam === 'team4'">
+      <li><a routerLink="/team4/tanish" routerLinkActive="active">Tanish</a></li>
+      <li><a routerLink="/team4/lokesh" routerLinkActive="active">Lokesh</a></li>
+      <li><a routerLink="/team4/rudra" routerLinkActive="active">Rudra</a></li>
+      <li><a routerLink="/team4/deba" routerLinkActive="active">Debapriya</a></li>
+    </ul>
+
+    <!-- TEAM 5  -->
+    <a class="team5-main" (click)="toggleTeam('team5')" [class.active]="activeTeam === 'team5'">
+      Team 5 (Trupti)
+    </a>
+
+    <ul class="team5-submenu" *ngIf="activeTeam === 'team5'">
+      <li><a routerLink="/team5/trupti" routerLinkActive="active">Trupti</a></li>
+      <li><a routerLink="/team5/ritish" routerLinkActive="active">Ritish</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- RIGHT CONTENT -->
+  <section class="content">
+    <router-outlet></router-outlet>
+=======
     <div class="hero-right">
       <div class="stats-grid">
         <div class="stat-card">
@@ -176,6 +217,7 @@
         </div>
       </div>
     </div>
+>>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
   </section>
 
   <!-- ================= FEATURE ROW ================= -->

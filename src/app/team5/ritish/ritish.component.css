@@ -1,0 +1,122 @@
+/* --------------------------
+   Wrapper
+-------------------------- */
+.timeline-profile {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+/* --------------------------
+   Profile Header
+-------------------------- */
+.profile-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profile-header .photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #a37eff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 auto 15px;
+  box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile-header p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* --------------------------
+   Timeline Container
+-------------------------- */
+.timeline {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  padding-left: 20px;
+  border-left: 3px solid #a37eff;
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -12px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #a37eff;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(128, 126, 255, 0.6);
+}
+
+/* Timeline Content */
+.timeline-content {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.timeline-content h3 {
+  color: #a37eff;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Skills Tags */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags span {
+  background: #a37eff;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* --------------------------
+   Responsive
+-------------------------- */
+@media(max-width: 600px){
+  .timeline {
+    padding-left: 15px;
+  }
+
+  .timeline-dot {
+    left: -10px;
+  }
+}

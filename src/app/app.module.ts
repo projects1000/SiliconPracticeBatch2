@@ -15,8 +15,20 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team4Component } from './team4/team4.component';
+<<<<<<< HEAD
+import { Team5Component } from './team5/team5.component';
+
+
+
+// team 3 members components
+import { SubhamComponent } from './team3/subham/subham.component';
+import { AshutoshComponent } from './team3/ashutosh/ashutosh.component';
+import { NarayanComponent } from './team3/narayan/narayan.component';   // ✅ Import here
+
+=======
 import { Team6Component } from './team6/team6.component';
 // Team 2 members components
+>>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
 import { PradyumnaComponent } from './team2/pradyumna/pradyumna.component';
 import { BhowmickComponent } from './team2/bhowmick/bhowmick.component';
 import { OmpriyaComponent } from './team2/ompriya/ompriya.component';
@@ -28,6 +40,15 @@ import { AryaComponent } from './team1/arya/arya.component';
 import { SubhraComponent } from './team1/subhra/subhra.component';
 import { JigyansaComponent } from './team1/jigyansa/jigyansa.component';
 import { PrathanaComponent } from './team1/prathana/prathana.component';
+<<<<<<< HEAD
+// Team 5 Members & Pages
+import { TruptiComponent } from './team5/trupti/trupti.component';
+import { RitishComponent } from './team5/ritish/ritish.component';
+
+
+
+
+=======
 import { RajashreeComponent } from './team6/rajashree/rajashree.component';
 import { AkashComponent } from './team6/akash/akash.component';   
 // Team 4 members components
@@ -38,6 +59,7 @@ import { DebaComponent } from './team4/deba/deba.component';
 // Team3 Module (Lazy Loading)
 import { Team3Module } from './team3/team3.module';
 // Note: Team3Module is imported here for eager loading.
+>>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,8 +74,19 @@ import { Team3Module } from './team3/team3.module';
     Team1Component,
     Team2Component,
     Team4Component,
+<<<<<<< HEAD
+    Team5Component,
+
+  
+ // team 3 members components
+    SubhamComponent,
+    AshutoshComponent,
+    NarayanComponent,
+
+=======
     Team6Component,
     // Team 2 members components
+>>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
     PradyumnaComponent,
     BhowmickComponent,
     OmpriyaComponent,
@@ -66,6 +99,15 @@ import { Team3Module } from './team3/team3.module';
     SubhraComponent,
     JigyansaComponent,
     PrathanaComponent,
+<<<<<<< HEAD
+
+    ChinmayaComponent,
+    // Team5 members & pages
+    TruptiComponent,
+    RitishComponent,
+    
+
+=======
     // Team 4 members components
     TanishComponent,
     LokeshComponent,
@@ -75,12 +117,18 @@ import { Team3Module } from './team3/team3.module';
     RajashreeComponent,
     AkashComponent
     
+>>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+<<<<<<< HEAD
+      
+
+=======
     Team3Module // Eagerly load Team3Module
+>>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,102 @@
+/* Background */
+.profile-wrapper {
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle at top left, #1e1b4b, #0a0a0a);
+  color: white;
+}
+
+/* Card */
+.profile-card {
+  width: 380px;
+  padding: 30px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 25px rgba(0, 255, 200, 0.25);
+
+  text-align: center;
+}
+
+/* Profile Photo */
+.photo-box {
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #03e9f4, #3b82f6);
+  color: black;
+  font-size: 42px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 0 20px rgba(3, 233, 244, 0.8);
+  margin: 0 auto 18px;
+}
+
+/* Name & Role */
+.name {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.role {
+  font-size: 15px;
+  color: #a0a0a0;
+}
+
+/* Divider */
+.divider {
+  margin: 18px 0;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Sections */
+.section-card {
+  padding: 14px;
+  margin-bottom: 22px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+
+  border-left: 3px solid #00f7ff;
+}
+
+.section-title {
+  margin-bottom: 6px;
+  font-size: 18px;
+  color: #00f7ff;
+}
+
+.text {
+  font-size: 14px;
+  color: #dcdcdc;
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.badge {
+  padding: 6px 14px;
+  background: #00f7ff;
+  color: black;
+  font-weight: 600;
+  border-radius: 20px;
+
+  box-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
+}

@@ -4,7 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { Team1Component } from './team1/team1.component';
 import { Team2Component } from './team2/team2.component';
 import { Team4Component } from './team4/team4.component';
+<<<<<<< HEAD
+import { Team5Component } from './team5/team5.component';
+=======
 import { Team6Component } from './team6/team6.component';
+>>>>>>> 8c4a6d22c9490ce6d9f6dd2e547d54636f46c767
 
 import { WelcomeComponent } from './welcome/welcome.component';
 // TEAM 2 MEMBERS
@@ -27,6 +31,12 @@ import { DebaComponent } from './team4/deba/deba.component';
 // TEAM 6 MEMBERS
 import { RajashreeComponent } from './team6/rajashree/rajashree.component';
 import { AkashComponent } from './team6/akash/akash.component';
+
+
+// TEAM 5 MEMBERS 
+
+import { TruptiComponent } from './team5/trupti/trupti.component';
+import { RitishComponent } from './team5/ritish/ritish.component';
 
 
 const routes: Routes = [
@@ -86,6 +96,23 @@ const routes: Routes = [
           { path: '', redirectTo: 'akash', pathMatch: 'full' }
         ]
       },
+
+
+      // TEAM 5
+      {
+        path: 'team5',
+        component: Team5Component,
+        children: [
+          { path: 'trupti', component: TruptiComponent },
+          { path: 'ritish', component: RitishComponent },
+
+          // Default page → trupti
+          { path: '', redirectTo: 'trupti', pathMatch: 'full' },
+
+          
+        ]
+      },
+
 
       { path: '', redirectTo: 'team1', pathMatch: 'full' }
     ]
