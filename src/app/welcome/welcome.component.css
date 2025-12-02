@@ -187,6 +187,15 @@ body {
   border: 1px solid rgba(148, 163, 184, 0.4);
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
   z-index: 30;
+
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.nav-item:not(.open) .dropdown-menu {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
 }
 
 .dropdown-menu li {
@@ -209,7 +218,7 @@ body {
   padding-left: 18px;
 }
 
-/* Team 2 select (not used now but kept if needed) */
+/* Team 2 select (if you ever use it again) */
 .team2-dropdown {
   padding: 8px 12px;
 }
@@ -444,8 +453,23 @@ body {
   border: 1px solid rgba(148, 163, 184, 0.35);
   box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.8);
 
+  /* so body can flex when fullscreen */
+  display: flex;
+  flex-direction: column;
+
   /* slide-in for whole panel */
   animation: slideUp 0.6s ease-out 0.35s both;
+}
+
+/* header with fullscreen button */
+.route-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.route-header-left {
+  flex: 1;
 }
 
 .route-panel-header h2 {
@@ -473,6 +497,88 @@ body {
   align-items: center;
   margin: 40px 0 24px;
   padding: 0 8px;
+}
+
+/* icon button styling  */
+.fullscreen-btn {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+}
+
+.fullscreen-btn:hover {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(248, 113, 113, 0.9);
+  transform: translateY(-1px);
+}
+.no-page-scroll {
+  overflow: hidden;
+}
+
+/* -------- Fullscreen view for route panel -------- */
+.full-screen-mode {
+  position: fixed !important;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1000;
+
+  margin: 0;
+  width: auto;
+  height: auto;
+  border-radius: 18px;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+  background: rgba(15, 23, 42, 0.98);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;            /* ⬅ important */
+
+  animation: panelZoomIn 0.25s ease-out;
+}
+
+/* make the gradient body fill the overlay nicely */
+.full-screen-mode .route-panel-body {
+  flex: 1;                     /* fill the remaining height */
+  overflow: auto;
+  height: auto;                /* override any previous height calc */
+}
+
+/* Nice zoom animation */
+@keyframes panelZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* On very small screens give a bit more breathing room */
+@media (max-width: 720px) {
+  .full-screen-mode {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 14px;
+  }
+
+  .full-screen-mode .route-panel-body {
+    height: calc(100vh - 110px);
+  }
 }
 
 /* ================================
@@ -856,14 +962,4 @@ body {
     flex-direction: column;
     gap: 4px;
   }
-}
-.dropdown-menu {
-  opacity: 1;
-  transition: opacity 0.25s ease, transform 0.2s ease;
-}
-
-.nav-item:not(.open) .dropdown-menu {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(5px);
 }
