@@ -162,70 +162,91 @@
 
   <!-- ================= MAIN ROUTED PANEL ================= -->
   <main class="main-shell">
-    <section class="route-panel">
-      <div class="route-panel-header">
+  <!-- add ngClass here 👇 -->
+  <section class="route-panel" [ngClass]="{ 'full-screen-mode': isFullScreen }">
+    <div class="route-panel-header">
+      <div class="route-header-left">
         <h2>Team / Project View</h2>
         <p>Select a team from the top navigation to load its workspace here.</p>
       </div>
 
-      <div class="route-panel-body">
+      <!-- Fullscreen toggle button -->
+      <button
+        class="fullscreen-btn"
+        (click)="toggleFullScreen()"
+        [attr.aria-label]="isFullScreen ? 'Exit full screen' : 'Enter full screen'"
+      >
+        <span *ngIf="!isFullScreen">⛶</span>  <!-- enter fullscreen icon -->
+        <span *ngIf="isFullScreen">🗗</span> <!-- exit fullscreen icon -->
+      </button>
+    </div>
 
-        <!-- MENTOR PROFILE -->
-        <div *ngIf="showMentor" class="mentor-wrapper">
-          <div class="profile-card">
-            <div class="profile-header">
-              <div class="photo-wrapper">
-                <img class="profile-photo"
-                     src="https://ui-avatars.com/api/?name=Priyabrata+Pattanaik&background=1e293b&color=fff&bold=true&size=200"
-                     alt="Priyabrata Pattanaik">
+    <div class="route-panel-body">
+
+      <!-- MENTOR PROFILE -->
+      <div *ngIf="showMentor" class="mentor-wrapper">
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="photo-wrapper">
+              <img
+                class="profile-photo"
+                src="https://ui-avatars.com/api/?name=Priyabrata+Pattanaik&background=1e293b&color=fff&bold=true&size=200"
+                alt="Priyabrata Pattanaik"
+              />
+            </div>
+            <h2 class="profile-name">Priyabrata Pattanaik</h2>
+            <p class="profile-role">Full Stack Developer · Mentor</p>
+          </div>
+
+          <div class="info-section animate-delay-1">
+            <span class="info-label">About</span>
+            <p class="info-text">
+              Hardworking developer and mentor with strong problem-solving skills,
+              focused on building scalable frontend & backend solutions and guiding
+              students through real-world projects.
+            </p>
+          </div>
+
+          <div class="info-section animate-delay-2">
+            <span class="info-label">Tech Stack</span>
+            <div class="skills-container">
+              <span class="skill-tag">Angular</span>
+              <span class="skill-tag">SpringBoot</span>
+              <span class="skill-tag">Mysql</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="info-section animate-delay-3">
+            <span class="info-label">Details</span>
+            <div class="contact-grid">
+              <div class="contact-item">
+                <span class="info-label" style="opacity: 0.7;">Role</span>
+                <span class="info-text" style="font-weight: 600;">Mentor</span>
               </div>
-              <h2 class="profile-name">Priyabrata Pattanaik</h2>
-              <p class="profile-role">Full Stack Developer · Mentor</p>
-            </div>
-            <div class="info-section animate-delay-1">
-              <span class="info-label">About</span>
-              <p class="info-text">
-                Hardworking developer and mentor with strong problem-solving skills,
-                focused on building scalable frontend & backend solutions and guiding
-                students through real-world projects.
-              </p>
-            </div>
-            <div class="info-section animate-delay-2">
-              <span class="info-label">Tech Stack</span>
-              <div class="skills-container">
-                <span class="skill-tag">Angular</span>
-                <span class="skill-tag">SpringBoot</span>
-                <span class="skill-tag">Mysql</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">JavaScript</span>
+              <div class="contact-item">
+                <span class="info-label" style="opacity: 0.7;">Experience</span>
+                <span class="info-text" style="font-weight: 600;">2+ Years</span>
               </div>
-            </div>
-            <div class="info-section animate-delay-3">
-              <span class="info-label">Details</span>
-              <div class="contact-grid">
-                <div class="contact-item">
-                  <span class="info-label" style="opacity: 0.7;">Role</span>
-                  <span class="info-text" style="font-weight: 600;">Mentor</span>
-                </div>
-                <div class="contact-item">
-                  <span class="info-label" style="opacity: 0.7;">Experience</span>
-                  <span class="info-text" style="font-weight: 600;">2+ Years</span>
-                </div>
-                <div class="contact-item email-full">
-                  <span class="info-label" style="opacity: 0.7;">Contact</span>
-                  <span class="info-text" style="color: #818cf8;">priyabrata@team4.com</span>
-                </div>
+              <div class="contact-item email-full">
+                <span class="info-label" style="opacity: 0.7;">Contact</span>
+                <span class="info-text" style="color: #818cf8;">
+                  priyabrata@team4.com
+                </span>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- ROUTES ONLY WHEN MENTOR HIDDEN -->
-        <router-outlet *ngIf="!showMentor"></router-outlet>
-
       </div>
-    </section>
-  </main>
+
+      <!-- ROUTES ONLY WHEN MENTOR HIDDEN -->
+      <router-outlet *ngIf="!showMentor"></router-outlet>
+
+    </div>
+  </section>
+</main>
+
 
   <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
