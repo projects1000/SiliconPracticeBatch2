@@ -7,6 +7,7 @@ import { Team5Component } from './team5.component';
 
 import { TruptiComponent } from './trupti/trupti.component';
 import { RitishComponent } from './ritish/ritish.component';
+import { YashComponent } from './yash/yash.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { RitishComponent } from './ritish/ritish.component';
     Team5Component,
     
     TruptiComponent,
-    RitishComponent
+    RitishComponent,
+    YashComponent,
   ],
   imports: [
     CommonModule,

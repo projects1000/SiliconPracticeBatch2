@@ -45,6 +45,7 @@ import { PrathanaComponent } from './team1/prathana/prathana.component';
 // Team 5 Members & Pages
 import { TruptiComponent } from './team5/trupti/trupti.component';
 import { RitishComponent } from './team5/ritish/ritish.component';
+import { YashComponent } from './team5/yash/yash.component';
 
 
 
@@ -103,6 +104,7 @@ import { Team3Module } from './team3/team3.module';
     // Team5 members & pages
     TruptiComponent,
     RitishComponent,
+    YashComponent,
     
 
 

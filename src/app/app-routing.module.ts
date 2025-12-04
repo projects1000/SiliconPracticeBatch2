@@ -35,6 +35,7 @@ import { AkashComponent } from './team6/akash/akash.component';
 
 import { TruptiComponent } from './team5/trupti/trupti.component';
 import { RitishComponent } from './team5/ritish/ritish.component';
+import { YashComponent } from './team5/yash/yash.component';
 
 const routes: Routes = [
   {
@@ -111,6 +112,7 @@ const routes: Routes = [
         children: [
           { path: 'trupti', component: TruptiComponent },
           { path: 'ritish', component: RitishComponent },
+          { path: 'yash', component: YashComponent },
 
           // Default page → trupti
           { path: '', redirectTo: 'trupti', pathMatch: 'full' },
