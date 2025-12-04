@@ -1,0 +1,142 @@
+/* ====== RESUME CONTAINER ====== */
+.resume-container {
+  display: flex;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ====== LEFT PANEL ====== */
+.left-section {
+  background: #1e293b;
+  color: #fff;
+  width: 280px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-section .profile-pic img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #818cf8;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.left-section .name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.left-section .role {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #818cf8;
+  width: 100%;
+  padding-bottom: 0.25rem;
+}
+
+.left-section p {
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+  color: #e2e8f0;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0;
+}
+
+.skill-list li {
+  background: #3b82f6;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 4px 0;
+  text-align: center;
+}
+
+/* ====== RIGHT PANEL ====== */
+.right-section {
+  flex: 1;
+  padding: 2rem;
+  background: #fff;
+  color: #1e293b; /* Add this line to make text dark */
+}
+
+.right-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: #1e293b; /* ensure headers are dark */
+  border-bottom: 2px solid #818cf8;
+  padding-bottom: 0.25rem;
+}
+
+.exp-card, .edu-card {
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  color: #1e293b; /* ensure text inside cards is dark */
+}
+
+.exp-card p, .edu-card p {
+  color: #475569; /* slightly lighter for paragraphs */
+}
+
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .resume-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .right-section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .left-section .profile-pic img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .left-section .name {
+    font-size: 1.25rem;
+  }
+
+  .right-section h2 {
+    font-size: 1.2rem;
+  }
+}

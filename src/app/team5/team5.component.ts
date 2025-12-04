@@ -14,7 +14,7 @@ export class Team5Component {
   team5Folders: Array<string | Folder> = [
     'Trupti',
     'Ritish',
-    'Project',
+    'Yash',
     
   ];
 

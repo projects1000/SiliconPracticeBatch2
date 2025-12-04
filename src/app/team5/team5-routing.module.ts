@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Team5Component } from './team5.component';
 import { TruptiComponent } from './trupti/trupti.component';
 import { RitishComponent } from './ritish/ritish.component';
+import { YashComponent } from './yash/yash.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
 
       { path: 'trupti', component: TruptiComponent },
       { path: 'ritish', component: RitishComponent },
+      { path: 'yash', component: YashComponent },
 
       // Default route inside /team5
       { path: '', redirectTo: 'trupti', pathMatch: 'full' },
